@@ -1,0 +1,64 @@
+
+// *    Fundament Functions
+// * ---------------------
+// * ---------------------
+
+// * Map the config to a accesible map
+// @type: function
+// @exports: fundament(group, setting);
+// * ---------------------
+
+
+@function fundament($group, $setting) {
+    @return map-get(map-get($fundament, $group), $setting);
+}
+
+// * Init function that handles build
+// @type: function
+// @exports: fundament-init();
+// * ---------------------
+
+@mixin fundament-init() {
+
+    @include fundament-widths();
+
+    @if (fundament(settings,responsive) == true){
+        @include fundament-responsive();
+    }
+
+    @if(fundament(push,use-push) == true) {
+
+        [class*="push--"]{ position:relative; }
+
+        @include fundament-widths("", "left", "push--");
+        @if (fundament(push,responsive) == true){
+            @include fundament-responsive("left", "push--");
+        }
+    }
+
+    @if(fundament(pull,use-pull) == true) {
+
+        [class*="pull--"]{ position:relative; }
+
+        @include fundament-widths("", "right", "pull--");
+        @if (fundament(pull,responsive) == true){
+            @include fundament-responsive("right", "pull--");
+        }    }
+
+}
+
+// * Maps config-breakpoints to widths
+// @type: function
+// @exports: fundament-reponsive($value, $prefix:);
+// * ---------------------
+
+@mixin fundament-responsive($value:"",$prefix:""){
+    $fundament--breakpoints: map-get($fundament,breakpoints);
+    @each $breakpoint in $fundament--breakpoints {
+        $name: #{nth($breakpoint,1)};
+        $declaration: nth($breakpoint,2);
+        @media only screen and #{$declaration}{
+            @include fundament-widths('#{$name}--', $value, $prefix);
+        }
+    }
+}

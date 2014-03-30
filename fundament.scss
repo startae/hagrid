@@ -1,0 +1,77 @@
+
+// * Fundament Grid System
+// * ---------------------
+// * A flexbox-first, inline-block-fallback, semantic and customizable scss grid system.
+// @requires SASS 3.3.*
+// * ---------------------
+
+$fundament: (
+    settings: (
+        // * Select a namespace for the main-class / item-class
+        namespace:      "grid",
+        // * If true, all breakpoints in "breakpoints" will be included
+        responsive:     true,
+        // * If true, grid__item will extend to 100% of the parent by default
+        mobile-first:   true,
+        // * If true, the grid will output extendable silent classes
+        silent-classes: false,
+        // * Gutter
+        gutter:         1.5rem
+    ),
+    // * Breakpoint widths. If `settings,responsive`is true, each of these will have an own grid-system
+    breakpoints: (
+        "palm":           "(max-width: 480px)",
+        "lap":            "(min-width: 481px) and (max-width: 1023px)",
+        "lap-up":         "(min-width: 481px)",
+        "desk":           "(min-width: 1024px)",
+        "high":           "(min-width: 1500px)"
+    ),
+    push:(
+        // * If true, a generic push-class will be generated
+        use-push:         true,
+        // * If true, a push-class for every breakpoint will be created
+        responsive:       false
+    ),
+    pull: (
+        // * If true, a generic pull-class will be generated
+        use-pull:         true,
+        // * If true, a generic pull-class will be generated
+        responsive:       false
+    ),
+    modifiers:(
+        // * If true, grid-modifiers are included
+        use-modifiers:  true,
+        // * Include --full
+        full:           true,
+        // * include --rev
+        rev:            true,
+        // * include --center
+        center:         true,
+        // * include --right
+        right:          true,
+        // * include --wide
+        wide:           true,
+        // * include --narrow
+        narrow:         true,
+        // * include --bottom
+        bottom:         true,
+        // * include middle
+        middle:         true
+
+    ),
+    legacy:(
+        use-markup-fix: false,
+        letter-spacing: -.31em,
+        word-spacing:   -.43em
+    )
+);
+
+@import "fundament/functions";
+@import "fundament/core";
+@import "fundament/modifiers";
+@import "fundament/widths";
+
+@include fundament-init();
+
+
+

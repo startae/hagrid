@@ -1,0 +1,63 @@
+
+// *    Fundament Core
+// * ---------------------
+// * Contains the core scss and variables.
+// * ---------------------
+
+// * Set the class-type
+
+$fundament--class-type: unquote(".")!global;
+
+@if (fundament(settings, silent-classes) == "true"){
+    $fundament--class-type: unquote("%")!global;
+}
+
+// * Set the name-space
+
+$fundament--namespace: fundament(settings, namespace);
+
+// * Core
+
+#{$fundament--class-type}#{$fundament--namespace} {
+    display: -webkit-flex;                       //* [1] */
+    display: -ms-flexbox;                        //* [1] */
+    display: flex;                               //* [1] */
+    -webkit-flex-flow: row wrap;                 //* [1] */
+    -ms-flex-flow: row wrap;                     //* [1] */
+    flex-flow: row wrap;                         //* [1] */
+    list-style:none;                             //* [2] */
+    margin:0;                                    //* [3] */
+    padding:0;                                   //* [3] */
+    margin-left: -(fundament(settings,gutter));  //* [4] */
+
+    //* [5] */
+    @supports not(flex-wrap: wrap) { display: block; }
+
+    //* [6] */
+    @if(fundament(legacy,markup-fix) != true) {
+        letter-spacing: fundament(legacy,letter-spacing);
+    }
+}
+
+@if (fundament(legacy,use-markup-fix) != true) {
+    .opera:-o-prefocus,
+    #{$fundament--class-type}#{$fundament--namespace} {
+        word-spacing: fundament(legacy,word-spacing);
+    }
+}
+
+#{$fundament--class-type}#{$fundament--namespace}__item {
+    display: inline-block;
+    padding-left: fundament(settings,gutter);
+    vertical-align: top;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    @if(fundament(settings,mobile-first) == "true") {
+        width: 100%;
+    }
+    @if(fundament(legacy,use-markup-fix) != "true") {
+        letter-spacing:normal;
+        word-spacing:normal;
+    }
+}

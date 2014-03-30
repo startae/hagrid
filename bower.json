@@ -1,0 +1,19 @@
+{
+  "name": "fundament",
+  "version": "0.0.1",
+  "authors": [
+    "felics <fspoettel@gmail.com>"
+  ],
+  "description": "A flexbox-first, inline-block-fallback, semantic and customizable scss grid system.",
+  "main": "fundament.scss",
+  "keywords": [
+    "scss",
+    "grid",
+    "flexbox"
+  ],
+  "license": "WTFPL",
+  "homepage": "https://github.com/felics/fundament.git",
+  "ignore": [
+    "node_modules"
+  ]
+}

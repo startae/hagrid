@@ -1,0 +1,71 @@
+
+// *    Fundament Widths
+// * ---------------------
+// * ---------------------
+
+// * Widths
+
+@mixin fundament-widths($mq: "", $property: "width", $str: "") {
+
+    // * Wholes
+    #{$fundament--class-type}#{$str}#{$mq}one-whole { #{$property}: 100%; }
+
+    // * Halves
+    #{$fundament--class-type}#{$str}#{$mq}one-half { #{$property}: 50%; }
+
+    // * Thirds
+    #{$fundament--class-type}#{$str}#{$mq}one-third { #{$property}: 33.333%; }
+    #{$fundament--class-type}#{$str}#{$mq}two-thirds { #{$property}: 66.666%; }
+
+    // * Quarters
+    #{$fundament--class-type}#{$str}#{$mq}one-quarter { #{$property}: 25%; }
+    #{$fundament--class-type}#{$str}#{$mq}one-half { @extend #{$fundament--class-type}#{$str}#{$mq}one-half }
+    #{$fundament--class-type}#{$str}#{$mq}three-quarters { #{$property}: 75%; }
+
+    // * Fifths
+    #{$fundament--class-type}#{$str}#{$mq}one-fifth { #{$property}: 20%; }
+    #{$fundament--class-type}#{$str}#{$mq}two-fifths { #{$property}: 40%; }
+    #{$fundament--class-type}#{$str}#{$mq}three-fifths { #{$property}: 60%; }
+    #{$fundament--class-type}#{$str}#{$mq}four-fifths { #{$property}: 80%; }
+
+    // * Sixths
+    #{$fundament--class-type}#{$str}#{$mq}one-sixth    { #{$property}: 16.666%; }
+    #{$fundament--class-type}#{$str}#{$mq}two-sixths   { @extend #{$fundament--class-type}#{$str}#{$mq}one-third }
+    #{$fundament--class-type}#{$str}#{$mq}three-sixths { @extend #{$fundament--class-type}#{$str}#{$mq}one-half }
+    #{$fundament--class-type}#{$str}#{$mq}four-sixths  { @extend #{$fundament--class-type}#{$str}#{$mq}two-thirds }
+    #{$fundament--class-type}#{$str}#{$mq}five-sixths  { #{$property}: 83.333%; }
+
+    // * Eights
+    #{$fundament--class-type}#{$str}#{$mq}one-eighth { #{$property}: 12.5%; }
+    #{$fundament--class-type}#{$str}#{$mq}two-eighths { @extend #{$fundament--class-type}#{$str}#{$mq}one-quarter }
+    #{$fundament--class-type}#{$str}#{$mq}three-eights { #{$property}: 37.5%; }
+    #{$fundament--class-type}#{$str}#{$mq}four-eighths { @extend #{$fundament--class-type}#{$str}#{$mq}one-half }
+    #{$fundament--class-type}#{$str}#{$mq}five-eighths { #{$property}: 62.5%; }
+    #{$fundament--class-type}#{$str}#{$mq}six-eighths { @extend #{$fundament--class-type}#{$str}#{$mq}three-quarters }
+    #{$fundament--class-type}#{$str}#{$mq}seven-eighths { #{$property}: 87.5%; }
+
+    // * Tenths
+    #{$fundament--class-type}#{$str}#{$mq}one-tenth { #{$property}: 10%; }
+    #{$fundament--class-type}#{$str}#{$mq}two-tenths { @extend #{$fundament--class-type}#{$str}#{$mq}one-fifth }
+    #{$fundament--class-type}#{$str}#{$mq}three-tenths { #{$property}: 30%; }
+    #{$fundament--class-type}#{$str}#{$mq}four-tenths { @extend #{$fundament--class-type}#{$str}#{$mq}two-fifths }
+    #{$fundament--class-type}#{$str}#{$mq}five-tenths { @extend #{$fundament--class-type}#{$str}#{$mq}one-half }
+    #{$fundament--class-type}#{$str}#{$mq}six-tenths { @extend #{$fundament--class-type}#{$str}#{$mq}three-fifths }
+    #{$fundament--class-type}#{$str}#{$mq}seven-tenths { #{$property}: 70%; }
+    #{$fundament--class-type}#{$str}#{$mq}eight-tenths { @extend #{$fundament--class-type}#{$str}#{$mq}four-fifths }
+    #{$fundament--class-type}#{$str}#{$mq}nine-tenths { #{$property}: 90%; }
+
+    // * Twelfths
+    #{$fundament--class-type}#{$str}#{$mq}one-twelfth { #{$property}: 8.333%; }
+    #{$fundament--class-type}#{$str}#{$mq}two-twelfths { @extend #{$fundament--class-type}#{$str}#{$mq}one-sixth }
+    #{$fundament--class-type}#{$str}#{$mq}three-twelfths { @extend #{$fundament--class-type}#{$str}#{$mq}one-quarter }
+    #{$fundament--class-type}#{$str}#{$mq}four-twelfths { @extend #{$fundament--class-type}#{$str}#{$mq}one-third }
+    #{$fundament--class-type}#{$str}#{$mq}five-twelfths { #{$property}: 41.666% }
+    #{$fundament--class-type}#{$str}#{$mq}six-twelfths { @extend #{$fundament--class-type}#{$str}#{$mq}one-half }
+    #{$fundament--class-type}#{$str}#{$mq}seven-twelfths { #{$property}: 58.333%; }
+    #{$fundament--class-type}#{$str}#{$mq}eight-twelfths { @extend #{$fundament--class-type}#{$str}#{$mq}two-thirds }
+    #{$fundament--class-type}#{$str}#{$mq}nine-twelfths { @extend #{$fundament--class-type}#{$str}#{$mq}three-quarters }
+    #{$fundament--class-type}#{$str}#{$mq}ten-twelfths { @extend #{$fundament--class-type}#{$str}#{$mq}five-sixths }
+    #{$fundament--class-type}#{$str}#{$mq}eleven-twelfths { #{$property}: 91.666%; }
+}
+

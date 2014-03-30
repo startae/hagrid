@@ -30,7 +30,7 @@
 
         [class*="push--"]{ position:relative; }
 
-        @include fundament-widths("", "left", "push--");
+        @include fundament-widths("left", "push--");
         @if (fundament(push,responsive) == true){
             @include fundament-responsive("left", "push--");
         }
@@ -40,7 +40,7 @@
 
         [class*="pull--"]{ position:relative; }
 
-        @include fundament-widths("", "right", "pull--");
+        @include fundament-widths("right", "pull--");
         @if (fundament(pull,responsive) == true){
             @include fundament-responsive("right", "pull--");
         }    }
@@ -52,13 +52,13 @@
 // @exports: fundament-reponsive($value, $prefix:);
 // * ---------------------
 
-@mixin fundament-responsive($value:"",$prefix:""){
+@mixin fundament-responsive($value:"width",$prefix:""){
     $fundament--breakpoints: map-get($fundament,breakpoints);
     @each $breakpoint in $fundament--breakpoints {
         $name: #{nth($breakpoint,1)};
         $declaration: nth($breakpoint,2);
         @media only screen and #{$declaration}{
-            @include fundament-widths('#{$name}--', $value, $prefix);
+            @include fundament-widths($value, $prefix,'#{$name}--');
         }
     }
 }

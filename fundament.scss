@@ -38,6 +38,11 @@ $fundament: (
         // * If true, a generic pull-class will be generated
         responsive:       false
     ),
+    legacy:(
+        use-markup-fix: false,
+        letter-spacing: -.31em,
+        word-spacing:   -.43em
+    ),
     modifiers:(
         // * If true, grid-modifiers are included
         use-modifiers:  true,
@@ -59,10 +64,20 @@ $fundament: (
         middle:         true
 
     ),
-    legacy:(
-        use-markup-fix: false,
-        letter-spacing: -.31em,
-        word-spacing:   -.43em
+    widths: (
+        wholes:         true,
+        halves:         true,
+        thirds:         true,
+        quarters:       true,
+        fifths:         true,
+        sixths:         true,
+        eighths:        true,
+        tenths:         true,
+        twelfths:       true
+    ),
+    visibility: (
+        show: true,
+        hide: true
     )
 );
 

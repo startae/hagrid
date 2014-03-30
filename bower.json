@@ -4,7 +4,7 @@
   "authors": [
     "felics <fspoettel@gmail.com>"
   ],
-  "description": "A flexbox-first, inline-block-fallback, semantic and customizable scss grid system.",
+  "description": "A flexbox-first, semantic and customizable scss grid system with a robust inline-block fallback.",
   "main": "fundament.scss",
   "keywords": [
     "scss",

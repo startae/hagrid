@@ -8,8 +8,8 @@
 // @  3. Core SCSS
 // * ---------------------
 
-// * 1. Set the class-type
-// * This sets the class-type either to normal or silent classes. (Based on fundament(settings,silent-classes))
+// * 1. $fundament--class-type
+// * This sets the class-type either to normal or silent classes. (Based on `fundament(settings, silent-classes)`)
 // * ---------------------
 
 $fundament--class-type: unquote(".");
@@ -18,23 +18,20 @@ $fundament--class-type: unquote(".");
     $fundament--class-type: unquote("%")!global;
 }
 
-// * 1. Set the namespace
-// * This sets the namespace for grid-classes and modifiers to fundament(settings, namespace)
+// * 1. $fundament--namespace
+// * This sets the namespace for grid-classes and modifiers to `fundament(settings, namespace)`
 // * e.g. if set to "grid", the classes will be `grid`, `grid__item`, `grid--modifier`, `grid__item--modifier`
 // * ---------------------
 
 $fundament--namespace: fundament(settings, namespace);
 
-// * Core SCSS
-// * Styles for grid parent and items
-// * ---------------------
 
 // * Grid Parent
 // * [1]. Use the new flex-box where possible (IE10+, Moz. 28+, Chrome 20+, Safari 7+, Opera 12.1+, Android 4.4+)
 // * [2]. Makes the grid usable on lists
 // * [3]. Remove all existing spacing from grid
 // * [4]. Add a negative margin to negate first items padding (aligns grid)
-// * **** !If you want to center a grid-parent with margin: auto, use `--full` to achieve symmetric centering!
+// *      !If you want to center a grid-parent with margin: auto, use `--full` to achieve symmetric centering!
 // * [5]. Firefox < 28 doesn't implement flex-flow correctly (...), fall back to `inline-block`.
 // * [6] & [7]. Fix white-space on fallback-grid.
 // * ---------------------

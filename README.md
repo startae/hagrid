@@ -4,10 +4,11 @@ A flexbox-first, inline-block-fallback, semantic and customizable scss grid syst
 
 Features:
 
- - Uses the new flexbox-syntax where possible, falls back to a solid `display: inline-block` based grid
+ - Uses the new flexbox-syntax where possible, falls back to a solid `display: inline-block`-based grid
  - Fully customizable, including the ability to choose a namespace for grid-classes
  - Mobile first & responsive if needed
  - Can be used with silent classes & extends to minimize code-bloat
+ - Small footprint and encapsulated (no variable-bleed)
 
 ## Installation
 

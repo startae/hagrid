@@ -2,45 +2,57 @@
 // * Fundament Grid System
 // * ---------------------
 // * A flexbox-first, inline-block-fallback, semantic and customizable scss grid system.
+// * For documentation, see: https://github.com/felics/fundament
 // @requires: SASS 3.3.*
 // * ---------------------
 
 $fundament: (
+
+    // * Core Settings
+
     settings: (
-        // * Select a namespace for the main-class / item-class
+        // * Select a namespace for the main-class, item-class and modifiers
         namespace:      "grid",
-        // * If true, all breakpoints in "breakpoints" will be included with widths
+        // * If true, all breakpoints in "breakpoints" will be included with corresponding widths
         responsive:     true,
         // * If true, __item will extend to fill of the parent by default
         mobile-first:   true,
         // * If true, the grid will output extendable silent classes
         silent-classes: false,
         // * Gutter
-        gutter:         1.5rem
+        gutter:         24px
     ),
-    // * Breakpoint widths. If `(settings,responsive)`is true, each of these will have an own grid-system
+
+    // * Breakpoint widths. If `(settings, responsive)`is true, each of these will have an own grid-system
+
     breakpoints: (
-        "palm":           "(max-width: 480px)",
-        "lap":            "(min-width: 481px) and (max-width: 1023px)",
-        "lap-up":         "(min-width: 481px)",
-        "desk":           "(min-width: 1024px)",
-        "high":           "(min-width: 1500px)"
+        palm:           "(max-width: 480px)",
+        lap:            "(min-width: 481px) and (max-width: 1023px)",
+        lap-up:         "(min-width: 481px)",
+        desk:           "(min-width: 1024px)",
+        high:           "(min-width: 1500px)"
     ),
+
     // * Push classes
+
     push:(
         // * If true, generic push-classes will be generated
         use-push:         true,
         // * If true, push-classes for each breakpoint will be created
         responsive:       false
     ),
+
     // * Pull classes
+
     pull: (
         // * If true, a generic pull-class will be generated
         use-pull:         true,
         // * If true, pull-classes for each breakpoint will be created
         responsive:       false
     ),
+
     // * Settings for the fallback-grid
+
     legacy:(
         // * Set to true if you intend to fix the white-space behaviour in markup
         use-markup-fix: false,
@@ -48,7 +60,9 @@ $fundament: (
         letter-spacing: -.31em,
         word-spacing:   -.43em
     ),
+
     // * Grid modifiers
+
     modifiers:(
         // * If true, --modifiers will be included
         use-modifiers:  true,
@@ -70,7 +84,9 @@ $fundament: (
         middle:         true
 
     ),
+
     // * Grid widths
+
     widths: (
         halves:         true,
         thirds:         true,
@@ -81,7 +97,9 @@ $fundament: (
         tenths:         true,
         twelfths:       true
     ),
+
     // * Visibility helpers
+
     visibility: (
         show:           true, // * will generate --show && __item--show classes for each breakpoint
         hide:           true  // * will generate --hide && __item--hide classes for each breakpoint

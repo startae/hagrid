@@ -25,6 +25,7 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  width: 100%;
   letter-spacing: normal;
   word-spacing: normal; }
 
@@ -33,6 +34,17 @@
 
 .grid--full__item {
   padding-left: 0; }
+
+.grid--rev {
+  direction: rtl;
+  -webkit-flex-flow: wrap-reverse row;
+  -ms-flex-flow: wrap-reverse row;
+  flex-flow: wrap-reverse row;
+  text-align: left; }
+
+.grid--rev__item {
+  direction: ltr;
+  text-align: left; }
 
 .grid--center {
   -webkit-justify-content: center;

@@ -26,12 +26,10 @@ var gulp          = require("gulp"),
 
 gulp.task("sass", function () {
   gulp.src("fundament.scss")
-    .pipe(sass({noCache:true}))
+    .pipe(plumber({errorHandler: function(){console.log("Exiting")}}))
+    .pipe(sass({noCache: true}))
     .pipe(rename("fundament.css"))
-    .pipe(gulp.dest("dist/"))
-    .pipe(cssmin())
-    .pipe(rename("fundament.min.css"))
-    .pipe(gulp.dest("dist/"));
+    .pipe(gulp.dest("./dist"));
 });
 
 

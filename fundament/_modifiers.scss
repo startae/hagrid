@@ -34,7 +34,7 @@
     // * Reversed source-order. (!The fallback grid will only not work on 100%-items, flexbox does. !)
     // * ---------------------
 
-    @if(fundament(modifiers, reverse) == true) {
+    @if(fundament(modifiers, rev) == true) {
         #{$fundament--class-type}#{$fundament--namespace}--rev {
             direction:rtl;
             -webkit-flex-flow: wrap-reverse row;

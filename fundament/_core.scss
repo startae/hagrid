@@ -14,7 +14,7 @@
 
 $fundament--class-type: unquote(".");
 
-@if (fundament(settings, silent-classes) == "true"){
+@if (fundament(settings, silent-classes) == true){
     $fundament--class-type: unquote("%")!global;
 }
 
@@ -85,10 +85,10 @@ $fundament--namespace: fundament(settings, namespace);
     -webkit-box-sizing: border-box;                    //* [4] */
        -moz-box-sizing: border-box;                    //* [4] */
             box-sizing: border-box;                    //* [4] */
-    @if(fundament(settings, mobile-first) == "true") { //* [5] */
+    @if(fundament(settings, mobile-first) == true) { //* [5] */
         width: 100%;
     }
-    @if(fundament(legacy, use-markup-fix) != "true") { //* [6] */
+    @if(fundament(legacy, use-markup-fix) != true) { //* [6] */
         letter-spacing:normal;
         word-spacing:normal;
     }

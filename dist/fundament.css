@@ -83,7 +83,7 @@
 .one-whole {
   width: 100%; }
 
-.one-half, .three-sixths, .four-eighths, .five-tenths, .six-twelfths {
+.one-half, .two-quarters, .three-sixths, .four-eighths, .five-tenths, .six-twelfths {
   width: 50%; }
 
 .one-third, .two-sixths, .four-twelfths {
@@ -92,7 +92,7 @@
 .two-thirds, .four-sixths, .eight-twelfths {
   width: 66.666%; }
 
-.one-quarter, .two-eighths, .three-twelfths {
+.one-quarter, .three-twelfths {
   width: 25%; }
 
 .three-quarters, .six-eighths, .nine-twelfths {
@@ -118,6 +118,9 @@
 
 .one-eighth {
   width: 12.5%; }
+
+.two-eighths {
+  width: 25%; }
 
 .three-eights {
   width: 37.5%; }
@@ -166,7 +169,7 @@
   .palm--one-whole {
     width: 100%; }
 
-  .palm--one-half, .palm--three-sixths, .palm--four-eighths, .palm--five-tenths, .palm--six-twelfths {
+  .palm--one-half, .palm--two-quarters, .palm--three-sixths, .palm--four-eighths, .palm--five-tenths, .palm--six-twelfths {
     width: 50%; }
 
   .palm--one-third, .palm--two-sixths, .palm--four-twelfths {
@@ -175,7 +178,7 @@
   .palm--two-thirds, .palm--four-sixths, .palm--eight-twelfths {
     width: 66.666%; }
 
-  .palm--one-quarter, .palm--two-eighths, .palm--three-twelfths {
+  .palm--one-quarter, .palm--three-twelfths {
     width: 25%; }
 
   .palm--three-quarters, .palm--six-eighths, .palm--nine-twelfths {
@@ -201,6 +204,9 @@
 
   .palm--one-eighth {
     width: 12.5%; }
+
+  .palm--two-eighths {
+    width: 25%; }
 
   .palm--three-eights {
     width: 37.5%; }
@@ -248,7 +254,7 @@
   .lap--one-whole {
     width: 100%; }
 
-  .lap--one-half, .lap--three-sixths, .lap--four-eighths, .lap--five-tenths, .lap--six-twelfths {
+  .lap--one-half, .lap--two-quarters, .lap--three-sixths, .lap--four-eighths, .lap--five-tenths, .lap--six-twelfths {
     width: 50%; }
 
   .lap--one-third, .lap--two-sixths, .lap--four-twelfths {
@@ -257,7 +263,7 @@
   .lap--two-thirds, .lap--four-sixths, .lap--eight-twelfths {
     width: 66.666%; }
 
-  .lap--one-quarter, .lap--two-eighths, .lap--three-twelfths {
+  .lap--one-quarter, .lap--three-twelfths {
     width: 25%; }
 
   .lap--three-quarters, .lap--six-eighths, .lap--nine-twelfths {
@@ -283,6 +289,9 @@
 
   .lap--one-eighth {
     width: 12.5%; }
+
+  .lap--two-eighths {
+    width: 25%; }
 
   .lap--three-eights {
     width: 37.5%; }
@@ -330,7 +339,7 @@
   .lap-up--one-whole {
     width: 100%; }
 
-  .lap-up--one-half, .lap-up--three-sixths, .lap-up--four-eighths, .lap-up--five-tenths, .lap-up--six-twelfths {
+  .lap-up--one-half, .lap-up--two-quarters, .lap-up--three-sixths, .lap-up--four-eighths, .lap-up--five-tenths, .lap-up--six-twelfths {
     width: 50%; }
 
   .lap-up--one-third, .lap-up--two-sixths, .lap-up--four-twelfths {
@@ -339,7 +348,7 @@
   .lap-up--two-thirds, .lap-up--four-sixths, .lap-up--eight-twelfths {
     width: 66.666%; }
 
-  .lap-up--one-quarter, .lap-up--two-eighths, .lap-up--three-twelfths {
+  .lap-up--one-quarter, .lap-up--three-twelfths {
     width: 25%; }
 
   .lap-up--three-quarters, .lap-up--six-eighths, .lap-up--nine-twelfths {
@@ -365,6 +374,9 @@
 
   .lap-up--one-eighth {
     width: 12.5%; }
+
+  .lap-up--two-eighths {
+    width: 25%; }
 
   .lap-up--three-eights {
     width: 37.5%; }
@@ -412,7 +424,7 @@
   .desk--one-whole {
     width: 100%; }
 
-  .desk--one-half, .desk--three-sixths, .desk--four-eighths, .desk--five-tenths, .desk--six-twelfths {
+  .desk--one-half, .desk--two-quarters, .desk--three-sixths, .desk--four-eighths, .desk--five-tenths, .desk--six-twelfths {
     width: 50%; }
 
   .desk--one-third, .desk--two-sixths, .desk--four-twelfths {
@@ -421,7 +433,7 @@
   .desk--two-thirds, .desk--four-sixths, .desk--eight-twelfths {
     width: 66.666%; }
 
-  .desk--one-quarter, .desk--two-eighths, .desk--three-twelfths {
+  .desk--one-quarter, .desk--three-twelfths {
     width: 25%; }
 
   .desk--three-quarters, .desk--six-eighths, .desk--nine-twelfths {
@@ -447,6 +459,9 @@
 
   .desk--one-eighth {
     width: 12.5%; }
+
+  .desk--two-eighths {
+    width: 25%; }
 
   .desk--three-eights {
     width: 37.5%; }
@@ -494,7 +509,7 @@
   .high--one-whole {
     width: 100%; }
 
-  .high--one-half, .high--three-sixths, .high--four-eighths, .high--five-tenths, .high--six-twelfths {
+  .high--one-half, .high--two-quarters, .high--three-sixths, .high--four-eighths, .high--five-tenths, .high--six-twelfths {
     width: 50%; }
 
   .high--one-third, .high--two-sixths, .high--four-twelfths {
@@ -503,7 +518,7 @@
   .high--two-thirds, .high--four-sixths, .high--eight-twelfths {
     width: 66.666%; }
 
-  .high--one-quarter, .high--two-eighths, .high--three-twelfths {
+  .high--one-quarter, .high--three-twelfths {
     width: 25%; }
 
   .high--three-quarters, .high--six-eighths, .high--nine-twelfths {
@@ -529,6 +544,9 @@
 
   .high--one-eighth {
     width: 12.5%; }
+
+  .high--two-eighths {
+    width: 25%; }
 
   .high--three-eights {
     width: 37.5%; }
@@ -578,7 +596,7 @@
 .push--one-whole {
   left: 100%; }
 
-.push--one-half, .push--three-sixths, .push--four-eighths, .push--five-tenths, .push--six-twelfths {
+.push--one-half, .push--two-quarters, .push--three-sixths, .push--four-eighths, .push--five-tenths, .push--six-twelfths {
   left: 50%; }
 
 .push--one-third, .push--two-sixths, .push--four-twelfths {
@@ -587,7 +605,7 @@
 .push--two-thirds, .push--four-sixths, .push--eight-twelfths {
   left: 66.666%; }
 
-.push--one-quarter, .push--two-eighths, .push--three-twelfths {
+.push--one-quarter, .push--three-twelfths {
   left: 25%; }
 
 .push--three-quarters, .push--six-eighths, .push--nine-twelfths {
@@ -613,6 +631,9 @@
 
 .push--one-eighth {
   left: 12.5%; }
+
+.push--two-eighths {
+  left: 25%; }
 
 .push--three-eights {
   left: 37.5%; }
@@ -653,7 +674,7 @@
 .pull--one-whole {
   right: 100%; }
 
-.pull--one-half, .pull--three-sixths, .pull--four-eighths, .pull--five-tenths, .pull--six-twelfths {
+.pull--one-half, .pull--two-quarters, .pull--three-sixths, .pull--four-eighths, .pull--five-tenths, .pull--six-twelfths {
   right: 50%; }
 
 .pull--one-third, .pull--two-sixths, .pull--four-twelfths {
@@ -662,7 +683,7 @@
 .pull--two-thirds, .pull--four-sixths, .pull--eight-twelfths {
   right: 66.666%; }
 
-.pull--one-quarter, .pull--two-eighths, .pull--three-twelfths {
+.pull--one-quarter, .pull--three-twelfths {
   right: 25%; }
 
 .pull--three-quarters, .pull--six-eighths, .pull--nine-twelfths {
@@ -688,6 +709,9 @@
 
 .pull--one-eighth {
   right: 12.5%; }
+
+.pull--two-eighths {
+  right: 25%; }
 
 .pull--three-eights {
   right: 37.5%; }

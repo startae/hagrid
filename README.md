@@ -9,6 +9,14 @@ Features:
  - Mobile first & responsive if needed
  - Can be used with silent classes & extends to minimize code-bloat
 
+## Installation
+
+If you use bower, you can simply use:
+
+```
+bower install fundament
+```
+
 ## Requirements
 
  - SASS 3.3: This project makes extensive use of SASS Maps, which were introduced in the new SASS 3.3.

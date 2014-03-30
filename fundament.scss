@@ -2,23 +2,23 @@
 // * Fundament Grid System
 // * ---------------------
 // * A flexbox-first, inline-block-fallback, semantic and customizable scss grid system.
-// @requires SASS 3.3.*
+// @requires: SASS 3.3.*
 // * ---------------------
 
 $fundament: (
     settings: (
         // * Select a namespace for the main-class / item-class
         namespace:      "grid",
-        // * If true, all breakpoints in "breakpoints" will be included
+        // * If true, all breakpoints in "breakpoints" will be included with widths
         responsive:     true,
-        // * If true, grid__item will extend to 100% of the parent by default
+        // * If true, __item will extend to fill of the parent by default
         mobile-first:   true,
         // * If true, the grid will output extendable silent classes
         silent-classes: false,
         // * Gutter
         gutter:         1.5rem
     ),
-    // * Breakpoint widths. If `settings,responsive`is true, each of these will have an own grid-system
+    // * Breakpoint widths. If `(settings,responsive)`is true, each of these will have an own grid-system
     breakpoints: (
         "palm":           "(max-width: 480px)",
         "lap":            "(min-width: 481px) and (max-width: 1023px)",
@@ -26,46 +26,52 @@ $fundament: (
         "desk":           "(min-width: 1024px)",
         "high":           "(min-width: 1500px)"
     ),
+    // * Push classes
     push:(
-        // * If true, a generic push-class will be generated
+        // * If true, generic push-classes will be generated
         use-push:         true,
-        // * If true, a push-class for every breakpoint will be created
+        // * If true, push-classes for each breakpoint will be created
         responsive:       false
     ),
+    // * Pull classes
     pull: (
         // * If true, a generic pull-class will be generated
         use-pull:         true,
-        // * If true, a generic pull-class will be generated
+        // * If true, pull-classes for each breakpoint will be created
         responsive:       false
     ),
+    // * Settings for the fallback-grid
     legacy:(
+        // * Set to true if you intend to fix the white-space behaviour in markup
         use-markup-fix: false,
+        // * With some fonts, the amount of letter-spacing needs to be adjusted to work
         letter-spacing: -.31em,
         word-spacing:   -.43em
     ),
+    // * Grid modifiers
     modifiers:(
-        // * If true, grid-modifiers are included
+        // * If true, --modifiers will be included
         use-modifiers:  true,
-        // * Include --full
+        // * Include --full (grid w/o margins/paddings)
         full:           true,
-        // * include --rev
+        // * include --rev (reversed source-order)
         rev:            true,
-        // * include --center
+        // * include --center (horizontally centered grid)
         center:         true,
-        // * include --right
+        // * include --right (right aligned grif)
         right:          true,
-        // * include --wide
+        // * include --wide (grid w/ wider margins)
         wide:           true,
-        // * include --narrow
+        // * include --narrow (grid w/ narrower margins)
         narrow:         true,
-        // * include --bottom
+        // * include --bottom (vertically-aligned-to-bottom grid)
         bottom:         true,
-        // * include middle
+        // * include --middle (vertically-center grid)
         middle:         true
 
     ),
+    // * Grid widths
     widths: (
-        wholes:         true,
         halves:         true,
         thirds:         true,
         quarters:       true,
@@ -75,11 +81,14 @@ $fundament: (
         tenths:         true,
         twelfths:       true
     ),
+    // * Visibility helpers
     visibility: (
-        show: true,
-        hide: true
+        show:           true, // * will generate --show && __item--show classes for each breakpoint
+        hide:           true  // * will generate --hide && __item--hide classes for each breakpoint
     )
 );
+
+// * Import grid functionality
 
 @import "fundament/functions";
 @import "fundament/core";

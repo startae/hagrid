@@ -9,14 +9,16 @@
   margin: 0;
   padding: 0;
   margin-left: -24px;
-  letter-spacing: -0.31em; }
+  letter-spacing: -.31em;
+  font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif; }
   @supports not (flex-wrap: wrap) {
     .grid {
-      display: block; } }
+      letter-spacing: -.31em;
+      font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif; } }
 
 .opera:-o-prefocus,
 .grid {
-  word-spacing: -0.43em; }
+  word-spacing: -.43em; }
 
 .grid__item {
   display: inline-block;
@@ -27,7 +29,13 @@
   box-sizing: border-box;
   width: 100%;
   letter-spacing: normal;
-  word-spacing: normal; }
+  word-spacing: normal;
+  font-family: "Helvetica Neue", Arial, sans-serif; }
+  @supports not (flex-wrap: wrap) {
+    .grid__item {
+      letter-spacing: normal;
+      word-spacing: normal;
+      font-family: "Helvetica Neue", Arial, sans-serif; } }
 
 .grid--full {
   margin-left: 0; }

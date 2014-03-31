@@ -54,11 +54,13 @@ $fundament: (
     // * Settings for the fallback-grid
 
     legacy:(
-        // * Set to true if you intend to fix the white-space behaviour in markup
-        use-markup-fix: false,
-        // * With some fonts, the amount of letter-spacing needs to be adjusted to work
-        letter-spacing: -.31em,
-        word-spacing:   -.43em
+        // * Do you want to use the fallback `inline-block`-grid in IE<10,Chrome<20, Android<4.4, Safari<7? (FF<28 gets it anyways due to flex-box bugs)
+        use-fallback:     true,
+        // * Set to true if you intend to fix the white-space behaviour in markup. If false, the `letter-spacing`hack will be used
+        use-markup-fix:   false,
+        // * The letter-spacing fix is designed to work with Arial or similar fonts, so you have to redeclare your font-stack
+        // * on individual grid items. This gives you a default way to handle it. See: https://github.com/yui/pure/blob/master/src/grids/css/grids-core.css
+        grid__item-font:  '"Helvetica Neue", Arial, sans-serif'
     ),
 
     // * Grid modifiers

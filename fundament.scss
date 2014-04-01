@@ -60,7 +60,7 @@ $fundament: (
         use-markup-fix:   false,
         // * The letter-spacing fix is designed to work with Arial or similar fonts, so you have to redeclare your font-stack
         // * on individual grid items. This gives you a default way to handle it. See: https://github.com/yui/pure/blob/master/src/grids/css/grids-core.css
-        grid__item-font:  '"Helvetica Neue", Arial, sans-serif'
+        grid-item-font:  '"Helvetica Neue", Arial, sans-serif'
     ),
 
     // * Grid modifiers

@@ -3,7 +3,6 @@
 // * ---------------------
 // * A flexbox-first, semantic and customizable scss grid system with a robust inline-block fallback.
 // * For documentation, see: https://github.com/felics/fundament/wiki
-// @requires: SASS 3.3.*
 // * ---------------------
 
 $fundament: (
@@ -11,9 +10,9 @@ $fundament: (
     // * Core Settings
 
     settings: (
-        // * Select a namespace for the main-class, item-class and modifiers
+        // * Select a namespace for the grid, item-class and modifiers
         namespace:      "grid",
-        // * If true, all breakpoints in "breakpoints" will be included with corresponding widths
+        // * If true, all breakpoints in "breakpoints" will be included with corresponding media-queries
         responsive:     true,
         // * If true, __item will extend to fill of the parent by default
         mobile-first:   true,
@@ -23,7 +22,8 @@ $fundament: (
         gutter:         24px
     ),
 
-    // * Breakpoint widths. If `(settings, responsive)`is true, each of these will have an own grid-system
+    // * Breakpoint widths. If `fundament(settings, responsive)`is true, each of these will have an own grid-system.
+    // * If fundament(push, responsive)` or fundament(pull, responsive)` is true, each of these will have push / pull classes avaiable
 
     breakpoints: (
         palm:           "(max-width: 480px)",
@@ -54,16 +54,18 @@ $fundament: (
     // * Settings for the fallback-grid
 
     legacy:(
-        // * Do you want to use the fallback `inline-block`-grid in IE<10,Chrome<20, Android<4.4, Safari<7? (FF<28 gets it anyways due to flex-box bugs)
+        // * Do you want to use the fallback `inline-block`-grid? (FF<28 gets it anyways due to flex-box bugs)
         use-fallback:     true,
-        // * Set to true if you intend to fix the white-space behaviour in markup. If false, the `letter-spacing`hack will be used
+        // * Set to true if you intend to fix the white-space behaviour in markup. If false, the `letter-spacing`fix will be used
         use-markup-fix:   false,
         // * The letter-spacing fix is designed to work with Arial or similar fonts, so you have to redeclare your font-stack
         // * on individual grid items. This gives you a default way to handle it. See: https://github.com/yui/pure/blob/master/src/grids/css/grids-core.css
+        // ! Has to be wrapped in single-quotes
         grid-item-font:  '"Helvetica Neue", Arial, sans-serif'
     ),
 
     // * Grid modifiers
+    // * You can toggle all modifiers or each of them here. If set to false, the modifier will not be avaiable.
 
     modifiers:(
         // * If true, --modifiers will be included
@@ -114,6 +116,8 @@ $fundament: (
 @import "fundament/core";
 @import "fundament/modifiers";
 @import "fundament/widths";
+
+// * Init grid
 
 @include fundament-init();
 

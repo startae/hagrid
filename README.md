@@ -1,6 +1,6 @@
 # Fundament Grid System
 
-A flexbox-first, semantic and customizable scss grid system with a robust inline-block fallback. Started as a fork of [css-wizardry-grids](https://github.com/csswizardry/csswizardry-grids).
+A flexbox-first, semantic and customizable scss grid system with a robust inline-block fallback.
 
 ## Usage:
 
@@ -141,6 +141,11 @@ With silent classes set to true, you can use the grid like this:
 }
 
 ```
+
+## Credit:
+
+ - Syntax inspired by Harry Roberts' csswizardry-grids: https://github.com/csswizardry/csswizardry-grids
+ - Font-family improvement for letter-spacing fix by yui/pure, copyright 2014 yahoo inc.
 
 ## License:
 

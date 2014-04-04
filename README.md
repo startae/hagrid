@@ -2,13 +2,11 @@
 
 A flexbox-first, semantic and customizable scss grid system with a robust inline-block fallback. Started as a fork of [css-wizardry-grids](https://github.com/csswizardry/csswizardry-grids).
 
-Works & tested in all major browsers. (IE8 with Respond.js)
-
 ## Usage:
 
-Head over to [the wiki](https://github.com/felics/fundament/wiki) for more information.
+Head over to [the wiki](https://github.com/felics/fundament/wiki) for more detailed information (wip).
 
-## List of options
+### List of options:
 
 ```css
 $fundament: (
@@ -80,7 +78,7 @@ $fundament: (
 );
 ```
 
-## Basic Usage:
+### Basic Usage:
 
 Assuming the defaults, you can use the grid like this:
 
@@ -148,7 +146,7 @@ With silent classes set to true, you can use the grid like this:
 
 The MIT License (MIT)
 
-Copyright (c) 2014 Felix Spöttel
+Copyright (c) **2014 Felix Spöttel**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

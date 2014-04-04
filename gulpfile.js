@@ -25,7 +25,7 @@ var gulp          = require("gulp"),
 // * ---------------------
 
 gulp.task("sass", function () {
-  gulp.src("fundament.scss")
+  gulp.src("scss/fundament.scss")
     .pipe(plumber({errorHandler: function(){console.log("Exiting")}}))
     .pipe(sass({noCache: true}))
     .pipe(rename("fundament.css"))

@@ -86,7 +86,11 @@ $fundament: (
         // * include --bottom (vertically-aligned-to-bottom grid)
         bottom:         true,
         // * include --middle (vertically-center grid)
-        middle:         true
+        middle:         true,
+        // * include --space-around (flex-only)
+        space-around:   true,
+        // * include --space-between (flex-only)
+        space-between:  true
 
     ),
 

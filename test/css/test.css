@@ -1,0 +1,42 @@
+
+body {
+    margin: 2em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #2c3e50;
+    line-height: 1.5;
+}
+
+.grid__item {
+    text-align: center;
+    margin-bottom: 1em;
+    overflow: hidden;
+}
+
+.grid__item > p {
+    color: #ecf0f1;
+    background: #e74c3c;
+    padding: 1.5em;
+}
+
+.flexbox .grid__item > p {
+    background: #27ae60;
+}
+
+h2,
+h3 {
+    line-height: 1;
+}
+
+h2 {
+    display: inline-block;
+    padding-bottom: .25em;
+    border-bottom: .25em solid #2c3e50;
+}
+
+
+@media only screen and (max-width: 480px) {
+    .grid__item > p {
+        padding: .25em;
+    }
+}
+

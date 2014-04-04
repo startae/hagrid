@@ -11,9 +11,10 @@
     "grid",
     "flexbox"
   ],
-  "license": "WTFPL",
+  "license": "MIT",
   "homepage": "https://github.com/felics/fundament.git",
   "ignore": [
-    "node_modules"
+    "node_modules",
+    "test"
   ]
 }

@@ -8,6 +8,142 @@ Works & tested in all major browsers. (IE8 with Respond.js)
 
 Head over to [the wiki](https://github.com/felics/fundament/wiki) for more information.
 
+## List of options
+
+```css
+$fundament: (
+
+    settings: (
+        namespace:      "grid",
+        responsive:     true,
+        mobile-first:   true,
+        silent-classes: false,
+        gutter:         24px
+    ),
+
+    breakpoints: (
+        palm:           "(max-width: 480px)",
+        lap:            "(min-width: 481px) and (max-width: 1023px)",
+        lap-up:         "(min-width: 481px)",
+        desk:           "(min-width: 1024px)",
+        high:           "(min-width: 1500px)"
+    ),
+
+    push:(
+        use-push:         true,
+        responsive:       false
+    ),
+
+    // * Pull classes
+
+    pull: (
+        use-pull:         true,
+        responsive:       false
+    ),
+
+    legacy:(
+        use-fallback: true,
+        use-markup-fix: false,
+        grid-item-font: '"Helvetica Neue", Arial, sans-serif'
+    ),
+
+    modifiers:(
+        use-modifiers:  true,
+        full:           true,
+        rev:            true,
+        center:         true,
+        right:          true,
+        wide:           true,
+        narrow:         true,
+        bottom:         true,
+        middle:         true,
+        space-around:   true,
+        space-between:  true
+    ),
+
+    widths: (
+        halves:         true,
+        thirds:         true,
+        quarters:       true,
+        fifths:         true,
+        sixths:         true,
+        eighths:        true,
+        tenths:         true,
+        twelfths:       true
+    ),
+
+
+    visibility: (
+        show:           true,
+        hide:           true
+    )
+);
+```
+
+## Basic Usage:
+
+Assuming the defaults, you can use the grid like this:
+
+```css
+/* Generated classes look like: */
+
+/* Parent */
+
+.grid {}
+
+/* Child */
+
+.grid__item {}
+
+/* Modifiers */
+
+.grid--modifier {}
+.grid__item--modifier {}
+
+/* Widths */
+
+.one-half {}
+
+/* Responsive widths */
+
+.palm--one-half {}
+
+/* Visibility Helpers */
+
+.palm--grid--show {}
+
+```
+
+```html
+
+<section class="grid  grid--rev">
+    <article class="grid__item  grid--rev__item  one-half  desk--one-whole">
+        Something
+    </article>
+    <article class="grid__item  grid--rev__item  one-half  desk--one-whole">
+        Something
+    </article>
+</section>
+
+```
+
+With silent classes set to true, you can use the grid like this:
+
+```css
+.image-grid {
+    @extend %grid;
+    @extend %grid--rev;
+}
+
+.image-grid figure {
+    @extend %grid__item;
+    @extend %grid--rev__item;
+    @extend %one-half;
+    @extend %desk--one-third;
+}
+
+```
+
 ## License:
 
 The MIT License (MIT)

@@ -6,10 +6,17 @@ body {
     line-height: 1.5;
 }
 
+div {
+    margin: 0;
+}
+
 .grid__item {
     text-align: center;
-    margin-bottom: 1em;
     overflow: hidden;
+}
+
+article {
+    margin-bottom: 1em;
 }
 
 .grid__item > p {

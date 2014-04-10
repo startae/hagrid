@@ -2,8 +2,15 @@
 body {
     margin: 2em;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #2c3e50;
+    background: #15548a;
+    color: #ecf0f1;
     line-height: 1.5;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 div {
@@ -12,7 +19,6 @@ div {
 
 .grid__item {
     text-align: center;
-    overflow: hidden;
 }
 
 article {
@@ -21,23 +27,22 @@ article {
 
 .grid__item > p {
     color: #ecf0f1;
-    background: #e74c3c;
+    border: .125em solid #ecf0f1;
     padding: 1.5em;
+    width: 100%;
 }
 
-.flexbox .grid__item > p {
-    background: #27ae60;
-}
 
 h2,
 h3 {
     line-height: 1;
+    font-weight: 700;
 }
 
 h2 {
     display: inline-block;
     padding-bottom: .25em;
-    border-bottom: .25em solid #2c3e50;
+    border-bottom: .125em solid #ecf0f1;
 }
 
 

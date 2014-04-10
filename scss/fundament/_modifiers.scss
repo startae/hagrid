@@ -109,7 +109,23 @@
             align-items: center;
         }
         #{$fundament--class-type}#{$fundament--namespace}--middle__item {
-            vertical-align :middle;
+            vertical-align: middle;
+        }
+    }
+
+    // * --top
+    // * Align items to top in flexbox(default: stretch)
+    // * ---------------------
+
+    @if(fundament(modifiers, top) == true) {
+        #{$fundament--class-type}#{$fundament--namespace}--top {
+            -webkit-align-items: flex-start;
+                -ms-align-items: flex-start;
+                    align-items: flex-start;
+
+        }
+        #{$fundament--class-type}#{$fundament--namespace}--top__item {
+            vertical-align: top;
         }
     }
 
@@ -160,6 +176,20 @@
             -webkit-justify-content: space-between;
                 -ms-justify-content: space-between;
                     justify-content: space-between;
+        }
+    }
+
+    // * --even
+    // * Align items by dynamic margins between them (flexbox only)
+    // * ---------------------
+
+    @if(fundament(modifiers, even) == true) {
+
+        #{$fundament--class-type}#{$fundament--namespace}--even__item {
+            width: auto;
+            -webkit-flex-grow: 1;
+                -ms-flex-grow: 1;
+                    flex-grow: 1;
         }
     }
 

@@ -55,7 +55,7 @@
             <p>One fifth</p>
         </article>
         <article class="grid__item   lap-up--four-fifths">
-            <p>Four fifths</p>
+            <p>Four fifths.</p>
         </article>
         <!-- Test Sixths -->
         <article class="grid__item   desk--one-sixth">
@@ -80,14 +80,15 @@
         </article>
         <!-- Test Twelfths -->
         <article class="grid__item   desk--one-twelfth">
-            <p>1/12</p>
+            <p>1/12  Test Test Test </p>
         </article>
         <article class="grid__item   desk--eleven-twelfths">
-            <p>Eleven twelfths</p>
+            <p>Eleven twelfths.</p>
         </article>
     </section>
+    </body>
     <h2>Nesting</h2>
-    <section class="grid">
+    <section class="grid  grid--top">
         <article class="grid__item  one-half">
                 <p>Nesting</p>
                 <div class="grid">
@@ -104,15 +105,32 @@
                 <p>Nesting</p>
                 <div class="grid">
                     <div class="grid__item  one-half"><p>Nested 1/2 in 1/2</p></div>
-                    <div class="grid__item  one-half"><p>Nested 1/2 in 1/2</p></div>
+                    <div class="grid__item  one-half">
+                        <p>Nested 1/2 in 1/2</p>
+                        <div class="grid">
+                            <div class="grid__item  one-half"><p>1/2 in 1/2 in 1/2</p></div>
+                            <div class="grid__item  one-half"><p>1/2 in 1/2 in 1/2</p></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="grid">
-                    <div class="grid__item  one-whole"><p>Nested 1/1 in 1/2</p></div>
+                    <div class="grid__item"><p>Nested 1/1 in 1/2</p></div>
                 </div>
         </article>
     </section>
     <h2>Modifiers</h2>
     <section class="test__modifiers">
+        <h3>Even (--even) [flexbox only]</h3>
+        <p>Distribute items evenly if no width is set</p>
+        <section class="grid  grid--even">
+            <!-- Arbitraty -->
+            <article class="grid__item  grid--even__item">
+                <p>Something.</p>
+            </article>
+            <article class="grid__item  grid--even__item">
+                <p>Something.</p>
+            </article>
+        </section>
         <h3>Full grid (--full)</h3>
         <section class="grid  grid--full">
             <article class="grid__item  grid--full__item  one-third">
@@ -188,6 +206,18 @@
                 <p>A short text</p>
             </article>
             <article class="grid__item  grid--bottom__item one-third">
+                <p>A long text that is somewhat boring to read, though incredibly important to demonstrate this behaviour –much like 90% of science papers. What the fuck did I just read.</p>
+            </article>
+        </section>
+        <h3>Vertically aligned to bottom grid (--top)</h3>
+        <section class="grid  grid--top">
+            <article class="grid__item  grid--top__item one-third">
+                <p>A long text that is somewhat boring to read, though incredibly important to demonstrate this behaviour –much like 90% of science papers. What the fuck did I just read.</p>
+            </article>
+            <article class="grid__item  grid--top__item one-third">
+                <p>A short text</p>
+            </article>
+            <article class="grid__item  grid--top__item one-third">
                 <p>A long text that is somewhat boring to read, though incredibly important to demonstrate this behaviour –much like 90% of science papers. What the fuck did I just read.</p>
             </article>
         </section>

@@ -89,10 +89,14 @@ $fundament: (
         bottom:         true,
         // * include --middle (vertically-center grid)
         middle:         true,
+        // * include --top (vertically stretch)
+        top:            true,
         // * include --space-around (flex-only)
         space-around:   true,
         // * include --space-between (flex-only)
-        space-between:  true
+        space-between:  true,
+        // * include --even (flex-only)
+        even:           true
 
     ),
 

@@ -15,14 +15,13 @@
 </head>
 <body>
     <h1>Fundament Grid System Demo / Test</h1>
-    <p>If the grid is green, you are using flexbox. If it is red, you are seeing the fallback</p>
     <h2>Widths</h2>
-    <p class="test__description">
+    <div class="test__description">
         <ul class="test__spec">
             <li>After thirds, fall back to wholes on mobile.</li>
             <li>After fifths, fall back to wholes on lap.</li>
         </ul>
-    </p>
+    </div>
     <!-- Tests for grid system -->
     <section class="grid  test__widths">
         <!-- Test full width -->
@@ -86,7 +85,6 @@
             <p>Eleven twelfths.</p>
         </article>
     </section>
-    </body>
     <h2>Nesting</h2>
     <section class="grid">
         <article class="grid__item  one-half">
@@ -268,14 +266,14 @@
     </section>
     <section class="test__breakpoints">
         <h2>Test Breakpoints</h2>
-        <p class="test__description">
+        <div class="test__description">
             <ul class="test__spec">
                 <li>Halves on palm.</li>
                 <li>Thirds on thirds.</li>
                 <li>Quarters on desk.</li>
                 <li>Sixths on high.</li>
             </ul>
-        </p>
+        </div>
         <section class="grid">
             <article class="grid__item  one-half  lap--one-third  desk--one-quarter  high--one-sixth">
                 <p>Content</p>
@@ -316,30 +314,32 @@
         </section>
     </section>
     <section class="test__pull">
-    <h2>Test generic pull</h2>
-    <p class="test__description">
-        Middle should be empty.
-    </p>
-    <section class="grid  grid--right">
-        <article class="grid__item  grid--right__item  pull--one-third  one-third">
-            <p>Left</p>
-        </article>
-        <article class="grid__item  grid--right__item  one-third">
-            <p>Right</p>
-        </article>
+        <h2>Test generic pull</h2>
+        <p class="test__description">
+            Middle should be empty.
+        </p>
+        <section class="grid  grid--right">
+            <article class="grid__item  grid--right__item  pull--one-third  one-third">
+                <p>Left</p>
+            </article>
+            <article class="grid__item  grid--right__item  one-third">
+                <p>Right</p>
+            </article>
+        </section>
     </section>
     <section class="test__push">
-    <h2>Test generic push</h2>
-    <p class="test__description">
-        Left should be empty.
-    </p>
-    <section class="grid">
-        <article class="grid__item  one-third  push--one-third">
-            <p>Left</p>
-        </article>
-        <article class="grid__item  one-third  push--one-third">
-            <p>Right</p>
-        </article>
+        <h2>Test generic push</h2>
+        <p class="test__description">
+            Left should be empty.
+        </p>
+        <section class="grid">
+            <article class="grid__item  one-third  push--one-third">
+                <p>Left</p>
+            </article>
+            <article class="grid__item  one-third  push--one-third">
+                <p>Right</p>
+            </article>
+        </section>
     </section>
     <section class="test__visibility">
         <h2>Test visibility helper</h2>

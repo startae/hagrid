@@ -1,9 +1,9 @@
 
 // * Fundament Modifiers
 // * ---------------------
-// * These modifiers can be applied to the grid and __items.
-// * To apply a modifier, use --modifier on parent and --modifier__item on child.
-// * The separation of --modifier and __item--modifier prevents bullshit selectors in output.
+// * These modifiers can be applied to the grid and __#{$fdmt--item}s.
+// * To apply a modifier, use --modifier on parent and --modifier__#{$fdmt--item} on child.
+// * The separation of --modifier and __#{$fdmt--item}--modifier prevents bullshit selectors in output.
 // @contains:
 // @  1. --full
 // @  2. --rev
@@ -17,17 +17,17 @@
 // @ 10. --space-between (flex-only)
 // * ---------------------
 
-@if(fundament(modifiers, use-modifiers) == true) {
+@if(fdmt(modifiers, use-modifiers) == true) {
 
     // * --full
     // * Full-width grid without any margins & padding.
     // * ---------------------
 
-    @if(fundament(modifiers, full) == true) {
-        #{$fundament--class-type}#{$fundament--namespace}--full {
+    @if(fdmt(modifiers, full) == true) {
+        #{$fdmt--class-type}#{$fdmt--namespace}--full {
             margin-left: 0;
         }
-        #{$fundament--class-type}#{$fundament--namespace}--full__item {
+        #{$fdmt--class-type}#{$fdmt--namespace}--full__#{$fdmt--item} {
             padding-left: 0;
         }
     }
@@ -36,15 +36,15 @@
     // * Reversed source-order. (!The fallback grid will only not work on 100%-items, flexbox does. !)
     // * ---------------------
 
-    @if(fundament(modifiers, rev) == true) {
-        #{$fundament--class-type}#{$fundament--namespace}--rev {
+    @if(fdmt(modifiers, rev) == true) {
+        #{$fdmt--class-type}#{$fdmt--namespace}--rev {
             direction: rtl;
             -webkit-flex-flow: wrap-reverse row;
             -ms-flex-flow: wrap-reverse row;
             flex-flow: wrap-reverse row;
             text-align: left;
         }
-        #{$fundament--class-type}#{$fundament--namespace}--rev__item {
+        #{$fdmt--class-type}#{$fdmt--namespace}--rev__#{$fdmt--item} {
             direction: ltr;
             text-align: left;
         }
@@ -54,15 +54,15 @@
     // * Center the grid if items don't add up to 100%
     // * ---------------------
 
-    @if(fundament(modifiers, center) == true) {
-        #{$fundament--class-type}#{$fundament--namespace}--center {
+    @if(fdmt(modifiers, center) == true) {
+        #{$fdmt--class-type}#{$fdmt--namespace}--center {
             -webkit-justify-content: center;
             -ms-flex-pack: center;
             justify-content: center;
             text-align: center;
 
         }
-        #{$fundament--class-type}#{$fundament--namespace}--center__item {
+        #{$fdmt--class-type}#{$fdmt--namespace}--center__#{$fdmt--item} {
             text-align: left;
         }
     }
@@ -71,14 +71,14 @@
     // * Align the grid to the right if items don't add up to 100%
     // * ---------------------
 
-    @if(fundament(modifiers, right) == true) {
-        #{$fundament--class-type}#{$fundament--namespace}--right {
+    @if(fdmt(modifiers, right) == true) {
+        #{$fdmt--class-type}#{$fdmt--namespace}--right {
             -webkit-justify-content: flex-end;
             -ms-flex-pack: end;
             justify-content: flex-end;
             text-align: right;
         }
-        #{$fundament--class-type}#{$fundament--namespace}--right__item {
+        #{$fdmt--class-type}#{$fdmt--namespace}--right__#{$fdmt--item} {
             text-align: left;
         }
     }
@@ -87,13 +87,13 @@
     // * Vertically align items of a row to the bottom.
     // * ---------------------
 
-    @if(fundament(modifiers, bottom) == true) {
-        #{$fundament--class-type}#{$fundament--namespace}--bottom {
+    @if(fdmt(modifiers, bottom) == true) {
+        #{$fdmt--class-type}#{$fdmt--namespace}--bottom {
             -webkit-align-items: flex-end;
             -ms-flex-align: end;
             align-items: flex-end;
         }
-        #{$fundament--class-type}#{$fundament--namespace}--bottom__item {
+        #{$fdmt--class-type}#{$fdmt--namespace}--bottom__#{$fdmt--item} {
             vertical-align: bottom;
         }
     }
@@ -102,13 +102,13 @@
     // * Vertically center items of a row.
     // * ---------------------
 
-    @if(fundament(modifiers, middle) == true) {
-        #{$fundament--class-type}#{$fundament--namespace}--middle {
+    @if(fdmt(modifiers, middle) == true) {
+        #{$fdmt--class-type}#{$fdmt--namespace}--middle {
             -webkit-align-items: center;
             -ms-flex-align: center;
             align-items: center;
         }
-        #{$fundament--class-type}#{$fundament--namespace}--middle__item {
+        #{$fdmt--class-type}#{$fdmt--namespace}--middle__#{$fdmt--item} {
             vertical-align: middle;
         }
     }
@@ -117,14 +117,14 @@
     // * Align items to top in flexbox(default: stretch)
     // * ---------------------
 
-    @if(fundament(modifiers, top) == true) {
-        #{$fundament--class-type}#{$fundament--namespace}--top {
+    @if(fdmt(modifiers, top) == true) {
+        #{$fdmt--class-type}#{$fdmt--namespace}--top {
             -webkit-align-items: flex-start;
                 -ms-align-items: flex-start;
                     align-items: flex-start;
 
         }
-        #{$fundament--class-type}#{$fundament--namespace}--top__item {
+        #{$fdmt--class-type}#{$fdmt--namespace}--top__#{$fdmt--item} {
             vertical-align: top;
         }
     }
@@ -133,12 +133,12 @@
     // * Wider margins
     // * ---------------------
 
-    @if(fundament(modifiers, wide) == true) {
-        #{$fundament--class-type}#{$fundament--namespace}--wide {
-            margin-left: -(fundament(settings,gutter) * 2 );
+    @if(fdmt(modifiers, wide) == true) {
+        #{$fdmt--class-type}#{$fdmt--namespace}--wide {
+            margin-left: -(fdmt(settings,gutter) * 2 );
         }
-        #{$fundament--class-type}#{$fundament--namespace}--wide__item {
-            padding-left: (fundament(settings,gutter) * 2 );
+        #{$fdmt--class-type}#{$fdmt--namespace}--wide__#{$fdmt--item} {
+            padding-left: (fdmt(settings,gutter) * 2 );
         }
     }
 
@@ -146,12 +146,12 @@
     // * Narrower margins.
     // * ---------------------
 
-    @if(fundament(modifiers, narrow) == true) {
-        #{$fundament--class-type}#{$fundament--namespace}--narrow {
-            margin-left: -(fundament(settings,gutter) / 2);
+    @if(fdmt(modifiers, narrow) == true) {
+        #{$fdmt--class-type}#{$fdmt--namespace}--narrow {
+            margin-left: -(fdmt(settings,gutter) / 2);
         }
-        #{$fundament--class-type}#{$fundament--namespace}--narrow__item {
-            padding-left: (fundament(settings,gutter) / 2);
+        #{$fdmt--class-type}#{$fdmt--namespace}--narrow__#{$fdmt--item} {
+            padding-left: (fdmt(settings,gutter) / 2);
         }
     }
 
@@ -159,8 +159,8 @@
     // * Align items by dynamic margins around (flexbox only)
     // * ---------------------
 
-    @if(fundament(modifiers, space-around) == true) {
-        #{$fundament--class-type}#{$fundament--namespace}--space-around {
+    @if(fdmt(modifiers, space-around) == true) {
+        #{$fdmt--class-type}#{$fdmt--namespace}--space-around {
             -webkit-justify-content: space-around;
                 -ms-justify-content: space-around;
                     justify-content: space-around;
@@ -171,8 +171,8 @@
     // * Align items by dynamic margins between them (flexbox only)
     // * ---------------------
 
-    @if(fundament(modifiers, space-between) == true) {
-        #{$fundament--class-type}#{$fundament--namespace}--space-between {
+    @if(fdmt(modifiers, space-between) == true) {
+        #{$fdmt--class-type}#{$fdmt--namespace}--space-between {
             -webkit-justify-content: space-between;
                 -ms-justify-content: space-between;
                     justify-content: space-between;
@@ -180,12 +180,12 @@
     }
 
     // * --even
-    // * Align items by dynamic margins between them (flexbox only)
+    // * Align items by dynamic margins between them, no widths needed (flexbox only)
     // * ---------------------
 
-    @if(fundament(modifiers, even) == true) {
+    @if(fdmt(modifiers, even) == true) {
 
-        #{$fundament--class-type}#{$fundament--namespace}--even__item {
+        #{$fdmt--class-type}#{$fdmt--namespace}--even__#{$fdmt--item} {
             width: auto;
             -webkit-flex-grow: 1;
                 -ms-flex-grow: 1;

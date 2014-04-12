@@ -8,16 +8,18 @@
 // * MIT LICENSE (c) 2014 Felix Spöttel
 // * ---------------------*/
 
-$fundament: (
+$fdmt: (
 
     // * Core Settings
 
     settings: (
         // * Select a namespace for the grid, item-class and modifiers
         namespace:      "grid",
+        // * Select the appended string for grid__items's (grid__item)
+        item:           "item",
         // * If true, all breakpoints in "breakpoints" will be included with corresponding media-queries
         responsive:     true,
-        // * If true, __item will extend to fill of the parent by default
+        // * If true, grid-items will extend to fill of the parent by default
         mobile-first:   true,
         // * If true, the grid will output extendable silent classes
         silent-classes: false,
@@ -25,8 +27,8 @@ $fundament: (
         gutter:         24px
     ),
 
-    // * Breakpoint widths. If `fundament(settings, responsive)`is true, each of these will have an own grid-system.
-    // * If fundament(push, responsive)` or fundament(pull, responsive)` is true, each of these will have push / pull classes avaiable
+    // * Breakpoint widths. If `fdmt(settings, responsive)`is true, each of these will have an own grid-system.
+    // * If fdmt(push, responsive)` or fdmt(pull, responsive)` is true, each of these will have push / pull classes avaiable
 
     breakpoints: (
         palm:           "(max-width: 480px)",
@@ -116,8 +118,8 @@ $fundament: (
     // * Visibility helpers
 
     visibility: (
-        show:           true, // * will generate --show && __item--show classes for each breakpoint
-        hide:           true  // * will generate --hide && __item--hide classes for each breakpoint
+        show:           true, // * will generate --show && __#{$fdmt--item}--show classes for each breakpoint
+        hide:           true  // * will generate --hide && __#{$fdmt--item}--hide classes for each breakpoint
     )
 );
 
@@ -130,7 +132,7 @@ $fundament: (
 
 // * Init grid
 
-@include fundament-init();
+@include fdmt-init();
 
 
 

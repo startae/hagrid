@@ -54,9 +54,11 @@ $fundament: (
         wide:           true,
         narrow:         true,
         bottom:         true,
+        top:            true,
         middle:         true,
         space-around:   true,
-        space-between:  true
+        space-between:  true,
+        even:           true
     ),
 
     widths: (

@@ -88,7 +88,7 @@
     </section>
     </body>
     <h2>Nesting</h2>
-    <section class="grid  grid--top">
+    <section class="grid">
         <article class="grid__item  one-half">
                 <p>Nesting</p>
                 <div class="grid">
@@ -102,33 +102,47 @@
                 </div>
         </article>
         <article class="grid__item  one-half">
-                <p>Nesting</p>
+                <p>1st</p>
                 <div class="grid">
-                    <div class="grid__item  one-half"><p>Nested 1/2 in 1/2</p></div>
+                    <div class="grid__item  one-half"><p>2nd</p></div>
                     <div class="grid__item  one-half">
-                        <p>Nested 1/2 in 1/2</p>
+                        <p>2nd</p>
                         <div class="grid">
-                            <div class="grid__item  one-half"><p>1/2 in 1/2 in 1/2</p></div>
-                            <div class="grid__item  one-half"><p>1/2 in 1/2 in 1/2</p></div>
+                            <div class="grid__item  one-half"><p>3rd</p></div>
+                            <div class="grid__item  one-half">
+                            <p>3rd</p>
+                            <div class="grid">
+                                <div class="grid__item  one-whole"><p>4rth</p></div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
                 <div class="grid">
-                    <div class="grid__item"><p>Nested 1/1 in 1/2</p></div>
+                    <div class="grid__item"><p>1st</p></div>
                 </div>
         </article>
     </section>
     <h2>Modifiers</h2>
     <section class="test__modifiers">
         <h3>Even (--even) [flexbox only]</h3>
-        <p>Distribute items evenly if no width is set</p>
+        <p>Distribute items evenly if no width is set. If you want to set a width to some items, apply grid--even__item only to the other elements and they will be distributed as best as flex-box can.</p>
         <section class="grid  grid--even">
             <!-- Arbitraty -->
-            <article class="grid__item  grid--even__item">
-                <p>Something.</p>
+            <article class="grid__item  one-third">
+                <p>Width set.</p>
             </article>
-            <article class="grid__item  grid--even__item">
-                <p>Something.</p>
+            <article class="grid__item grid--even__item">
+                <p>Dynamic.</p>
+            </article>
+            <article class="grid__item grid--even__item">
+                <p>Dynamic.</p>
+            </article>
+            <article class="grid__item  one-fifth">
+                <p>Width set.</p>
+            </article>
+            <article class="grid__item grid--even__item">
+                <p>Dynamic.</p>
             </article>
         </section>
         <h3>Full grid (--full)</h3>

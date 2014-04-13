@@ -32,6 +32,11 @@ article {
     width: 100%;
 }
 
+.no-flexbox .grid__item > p {
+    color: #15548a;
+    background: #ecf0f1;
+    border: 0;
+}
 
 h2,
 h3 {

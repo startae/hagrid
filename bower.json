@@ -1,5 +1,5 @@
 {
-  "name": "fundament",
+  "name": "fundament.grid",
   "version": "0.3.2",
   "authors": [
     "felics <fspoettel@gmail.com>"
@@ -12,7 +12,7 @@
     "flexbox"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/felics/fundament.git",
+  "homepage": "https://github.com/felics/fundament.grid.git",
   "ignore": [
     "node_modules",
     "test"

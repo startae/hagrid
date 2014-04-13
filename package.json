@@ -1,9 +1,9 @@
 {
-  "name": "fundament",
+  "name": "fundament.grid",
   "version": "0.3.2",
   "repository": {
     "type": "git",
-    "url": "http://github.com/felics/fundament.git"
+    "url": "https://github.com/felics/fundament.grid"
   },
   "dependencies": {
     "gulp": "^3.6.0",

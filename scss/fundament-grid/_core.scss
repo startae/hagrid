@@ -8,59 +8,59 @@
 // @  3. Core SCSS
 // * ---------------------
 
-// * $fdmt--class-type
-// * This sets the class-type either to normal or silent classes. (Based on `fdmt(settings, silent-classes)`)
+// * $fdmt-grid--class-type
+// * This sets the class-type either to normal or silent classes. (Based on `fdmt-grid(settings, silent-classes)`)
 // * ---------------------
 
-$fdmt--class-type: unquote(".");
+$fdmt-grid--class-type: unquote(".");
 
-@if (fdmt(settings, silent-classes) == true){
-    $fdmt--class-type: unquote("%")!global;
+@if (fdmt-grid(settings, silent-classes) == true){
+    $fdmt-grid--class-type: unquote("%")!global;
 }
 
-// * $fdmt--namespace
-// * This sets the namespace for grid-classes and modifiers to `fdmt(settings, namespace)`
-// * e.g. if set to "grid", the classes will be `grid`, `grid__#{$fdmt--item}`, `grid--modifier`, `grid__#{$fdmt--item}--modifier`
+// * $fdmt-grid--namespace
+// * This sets the namespace for grid-classes and modifiers to `fdmt-grid(settings, namespace)`
+// * e.g. if set to "grid", the classes will be `grid`, `grid__#{$fdmt-grid--item}`, `grid--modifier`, `grid__#{$fdmt-grid--item}--modifier`
 // * ---------------------
 
-$fdmt--namespace: fdmt(settings, namespace);
+$fdmt-grid--namespace: fdmt-grid(settings, namespace);
 
-// * $fdmt--item
+// * $fdmt-grid--item
 // * This sets the name that gets appended for child-items (parent__child)
-// * e.g. if set to "grid", the classes will be `grid`, `grid__#{$fdmt--item}`, `grid--modifier`, `grid__#{$fdmt--item}--modifier`
+// * e.g. if set to "grid", the classes will be `grid`, `grid__#{$fdmt-grid--item}`, `grid--modifier`, `grid__#{$fdmt-grid--item}--modifier`
 // * ---------------------
 
-$fdmt--item: fdmt(settings, item);
+$fdmt-grid--item: fdmt-grid(settings, item);
 
-// * mixin fdmt-legacy-support($element: "parent"|"child")
+// * mixin fdmt-grid__legacy-support($element: "parent"|"child")
 // * Provides legacy support for elements.
 // * [1] & [2]. Fix white-space on fallback-grid.
 // * [2]. Declare a font-family that the letter-spacing fix is sure to work on all known evironments.
 // *      See: https://github.com/yui/pure/issues/41
 // @type: mixin
-// @exports: fdmt-legacy-support($element: "parent"|"child")
+// @exports: fdmt-grid__legacy-support($element: "parent"|"child")
 // * ---------------------
 
-@mixin fdmt-legacy-support($element) {
+@mixin fdmt-grid__legacy-support($element) {
     @if($element == "parent") {
-        letter-spacing: -.31em; //* [1]. */
+        letter-spacing: -.31em; //* [1] */
         font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif; //* [2] */
     } @elseif ($element == "child") {
         letter-spacing: normal;
         word-spacing: normal;
-        @if (fdmt(legacy, custom-font) != false) {
-            font-family: unquote(fdmt(legacy, grid-item-font)); //* [2] */
+        @if (fdmt-grid(legacy, custom-font) != false) {
+            font-family: unquote(fdmt-grid(legacy, grid-item-font)); //* [2] */
         }
     }
 }
 
 // * Shared Flex-box Support
 // @type: mixin
-// @exports: fdmt-flex-support()
+// @exports: fdmt-grid__flex-support()
 // * [1]. Use the new flex-box where possible (IE10+, Moz. 28+, Chrome 20+, Safari 7+, Opera 12.1+, Android 4.4+)
 // * ---------------------
 
-@mixin fdmt-flex-support(){
+@mixin fdmt-grid__flex-support(){
     display: -webkit-flex;                             //* [1] */
     display: -ms-flexbox;                              //* [1] */
     display: flex;                                     //* [1] */
@@ -76,36 +76,36 @@ $fdmt--item: fdmt(settings, item);
 // * [4]. Add a negative margin to negate first items padding (aligns grid)
 // *      !If you want to center a grid-parent with margin: auto, use `--full` to achieve symmetric centering!
 // * [5]. Firefox < 28 doesn't implement flex-flow correctly (...), fall back to `inline-block`.
-// * [6]. Include the fallback-grid if `fdmt(legacy, use-fallback) is true
+// * [6]. Include the fallback-grid if `fdmt-grid(legacy, use-fallback) is true
 // * ---------------------
 
-#{$fdmt--class-type}#{$fdmt--namespace} {
+#{$fdmt-grid--class-type}#{$fdmt-grid--namespace} {
     display: block;
-    @include fdmt-flex-support();
+    @include fdmt-grid__flex-support();
     -webkit-flex: 1 1 100%;                      //* [1] */
         -ms-flex: 1 1 100%;                      //* [1] */
             flex: 1 1 100%;                      //* [1] */
     list-style: none;                            //* [2] */
     margin: 0;                                   //* [3] */
     padding: 0;                                  //* [3] */
-    margin-left: -(fdmt(settings, gutter)); //* [4] */
+    margin-left: -(fdmt-grid(settings, gutter)); //* [4] */
     //* [5] */
     @supports not(flex-wrap: wrap) {
-        @include fdmt-legacy-support("parent");
+        @include fdmt-grid__legacy-support("parent");
     }
     //* [6] */
-    @if(fdmt(legacy, use-fallback) == true) {
-        @if(fdmt(legacy, markup-fix) != true) {
-            @include fdmt-legacy-support("parent");
+    @if(fdmt-grid(legacy, use-fallback) == true) {
+        @if(fdmt-grid(legacy, markup-fix) != true) {
+            @include fdmt-grid__legacy-support("parent");
         }
     }
 }
 
 // * [7] Opera < 12.1 Hack (may be removed soon) */
 
-@if (fdmt(legacy, use-fallback) == true and fdmt(legacy, use-markup-fix) != true) {
+@if (fdmt-grid(legacy, use-fallback) == true and fdmt-grid(legacy, use-markup-fix) != true) {
     .opera:-o-prefocus,
-    #{$fdmt--class-type}#{$fdmt--namespace} {
+    #{$fdmt-grid--class-type}#{$fdmt-grid--namespace} {
         word-spacing: -.43em;
     }
 }
@@ -113,28 +113,28 @@ $fdmt--item: fdmt(settings, item);
 // * Grid Items
 // * [1]. Stack items next to each other
 // * [2]. Space items apart
-// * [3]. Default alignment of __#{$fdmt--item}s is top
+// * [3]. Default alignment of __#{$fdmt-grid--item}s is top
 // * [4]. Use new box-model on all grid items
 // * [5]. If mobile first, fill the container by default
 // * [6]. Reinstate letter-spacing on fallback-grid
 // * [7]. Needed for nested grids
 // * ---------------------
 
-#{$fdmt--class-type}#{$fdmt--namespace}__#{$fdmt--item} {
+#{$fdmt-grid--class-type}#{$fdmt-grid--namespace}__#{$fdmt-grid--item} {
     display: inline-block;                             //* [1] */
-    @include fdmt-flex-support();                      //* [7] */
-    padding-left: fdmt(settings, gutter);              //* [2] */
+    @include fdmt-grid__flex-support();                //* [7] */
+    padding-left: fdmt-grid(settings, gutter);         //* [2] */
     vertical-align: top;                               //* [3] */
     -webkit-box-sizing: border-box;                    //* [4] */
        -moz-box-sizing: border-box;                    //* [4] */
             box-sizing: border-box;                    //* [4] */
-    @if(fdmt(settings, mobile-first) == true) {   //* [5] */
+    @if(fdmt-grid(settings, mobile-first) == true) {   //* [5] */
         width: 100%;
     }
     @supports not(flex-wrap: wrap) {
-        @include fdmt-legacy-support("child");
+        @include fdmt-grid__legacy-support("child");
     }
-    @if(fdmt(legacy, use-fallback) == true and fdmt(legacy, use-markup-fix) != true) {
-            @include fdmt-legacy-support("child");
+    @if(fdmt-grid(legacy, use-fallback) == true and fdmt-grid(legacy, use-markup-fix) != true) {
+            @include fdmt-grid__legacy-support("child");
     }
 }

@@ -25,10 +25,10 @@ var gulp          = require("gulp"),
 // * ---------------------
 
 gulp.task("sass", function () {
-  gulp.src("scss/fundament.scss")
+  gulp.src("scss/fundament-grid.scss")
     .pipe(plumber({errorHandler: function(){console.log("Exiting")}}))
     .pipe(sass({noCache: true}))
-    .pipe(rename("fundament.css"))
+    .pipe(rename("fundament-grid.css"))
     .pipe(gulp.dest("./dist"));
 });
 

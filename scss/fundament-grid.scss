@@ -8,7 +8,7 @@
 // * MIT LICENSE (c) 2014 Felix Spöttel
 // * ---------------------*/
 
-$fdmt: (
+$fdmt-grid: (
 
     // * Core Settings
 
@@ -27,8 +27,8 @@ $fdmt: (
         gutter:         24px
     ),
 
-    // * Breakpoint widths. If `fdmt(settings, responsive)`is true, each of these will have an own grid-system.
-    // * If fdmt(push, responsive)` or fdmt(pull, responsive)` is true, each of these will have push / pull classes avaiable
+    // * Breakpoint widths. If `fdmt-grid(settings, responsive)`is true, each of these will have an own grid-system.
+    // * If fdmt-grid(push, responsive)` or fdmt-grid(pull, responsive)` is true, each of these will have push / pull classes avaiable
 
     breakpoints: (
         palm:           "(max-width: 480px)",
@@ -118,21 +118,21 @@ $fdmt: (
     // * Visibility helpers
 
     visibility: (
-        show:           true, // * will generate --show && __#{$fdmt--item}--show classes for each breakpoint
-        hide:           true  // * will generate --hide && __#{$fdmt--item}--hide classes for each breakpoint
+        show:           true, // * will generate --show && __#{$fdmt-grid--item}--show classes for each breakpoint
+        hide:           true  // * will generate --hide && __#{$fdmt-grid--item}--hide classes for each breakpoint
     )
 );
 
 // * Import grid functionality
 
-@import "fundament/functions";
-@import "fundament/core";
-@import "fundament/modifiers";
-@import "fundament/widths";
+@import "fundament-grid/functions";
+@import "fundament-grid/core";
+@import "fundament-grid/modifiers";
+@import "fundament-grid/widths";
 
 // * Init grid
 
-@include fdmt-init();
+@include fdmt-grid__init();
 
 
 

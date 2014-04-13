@@ -4,12 +4,12 @@ A flexbox-first, semantic and customizable scss grid system with a robust inline
 
 ## Usage:
 
-Head over to [the wiki](https://github.com/felics/fundament/wiki) for more detailed information (wip).
+Head over to [the wiki](https://github.com/felics/fundament.grid/wiki) for more detailed information (wip).
 
 ### List of options:
 
 ```css
-$fundament: (
+$fdmt-grid: (
 
     settings: (
         namespace:      "grid",
@@ -147,7 +147,7 @@ With silent classes set to true, you can use the grid like this:
 ## Credit:
 
  - Syntax inspired by Harry Roberts' csswizardry-grids: https://github.com/csswizardry/csswizardry-grids
- - Font-family improvement for letter-spacing fix by yui/pure, copyright 2014 yahoo inc.
+ - Font-family improvement for letter-spacing fix by yui/pure, (c)2014 Yahoo Inc.
 
 ## License:
 

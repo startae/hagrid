@@ -4,8 +4,8 @@
 // * Sass functions & mixins to assemble the grid.
 // @contains:
 // @  1. fdmt-grid()
-// @  2. fdmt-grid__init()
-// @  3. fdmt-grid__responsive()
+// @  2. fdmt-grid--init()
+// @  3. fdmt-grid--responsive()
 // * ---------------------
 
 // * Map the config to an accesible map
@@ -24,16 +24,16 @@
 
 // * Init function that handles build
 // @type: mixin
-// @exports: fdmt-grid__init();
+// @exports: fdmt-grid--init();
 // * ---------------------
 
-@mixin fdmt-grid__init() {
+@mixin fdmt-grid--init() {
     // * Always include the default grid
-    @include fdmt-grid__widths();
+    @include fdmt-grid--widths();
 
     // * if true, include a grid for each breakpoint
     @if (fdmt-grid(settings, responsive) == true){
-        @include fdmt-grid__responsive();
+        @include fdmt-grid--responsive();
     }
 
     // * if true, include push-classes
@@ -41,11 +41,11 @@
         // * Make the items pushable
         [class*="push--"]{ position:relative; }
 
-        @include fdmt-grid__widths("left", "push--");
+        @include fdmt-grid--widths("left", "push--");
 
         // * if true, include responsive push classes
         @if (fdmt-grid(push, responsive) == true){
-            @include fdmt-grid__responsive("left", "push--");
+            @include fdmt-grid--responsive("left", "push--");
         }
     }
 
@@ -54,11 +54,11 @@
         // * Make the items pullable
         [class*="pull--"]{ position:relative; }
 
-        @include fdmt-grid__widths("right", "pull--");
+        @include fdmt-grid--widths("right", "pull--");
 
         // * if true, include responsive pull classes
         @if (fdmt-grid(pull, responsive) == true){
-            @include fdmt-grid__responsive("right", "pull--");
+            @include fdmt-grid--responsive("right", "pull--");
         }
     }
 
@@ -69,7 +69,7 @@
 // @exports: fdmt-reponsive($value, $prefix:);
 // * ---------------------
 
-@mixin fdmt-grid__responsive($value:"width", $prefix:""){
+@mixin fdmt-grid--responsive($value:"width", $prefix:""){
 
     // * Get all breakpoints
     $fdmt-grid--breakpoints: map-get($fdmt-grid, breakpoints);
@@ -85,7 +85,7 @@
         @if ($name and type-of($declaration) == "string"){
             $breakpoint--ok: true;
             @media only screen and #{$declaration} {
-                @include fdmt-grid__widths($value, $prefix, '#{$name}--');
+                @include fdmt-grid--widths($value, $prefix, '#{$name}--');
             }
         } @else {
             @warn "Your breakpoint #{$name} is not alright.";

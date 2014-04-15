@@ -3,17 +3,17 @@
 // * ---------------------
 // * Mixin to generate widths & helpers for each breakpoint
 // @contains:
-// @  1. fdmt-grid__widths()
+// @  1. fdmt-grid--widths()
 // @    1. Widths (wholes-twelfths)
 // @    2. Visibility Helpers
 // * ---------------------
 
-// * fdmt-grid__widths
+// * fdmt-grid--widths
 // @type: mixin
-// @exports: fdmt-grid__widths(property, prefix(push|pull, mq));
+// @exports: fdmt-grid--widths(property, prefix(push|pull, mq));
 // * ---------------------
 
-@mixin fdmt-grid__widths($property: "width", $prefix: "", $mq: "") {
+@mixin fdmt-grid--widths($property: "width", $prefix: "", $mq: "") {
 
     // * Wholes
     #{$fdmt-grid--class-type}#{$prefix}#{$mq}one-whole              { #{$property}: 100%; }

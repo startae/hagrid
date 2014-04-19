@@ -58,85 +58,65 @@
 
 .grid--full {
   margin-left: 0; }
-
-.grid--full__item {
-  padding-left: 0; }
-
+  .grid--full__item {
+    padding-left: 0; }
 .grid--rev {
   direction: rtl;
   -webkit-flex-flow: wrap-reverse row;
   -ms-flex-flow: wrap-reverse row;
   flex-flow: wrap-reverse row;
   text-align: left; }
-
-.grid--rev__item {
-  direction: ltr;
-  text-align: left; }
-
+  .grid--rev__item {
+    direction: ltr;
+    text-align: left; }
 .grid--center {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
   text-align: center; }
-
-.grid--center__item {
-  text-align: left; }
-
+  .grid--center__item {
+    text-align: left; }
 .grid--right {
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
   justify-content: flex-end;
   text-align: right; }
-
-.grid--right__item {
-  text-align: left; }
-
+  .grid--right__item {
+    text-align: left; }
 .grid--bottom {
   -webkit-align-items: flex-end;
   -ms-flex-align: end;
   align-items: flex-end; }
-
-.grid--bottom__item {
-  vertical-align: bottom; }
-
+  .grid--bottom__item {
+    vertical-align: bottom; }
 .grid--middle {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center; }
-
-.grid--middle__item {
-  vertical-align: middle; }
-
+  .grid--middle__item {
+    vertical-align: middle; }
 .grid--top {
   -webkit-align-items: flex-start;
   -ms-align-items: flex-start;
   align-items: flex-start; }
-
-.grid--top__item {
-  vertical-align: top; }
-
+  .grid--top__item {
+    vertical-align: top; }
 .grid--wide {
   margin-left: -48px; }
-
-.grid--wide__item {
-  padding-left: 48px; }
-
+  .grid--wide__item {
+    padding-left: 48px; }
 .grid--narrow {
   margin-left: -12px; }
-
-.grid--narrow__item {
-  padding-left: 12px; }
-
+  .grid--narrow__item {
+    padding-left: 12px; }
 .grid--space-around {
   -webkit-justify-content: space-around;
   -ms-justify-content: space-around;
   justify-content: space-around; }
-
 .grid--space-between {
   -webkit-justify-content: space-between;
   -ms-justify-content: space-between;
   justify-content: space-between; }
-
 .grid--even__item {
   width: auto;
   -webkit-flex: 1 1 auto;

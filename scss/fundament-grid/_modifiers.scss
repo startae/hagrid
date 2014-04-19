@@ -17,180 +17,182 @@
 // @ 10. --space-between (flex-only)
 // * ---------------------
 
+
 @if(fdmt-grid(modifiers, use-modifiers) == true) {
 
-    // * --full
-    // * Full-width grid without any margins & padding.
-    // * ---------------------
+    #{$fdmt-grid--class-type}#{$fdmt-grid--namespace} {
 
-    @if(fdmt-grid(modifiers, full) == true) {
-        #{$fdmt-grid--class-type}#{$fdmt-grid--namespace}--full {
-            margin-left: 0;
+        // * --full
+        // * Full-width grid without any margins & padding.
+        // * ---------------------
+
+        @if(fdmt-grid(modifiers, full) == true) {
+            &--full {
+                margin-left: 0;
+                &__#{$fdmt-grid--item} {
+                    padding-left: 0;
+                }
+            }
         }
-        #{$fdmt-grid--class-type}#{$fdmt-grid--namespace}--full__#{$fdmt-grid--item} {
-            padding-left: 0;
+
+        // * --rev
+        // * Reversed source-order. (!The fallback grid will only not work on 100%-items, flexbox does. !)
+        // * ---------------------
+
+        @if(fdmt-grid(modifiers, rev) == true) {
+            &--rev {
+                direction: rtl;
+                -webkit-flex-flow: wrap-reverse row;
+                -ms-flex-flow: wrap-reverse row;
+                flex-flow: wrap-reverse row;
+                text-align: left;
+                &__#{$fdmt-grid--item} {
+                    direction: ltr;
+                    text-align: left;
+                }
+            }
+        }
+
+        // * --center
+        // * Center the grid if items don't add up to 100%
+        // * ---------------------
+
+        @if(fdmt-grid(modifiers, center) == true) {
+            &--center {
+                -webkit-justify-content: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                text-align: center;
+                &__#{$fdmt-grid--item} {
+                    text-align: left;
+                }
+            }
+        }
+
+        // * --right
+        // * Align the grid to the right if items don't add up to 100%
+        // * ---------------------
+
+        @if(fdmt-grid(modifiers, right) == true) {
+            &--right {
+                -webkit-justify-content: flex-end;
+                -ms-flex-pack: end;
+                justify-content: flex-end;
+                text-align: right;
+                &__#{$fdmt-grid--item} {
+                    text-align: left;
+                }
+            }
+        }
+
+        // * --bottom
+        // * Vertically align items of a row to the bottom.
+        // * ---------------------
+
+        @if(fdmt-grid(modifiers, bottom) == true) {
+            &--bottom {
+                -webkit-align-items: flex-end;
+                -ms-flex-align: end;
+                align-items: flex-end;
+                &__#{$fdmt-grid--item} {
+                     vertical-align: bottom;
+                 }
+            }
+        }
+
+        // * --middle
+        // * Vertically center items of a row.
+        // * ---------------------
+
+        @if(fdmt-grid(modifiers, middle) == true) {
+            &--middle {
+                -webkit-align-items: center;
+                -ms-flex-align: center;
+                align-items: center;
+                &__#{$fdmt-grid--item} {
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        // * --top
+        // * Align items to top in flexbox(default: stretch)
+        // * ---------------------
+
+        @if(fdmt-grid(modifiers, top) == true) {
+            &--top {
+                -webkit-align-items: flex-start;
+                    -ms-align-items: flex-start;
+                        align-items: flex-start;
+                &__#{$fdmt-grid--item} {
+                    vertical-align: top;
+                }
+            }
+        }
+
+        // * --wide
+        // * Wider margins
+        // * ---------------------
+
+        @if(fdmt-grid(modifiers, wide) == true) {
+            &--wide {
+                margin-left: -(fdmt-grid(settings,gutter) * 2 );
+                &__#{$fdmt-grid--item} {
+                    padding-left: (fdmt-grid(settings,gutter) * 2 );
+                }
+            }
+        }
+
+        // * --narrow
+        // * Narrower margins.
+        // * ---------------------
+
+        @if(fdmt-grid(modifiers, narrow) == true) {
+            &--narrow {
+                margin-left: -(fdmt-grid(settings,gutter) / 2);
+                &__#{$fdmt-grid--item} {
+                    padding-left: (fdmt-grid(settings,gutter) / 2);
+                }
+            }
+        }
+
+        // * --space-around
+        // * Align items by dynamic margins around (flexbox only)
+        // * ---------------------
+
+        @if(fdmt-grid(modifiers, space-around) == true) {
+            &--space-around {
+                -webkit-justify-content: space-around;
+                    -ms-justify-content: space-around;
+                        justify-content: space-around;
+            }
+        }
+
+        // * --space-between
+        // * Align items by dynamic margins between them (flexbox only)
+        // * ---------------------
+
+        @if(fdmt-grid(modifiers, space-between) == true) {
+            &--space-between {
+                -webkit-justify-content: space-between;
+                    -ms-justify-content: space-between;
+                        justify-content: space-between;
+            }
+        }
+
+        // * --even
+        // * Align items by dynamic margins between them, no widths needed (flexbox only)
+        // * ---------------------
+
+        @if(fdmt-grid(modifiers, even) == true) {
+            &--even {
+                &__#{$fdmt-grid--item} {
+                    width: auto;
+                    -webkit-flex: 1 1 auto;
+                        -ms-flex: 1 1 auto;
+                            flex: 1 1 auto;
+                }
+            }
         }
     }
-
-    // * --rev
-    // * Reversed source-order. (!The fallback grid will only not work on 100%-items, flexbox does. !)
-    // * ---------------------
-
-    @if(fdmt-grid(modifiers, rev) == true) {
-        #{$fdmt-grid--class-type}#{$fdmt-grid--namespace}--rev {
-            direction: rtl;
-            -webkit-flex-flow: wrap-reverse row;
-            -ms-flex-flow: wrap-reverse row;
-            flex-flow: wrap-reverse row;
-            text-align: left;
-        }
-        #{$fdmt-grid--class-type}#{$fdmt-grid--namespace}--rev__#{$fdmt-grid--item} {
-            direction: ltr;
-            text-align: left;
-        }
-    }
-
-    // * --center
-    // * Center the grid if items don't add up to 100%
-    // * ---------------------
-
-    @if(fdmt-grid(modifiers, center) == true) {
-        #{$fdmt-grid--class-type}#{$fdmt-grid--namespace}--center {
-            -webkit-justify-content: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            text-align: center;
-
-        }
-        #{$fdmt-grid--class-type}#{$fdmt-grid--namespace}--center__#{$fdmt-grid--item} {
-            text-align: left;
-        }
-    }
-
-    // * --right
-    // * Align the grid to the right if items don't add up to 100%
-    // * ---------------------
-
-    @if(fdmt-grid(modifiers, right) == true) {
-        #{$fdmt-grid--class-type}#{$fdmt-grid--namespace}--right {
-            -webkit-justify-content: flex-end;
-            -ms-flex-pack: end;
-            justify-content: flex-end;
-            text-align: right;
-        }
-        #{$fdmt-grid--class-type}#{$fdmt-grid--namespace}--right__#{$fdmt-grid--item} {
-            text-align: left;
-        }
-    }
-
-    // * --bottom
-    // * Vertically align items of a row to the bottom.
-    // * ---------------------
-
-    @if(fdmt-grid(modifiers, bottom) == true) {
-        #{$fdmt-grid--class-type}#{$fdmt-grid--namespace}--bottom {
-            -webkit-align-items: flex-end;
-            -ms-flex-align: end;
-            align-items: flex-end;
-        }
-        #{$fdmt-grid--class-type}#{$fdmt-grid--namespace}--bottom__#{$fdmt-grid--item} {
-            vertical-align: bottom;
-        }
-    }
-
-    // * --middle
-    // * Vertically center items of a row.
-    // * ---------------------
-
-    @if(fdmt-grid(modifiers, middle) == true) {
-        #{$fdmt-grid--class-type}#{$fdmt-grid--namespace}--middle {
-            -webkit-align-items: center;
-            -ms-flex-align: center;
-            align-items: center;
-        }
-        #{$fdmt-grid--class-type}#{$fdmt-grid--namespace}--middle__#{$fdmt-grid--item} {
-            vertical-align: middle;
-        }
-    }
-
-    // * --top
-    // * Align items to top in flexbox(default: stretch)
-    // * ---------------------
-
-    @if(fdmt-grid(modifiers, top) == true) {
-        #{$fdmt-grid--class-type}#{$fdmt-grid--namespace}--top {
-            -webkit-align-items: flex-start;
-                -ms-align-items: flex-start;
-                    align-items: flex-start;
-
-        }
-        #{$fdmt-grid--class-type}#{$fdmt-grid--namespace}--top__#{$fdmt-grid--item} {
-            vertical-align: top;
-        }
-    }
-
-    // * --wide
-    // * Wider margins
-    // * ---------------------
-
-    @if(fdmt-grid(modifiers, wide) == true) {
-        #{$fdmt-grid--class-type}#{$fdmt-grid--namespace}--wide {
-            margin-left: -(fdmt-grid(settings,gutter) * 2 );
-        }
-        #{$fdmt-grid--class-type}#{$fdmt-grid--namespace}--wide__#{$fdmt-grid--item} {
-            padding-left: (fdmt-grid(settings,gutter) * 2 );
-        }
-    }
-
-    // * --narrow
-    // * Narrower margins.
-    // * ---------------------
-
-    @if(fdmt-grid(modifiers, narrow) == true) {
-        #{$fdmt-grid--class-type}#{$fdmt-grid--namespace}--narrow {
-            margin-left: -(fdmt-grid(settings,gutter) / 2);
-        }
-        #{$fdmt-grid--class-type}#{$fdmt-grid--namespace}--narrow__#{$fdmt-grid--item} {
-            padding-left: (fdmt-grid(settings,gutter) / 2);
-        }
-    }
-
-    // * --space-around
-    // * Align items by dynamic margins around (flexbox only)
-    // * ---------------------
-
-    @if(fdmt-grid(modifiers, space-around) == true) {
-        #{$fdmt-grid--class-type}#{$fdmt-grid--namespace}--space-around {
-            -webkit-justify-content: space-around;
-                -ms-justify-content: space-around;
-                    justify-content: space-around;
-        }
-    }
-
-    // * --space-between
-    // * Align items by dynamic margins between them (flexbox only)
-    // * ---------------------
-
-    @if(fdmt-grid(modifiers, space-between) == true) {
-        #{$fdmt-grid--class-type}#{$fdmt-grid--namespace}--space-between {
-            -webkit-justify-content: space-between;
-                -ms-justify-content: space-between;
-                    justify-content: space-between;
-        }
-    }
-
-    // * --even
-    // * Align items by dynamic margins between them, no widths needed (flexbox only)
-    // * ---------------------
-
-    @if(fdmt-grid(modifiers, even) == true) {
-
-        #{$fdmt-grid--class-type}#{$fdmt-grid--namespace}--even__#{$fdmt-grid--item} {
-            width: auto;
-            -webkit-flex: 1 1 auto;
-                -ms-flex: 1 1 auto;
-                    flex: 1 1 auto;
-        }
-    }
-
 }

@@ -15,235 +15,235 @@
 
 @mixin fdmt-grid--widths($property: "width", $prefix: "", $mq: "") {
 
-    $bp: #{$fdmt-grid--class-type}#{$prefix}#{$mq};
+    $fdmt-bp: #{$fdmt-grid--class-type}#{$prefix}#{$mq};
 
     // * Wholes
-    #{$bp}one-whole              { #{$property}: 100%; }
+    #{$fdmt-bp}one-whole              { #{$property}: 100%; }
 
     // * Halves
     @if(fdmt-grid(widths, halves) == true) {
         // * 1/2
-        #{$bp}one-half           { #{$property}: 50%; }
+        #{$fdmt-bp}one-half           { #{$property}: 50%; }
     }
 
     // * Thirds
     @if(fdmt-grid(widths, thirds) == true) {
         // * 1/3
-        #{$bp}one-third          { #{$property}: 33.333%; }
+        #{$fdmt-bp}one-third          { #{$property}: 33.333%; }
 
         // * 2/3
-        #{$bp}two-thirds         { #{$property}: 66.666%; }
+        #{$fdmt-bp}two-thirds         { #{$property}: 66.666%; }
     }
 
     // * Quarters
     @if(fdmt-grid(widths, quarters) == true) {
         // * 1/4
-        #{$bp}one-quarter        { #{$property}: 25%; }
+        #{$fdmt-bp}one-quarter        { #{$property}: 25%; }
 
         // * 2/4
         @if(fdmt-grid(widths, halves) == true) {
-            #{$bp}two-quarters   { @extend#{$bp}one-half }
+            #{$fdmt-bp}two-quarters   { @extend#{$fdmt-bp}one-half }
         } @else {
-            #{$bp}two-quarters   { #{$property}: 50%; }
+            #{$fdmt-bp}two-quarters   { #{$property}: 50%; }
         }
 
         // * 3/4
-        #{$bp}three-quarters     { #{$property}: 75%; }
+        #{$fdmt-bp}three-quarters     { #{$property}: 75%; }
     }
 
     // * Fifths
     @if(fdmt-grid(widths, fifths) == true) {
         // * 1/5
-        #{$bp}one-fifth          { #{$property}: 20%; }
+        #{$fdmt-bp}one-fifth          { #{$property}: 20%; }
 
         // * 2/5
-        #{$bp}two-fifths         { #{$property}: 40%; }
+        #{$fdmt-bp}two-fifths         { #{$property}: 40%; }
 
         // * 3/5
-        #{$bp}three-fifths       { #{$property}: 60%; }
+        #{$fdmt-bp}three-fifths       { #{$property}: 60%; }
 
         // * 4/5
-        #{$bp}four-fifths        { #{$property}: 80%; }
+        #{$fdmt-bp}four-fifths        { #{$property}: 80%; }
     }
 
     // * Sixths
     @if(fdmt-grid(widths, sixths) == true) {
         // * 1/6
-        #{$bp}one-sixth          { #{$property}: 16.666%; }
+        #{$fdmt-bp}one-sixth          { #{$property}: 16.666%; }
 
         // * 2/6
         @if(fdmt-grid(widths, thirds) == true) {
-           #{$bp}two-sixths      { @extend#{$bp}one-third }
+           #{$fdmt-bp}two-sixths      { @extend#{$fdmt-bp}one-third }
         } @else {
-           #{$bp}two-sixths      { #{$property}: 33.333% }
+           #{$fdmt-bp}two-sixths      { #{$property}: 33.333% }
         }
 
         // * 3/6
         @if(fdmt-grid(widths, halves) == true) {
-           #{$bp}three-sixths    { @extend#{$bp}one-half }
+           #{$fdmt-bp}three-sixths    { @extend#{$fdmt-bp}one-half }
         } @else {
-           #{$bp}three-sixths    { #{$property}: 50% }
+           #{$fdmt-bp}three-sixths    { #{$property}: 50% }
         }
 
         // * 4/6
         @if(fdmt-grid(widths, thirds) == true) {
-           #{$bp}four-sixths     { @extend#{$bp}two-thirds }
+           #{$fdmt-bp}four-sixths     { @extend#{$fdmt-bp}two-thirds }
         } @else {
-           #{$bp}four-sixths     { #{$property}: 66.666% }
+           #{$fdmt-bp}four-sixths     { #{$property}: 66.666% }
         }
 
         // * 5/6
-       #{$bp}five-sixths         { #{$property}: 83.333%; }
+       #{$fdmt-bp}five-sixths         { #{$property}: 83.333%; }
     }
 
     // * Eights
     @if(fdmt-grid(widths, eighths) == true) {
         // * 1/8
-        #{$bp}one-eighth         { #{$property}: 12.5%; }
+        #{$fdmt-bp}one-eighth         { #{$property}: 12.5%; }
 
         // * 2/8
         @if(fdmt-grid(widths, quarter) == true) {
-           #{$bp}two-eighths     { @extend#{$bp}one-quarter }
+           #{$fdmt-bp}two-eighths     { @extend#{$fdmt-bp}one-quarter }
         } @else {
-           #{$bp}two-eighths     { #{$property}: 25%; }
+           #{$fdmt-bp}two-eighths     { #{$property}: 25%; }
         }
 
         // * 3/8
-        #{$bp}three-eights       { #{$property}: 37.5%; }
+        #{$fdmt-bp}three-eights       { #{$property}: 37.5%; }
 
         // * 4/8
         @if(fdmt-grid(widths, halves) == true) {
-           #{$bp}four-eighths    { @extend#{$bp}one-half }
+           #{$fdmt-bp}four-eighths    { @extend#{$fdmt-bp}one-half }
         } @else {
-           #{$bp}four-eighths    { #{$property}: 50%; }
+           #{$fdmt-bp}four-eighths    { #{$property}: 50%; }
         }
 
         // * 5/8
-        #{$bp}five-eighths       { #{$property}: 62.5%; }
+        #{$fdmt-bp}five-eighths       { #{$property}: 62.5%; }
 
         // * 6/8
         @if(fdmt-grid(widths, quarters) == true) {
-           #{$bp}six-eighths     { @extend#{$bp}three-quarters }
+           #{$fdmt-bp}six-eighths     { @extend#{$fdmt-bp}three-quarters }
         } @else {
-           #{$bp}six-eighths     { #{$property}: 75%; }
+           #{$fdmt-bp}six-eighths     { #{$property}: 75%; }
         }
 
         // * 7/8
-        #{$bp}seven-eighths      { #{$property}: 87.5%; }
+        #{$fdmt-bp}seven-eighths      { #{$property}: 87.5%; }
     }
 
     // * Tenths
     @if(fdmt-grid(widths, tenths) == true) {
         // * 1/10
-        #{$bp}one-tenth          { #{$property}: 10%; }
+        #{$fdmt-bp}one-tenth          { #{$property}: 10%; }
 
         // * 2/10
         @if(fdmt-grid(widths, fifths) == true) {
-           #{$bp}two-tenths      { @extend#{$bp}one-fifth }
+           #{$fdmt-bp}two-tenths      { @extend#{$fdmt-bp}one-fifth }
         } @else {
-           #{$bp}two-tenths      { #{$property}: 20%; }
+           #{$fdmt-bp}two-tenths      { #{$property}: 20%; }
         }
 
         // * 3/10
-        #{$bp}three-tenths       { #{$property}: 30%; }
+        #{$fdmt-bp}three-tenths       { #{$property}: 30%; }
 
         // * 4/10
         @if(fdmt-grid(widths, fifths) == true) {
-           #{$bp}four-tenths     { @extend#{$bp}two-fifths }
+           #{$fdmt-bp}four-tenths     { @extend#{$fdmt-bp}two-fifths }
         } @else {
-           #{$bp}four-tenths     { #{$property}: 40%; }
+           #{$fdmt-bp}four-tenths     { #{$property}: 40%; }
         }
 
         // * 5/10
         @if(fdmt-grid(widths, halves) == true) {
-           #{$bp}five-tenths     { @extend#{$bp}one-half }
+           #{$fdmt-bp}five-tenths     { @extend#{$fdmt-bp}one-half }
         } @else {
-           #{$bp}five-tenths     { #{$property}: 50%; }
+           #{$fdmt-bp}five-tenths     { #{$property}: 50%; }
         }
 
         // * 6/10
         @if(fdmt-grid(widths, fifths) == true) {
-           #{$bp}six-tenths      { @extend#{$bp}three-fifths }
+           #{$fdmt-bp}six-tenths      { @extend#{$fdmt-bp}three-fifths }
         } @else {
-           #{$bp}six-tenths      { #{$property}: 60%; }
+           #{$fdmt-bp}six-tenths      { #{$property}: 60%; }
         }
 
         // * 7/10
-        #{$bp}seven-tenths       { #{$property}: 70%; }
+        #{$fdmt-bp}seven-tenths       { #{$property}: 70%; }
 
         // * 8/10
         @if(fdmt-grid(widths, fifths) == true) {
-           #{$bp}eight-tenths    { @extend#{$bp}four-fifths }
+           #{$fdmt-bp}eight-tenths    { @extend#{$fdmt-bp}four-fifths }
         } @else {
-           #{$bp}eight-tenths    { #{$property}: 80%; }
+           #{$fdmt-bp}eight-tenths    { #{$property}: 80%; }
         }
 
         // * 9/10
-        #{$bp}nine-tenths        { #{$property}: 90%; }
+        #{$fdmt-bp}nine-tenths        { #{$property}: 90%; }
     }
 
     // * Twelfths
     @if(fdmt-grid(widths, twelfths) == true) {
         // * 1/12
-        #{$bp}one-twelfth        { #{$property}: 8.333%; }
+        #{$fdmt-bp}one-twelfth        { #{$property}: 8.333%; }
 
         // * 2/12
         @if(fdmt-grid(widths, sixths) == true) {
-           #{$bp}two-twelfths    { @extend#{$bp}one-sixth }
+           #{$fdmt-bp}two-twelfths    { @extend#{$fdmt-bp}one-sixth }
         } @else {
-           #{$bp}two-twelfths    { #{$property}: 16.666%; }
+           #{$fdmt-bp}two-twelfths    { #{$property}: 16.666%; }
         }
 
         // * 3/12
         @if(fdmt-grid(widths, quarters) == true) {
-           #{$bp}three-twelfths  { @extend#{$bp}one-quarter }
+           #{$fdmt-bp}three-twelfths  { @extend#{$fdmt-bp}one-quarter }
         } @else {
-           #{$bp}three-twelfths  { #{$property}: 25% }
+           #{$fdmt-bp}three-twelfths  { #{$property}: 25% }
         }
 
         // * 4/12
         @if(fdmt-grid(widths, thirds) == true) {
-           #{$bp}four-twelfths   { @extend#{$bp}one-third }
+           #{$fdmt-bp}four-twelfths   { @extend#{$fdmt-bp}one-third }
         } @else {
-           #{$bp}four-twelfths   { #{$property}: 33.333% }
+           #{$fdmt-bp}four-twelfths   { #{$property}: 33.333% }
         }
 
         // * 5/12
-        #{$bp}five-twelfths      { #{$property}: 41.666% }
+        #{$fdmt-bp}five-twelfths      { #{$property}: 41.666% }
 
         // * 6/12
         @if(fdmt-grid(widths, halves) == true) {
-           #{$bp}six-twelfths    { @extend#{$bp}one-half }
+           #{$fdmt-bp}six-twelfths    { @extend#{$fdmt-bp}one-half }
         } @else {
-           #{$bp}six-twelfths    { #{$property}: 50% }
+           #{$fdmt-bp}six-twelfths    { #{$property}: 50% }
         }
 
         // * 7/12
-        #{$bp}seven-twelfths     { #{$property}: 58.333%; }
+        #{$fdmt-bp}seven-twelfths     { #{$property}: 58.333%; }
 
         // * 8/12
         @if(fdmt-grid(widths, thirds) == true) {
-           #{$bp}eight-twelfths  { @extend#{$bp}two-thirds }
+           #{$fdmt-bp}eight-twelfths  { @extend#{$fdmt-bp}two-thirds }
         } @else {
-           #{$bp}eight-twelfths  { #{$property}: 66.666% }
+           #{$fdmt-bp}eight-twelfths  { #{$property}: 66.666% }
         }
 
         // * 9/12
         @if(fdmt-grid(widths, quarters) == true) {
-           #{$bp}nine-twelfths   { @extend#{$bp}three-quarters }
+           #{$fdmt-bp}nine-twelfths   { @extend#{$fdmt-bp}three-quarters }
         } @else {
-           #{$bp}nine-twelfths   { #{$property}: 75% }
+           #{$fdmt-bp}nine-twelfths   { #{$property}: 75% }
         }
 
         // * 10/12
         @if(fdmt-grid(widths, sixths) == true) {
-           #{$bp}ten-twelfths    { @extend#{$bp}five-sixths }
+           #{$fdmt-bp}ten-twelfths    { @extend#{$fdmt-bp}five-sixths }
         } @else {
-           #{$bp}ten-twelfths    { #{$property}: 83.333%; }
+           #{$fdmt-bp}ten-twelfths    { #{$property}: 83.333%; }
         }
 
         // * 11/12
-        #{$bp}eleven-twelfths    { #{$property}: 91.666%; }
+        #{$fdmt-bp}eleven-twelfths    { #{$property}: 91.666%; }
     }
 
     // * Visibility Helpers
@@ -251,18 +251,18 @@
     // * ---------------------
 
     @if($prefix == "") {
-        $vs-bp: #{$fdmt-grid--class-type}#{$mq}#{$fdmt-grid--namespace};
+        $fdmt-vsbp: #{$fdmt-grid--class-type}#{$mq}#{$fdmt-grid--namespace};
         @if(fdmt-grid(visibility, hide) == true) {
-            #{$vs-bp}--hide,
-            #{$vs-bp}__#{$fdmt-grid--item}--hide {
+            #{$fdmt-vsbp}--hide,
+            #{$fdmt-vsbp}__#{$fdmt-grid--item}--hide {
                 display: none;
             }
         }
         @if(fdmt-grid(visibility, show) == true) {
-           #{$vs-bp}--show {
+           #{$fdmt-vsbp}--show {
                 display: block;
             }
-            #{$vs-bp}__#{$fdmt-grid--item}--show {
+            #{$fdmt-vsbp}__#{$fdmt-grid--item}--show {
                 display: inline-block;
             }
         }

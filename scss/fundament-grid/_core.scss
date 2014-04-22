@@ -32,24 +32,24 @@ $fdmt-grid--namespace: fdmt-grid(settings, namespace);
 
 $fdmt-grid--item: fdmt-grid(settings, item);
 
-// * mixin fdmt-grid--legacy-support($element: "parent"|"child")
-// * Provides legacy support for elements.
+// * mixin fdmt-grid--fallback-support($element: "parent"|"child")
+// * Provides fallback support for elements.
 // * [1] & [2]. Fix white-space on fallback-grid.
 // * [2]. Declare a font-family that the letter-spacing fix is sure to work on all known evironments.
 // *      See: https://github.com/yui/pure/issues/41
 // @type: mixin
-// @exports: fdmt-grid--legacy-support($element: "parent"|"child")
+// @exports: fdmt-grid--fallback-support($element: "parent"|"child")
 // * ---------------------
 
-@mixin fdmt-grid--legacy-support($element) {
+@mixin fdmt-grid--fallback-support($element) {
     @if($element == "parent") {
         letter-spacing: -.31em; //* [1] */
         font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif; //* [2] */
     } @elseif ($element == "child") {
         letter-spacing: normal;
         word-spacing: normal;
-        @if (fdmt-grid(legacy, custom-font) != false) {
-            font-family: unquote(fdmt-grid(legacy, grid-item-font)); //* [2] */
+        @if (fdmt-grid(fallback, custom-font) != false) {
+            font-family: unquote(fdmt-grid(fallback, grid-item-font)); //* [2] */
         }
     }
 }
@@ -76,7 +76,7 @@ $fdmt-grid--item: fdmt-grid(settings, item);
 // * [4]. Add a negative margin to negate first items padding (aligns grid)
 // *      !If you want to center a grid-parent with margin: auto, use `--full` to achieve symmetric centering!
 // * [5]. Firefox < 28 doesn't implement flex-flow correctly (...), fall back to `inline-block`.
-// * [6]. Include the fallback-grid if `fdmt-grid(legacy, use-fallback) is true
+// * [6]. Include the fallback-grid if `fdmt-grid(fallback, use-fallback) is true
 // * ---------------------
 
 #{$fdmt-grid--class-type}#{$fdmt-grid--namespace} {
@@ -91,19 +91,19 @@ $fdmt-grid--item: fdmt-grid(settings, item);
     margin-left: -(fdmt-grid(settings, gutter)); //* [4] */
     //* [5] */
     @supports not(flex-wrap: wrap) {
-        @include fdmt-grid--legacy-support("parent");
+        @include fdmt-grid--fallback-support("parent");
     }
     //* [6] */
-    @if(fdmt-grid(legacy, use-fallback) == true) {
-        @if(fdmt-grid(legacy, markup-fix) != true) {
-            @include fdmt-grid--legacy-support("parent");
+    @if(fdmt-grid(fallback, use-fallback) == true) {
+        @if(fdmt-grid(fallback, markup-fix) != true) {
+            @include fdmt-grid--fallback-support("parent");
         }
     }
 }
 
 // * [7] Opera < 12.1 Hack (may be removed soon) */
 
-@if (fdmt-grid(legacy, use-fallback) == true and fdmt-grid(legacy, use-markup-fix) != true) {
+@if (fdmt-grid(fallback, use-fallback) == true and fdmt-grid(fallback, use-markup-fix) != true) {
     .opera:-o-prefocus,
     #{$fdmt-grid--class-type}#{$fdmt-grid--namespace} {
         word-spacing: -.43em;
@@ -132,9 +132,9 @@ $fdmt-grid--item: fdmt-grid(settings, item);
         width: 100%;
     }
     @supports not(flex-wrap: wrap) {
-        @include fdmt-grid--legacy-support("child");
+        @include fdmt-grid--fallback-support("child");
     }
-    @if(fdmt-grid(legacy, use-fallback) == true and fdmt-grid(legacy, use-markup-fix) != true) {
-            @include fdmt-grid--legacy-support("child");
+    @if(fdmt-grid(fallback, use-fallback) == true and fdmt-grid(fallback, use-markup-fix) != true) {
+            @include fdmt-grid--fallback-support("child");
     }
 }

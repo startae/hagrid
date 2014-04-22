@@ -5,7 +5,7 @@
 // @contains:
 // @  1. fdmt-grid--widths()
 // @    1. Widths (wholes-twelfths)
-// @    2. Visibility Helpers
+// @    2. visibility Helpers
 // * ---------------------
 
 // * fdmt-grid--widths
@@ -252,13 +252,13 @@
 
     @if($prefix == "") {
         $fdmt-vsbp: #{$fdmt-grid--class-type}#{$mq}#{$fdmt-grid--namespace};
-        @if(fdmt-grid(visibility, hide) == true) {
+        @if(fdmt-grid(visibility-helper, hide) == true) {
             #{$fdmt-vsbp}--hide,
             #{$fdmt-vsbp}__#{$fdmt-grid--item}--hide {
                 display: none;
             }
         }
-        @if(fdmt-grid(visibility, show) == true) {
+        @if(fdmt-grid(visibility-helper, show) == true) {
            #{$fdmt-vsbp}--show {
                 display: block;
             }

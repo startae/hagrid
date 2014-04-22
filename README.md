@@ -114,6 +114,8 @@ Assuming the defaults, you can use the grid like this:
 
 ```
 
+> If using the CSS-version from dist, don't forget to reset the font-family on `grid__item`!
+
 ```html
 
 <section class="grid  grid--rev">

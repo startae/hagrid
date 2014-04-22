@@ -58,7 +58,7 @@ $fdmt-grid: (
 
     // * Settings for the fallback-grid
 
-    legacy:(
+    fallback:(
         // * Do you want to use the fallback `inline-block`-grid? (FF<28 gets it anyways due to flex-box bugs)
         use-fallback:     true,
         // * Set to true if you intend to fix the white-space behaviour in markup. If false, the `letter-spacing`fix will be used
@@ -115,9 +115,9 @@ $fdmt-grid: (
         twelfths:       true
     ),
 
-    // * Visibility helpers
+    // * Visibility Helpers
 
-    visibility: (
+    visibility-helper: (
         show:           true, // * will generate --show && __#{$fdmt-grid--item}--show classes for each breakpoint
         hide:           true  // * will generate --hide && __#{$fdmt-grid--item}--hide classes for each breakpoint
     )

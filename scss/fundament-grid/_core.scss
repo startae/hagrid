@@ -120,7 +120,7 @@ $fdmt-grid--item: fdmt-grid(settings, item);
 // * [7]. Reinstate letter-spacing on fallback-grid
 // * ---------------------
 
-#{$fdmt-grid--class-type}#{$fdmt-grid--namespace}__#{$fdmt-grid--item} {
+#{$fdmt-grid--class-type}#{$fdmt-grid--namespace}-#{$fdmt-grid--item} {
     display: inline-block;                             //* [1] */
     @include fdmt-grid--flex-support();                //* [2] */
     padding-left: fdmt-grid(settings, gutter);         //* [3] */

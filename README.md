@@ -105,7 +105,7 @@ $fdmt-grid: (
 
 ### Basic Usage:
 
-The grid system is built on a BEM-synthax. (core--variant__sub-item) For a full list of avaiable modifiers and widths, look into the wiki (tbd) or use the inline documentation.
+The grid system is built on a BEM-synthax. (breakpoint--core-sub--modifier) For a full list of avaiable modifiers and widths, look into the wiki (tbd) or use the inline documentation.
 
 #### Synthax-Reference:
 
@@ -120,12 +120,12 @@ The grid system is built on a BEM-synthax. (core--variant__sub-item) For a full 
 
 /* Child */
 
-.grid__item {}
+.grid-item {}
 
 /* Modifiers */
 
 .grid--modifier {}
-.grid--modifier__item {}
+.grid-item--modifier {}
 
 /* Widths */
 
@@ -148,10 +148,10 @@ Working with the grid in markup looks like this:
 ```html
 
 <section class="grid  grid--rev">
-    <article class="grid__item  grid--rev__item  one-half  desk--one-third">
+    <article class="grid-item  grid-item--rev  one-half  desk--one-third">
         Something
     </article>
-    <article class="grid__item  grid--rev__item  one-half  desk--one-third">
+    <article class="grid-item  grid-item--rev  one-half  desk--one-third">
         Something
     </article>
 </section>
@@ -171,8 +171,8 @@ With silent classes set to true, you can use the grid like this:
 }
 
 .image-grid figure {
-    @extend %grid__item;
-    @extend %grid--rev__item;
+    @extend %grid-item;
+    @extend %grid-item--rev;
     @extend %one-half;
     @extend %desk--one-third;
 }
@@ -188,8 +188,8 @@ If you are using SCSS but want to have the option to apply the classes to markup
 }
 
 .image-grid figure {
-    @extend .grid__item;
-    @extend .grid--rev__item;
+    @extend .grid-item;
+    @extend .grid-item--rev;
     @extend .one-half;
     @extend .desk--one-third;
 }
@@ -206,10 +206,10 @@ Example task: Build a grid of 2 items that each take the whole screen on mobile,
 
 ```html
 <section class="grid">
-    <article class="grid__item  one-whole  lap--one-third  desk--one-quarter">
+    <article class="grid-item  one-whole  lap--one-third  desk--one-quarter">
         <p>Some Content</p>
     </article>
-    <article class="grid__item  one-whole  lap--two-thirds  desk--three-quarters">
+    <article class="grid-item  one-whole  lap--two-thirds  desk--three-quarters">
         <p>Some Content</p>
     </article>
 </section>
@@ -223,14 +223,14 @@ or
 }
 
 .item-1 {
-    @extend %grid__item;
+    @extend %grid-item;
     @extend %one-whole;
     @extend %lap--one-third;
     @extend %desk--one-quarter;
 }
 
 .item-1 {
-    @extend %grid__item;
+    @extend %grid-item;
     @extend %one-whole;
     @extend %lap--two-thirds;
     @extend %desk--three-quarters;
@@ -240,18 +240,18 @@ or
 
 ### Using modifiers:
 
-Modifiers get applied to the grid and grid__item's to use modifications of the grid. For a full list and demos, check `test/index.html`.
+Modifiers get applied to the grid and grid-item's to use modifications of the grid. For a full list and demos, check `test/index.html`.
 
-If you want to use them, the synthax is easy and memorable. Just add `grid--modifier` to the grid-container (you still have to add `grid`, but this may change in a future relase) and `grid--modifier__item` to each item in the modified container.
+If you want to use them, the synthax is easy and memorable. Just add `grid--modifier` to the grid-container (you still have to add `grid`, but this may change in a future relase) and `grid-item--modifier` to each item in the modified container.
 
 Example: Using the --narrow modifier.
 
 ```html
 <section class="grid  grid--narrow">
-    <article class="grid__item  grid--narrow__item  one-third">
+    <article class="grid-item  grid-item--narrow  one-third">
         <p>Some Content</p>
     </article>
-    <article class="grid__item  grid--narrow__item  two-thirds">
+    <article class="grid-item  grid-item--narrow  two-thirds">
         <p>Some Content</p>
     </article>
 </section>
@@ -266,14 +266,14 @@ or
 }
 
 .item-1 {
-    @extend %grid__item;
-    @extend %grid--narrow__item;
+    @extend %grid-item;
+    @extend %grid-item--narrow;
     @extend %one-third;
 }
 
 .item-1 {
-    @extend %grid__item;
-    @extend %grid--narrow__item;
+    @extend %grid-item;
+    @extend %grid-item--narrow;
     @extend %two-thirds;
 }
 
@@ -281,15 +281,15 @@ or
 
 ### Using the generated grid in `/dist`:
 
-This repo includes a pre-built version of the grid. To use this version, please make sure to re-set your font-family on `grid__item`(used for inline-block grid) like this:
+This repo includes a pre-built version of the grid. To use this version, please make sure to re-set your font-family on `grid-item`(used for inline-block grid) like this:
 
 ```css
-.grid__item {
+.grid-item {
     font-family: /* Your font-family */;
 }
 ```
 
-This version is built with the `mobile first`-setting to true, which means that you do not have to set `one-whole` on grid__items because it gets applied by default.
+This version is built with the `mobile first`-setting to true, which means that you do not have to set `one-whole` on grid-items because it gets applied by default.
 
 ## Browser Support:
 

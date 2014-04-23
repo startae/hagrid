@@ -33,7 +33,7 @@
 .grid {
   word-spacing: -.43em; }
 
-.grid__item {
+.grid-item {
   display: inline-block;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -51,64 +51,64 @@
   word-spacing: normal;
   font-family: "Helvetica Neue", Arial, sans-serif; }
   @supports not (flex-wrap: wrap) {
-    .grid__item {
+    .grid-item {
       letter-spacing: normal;
       word-spacing: normal;
       font-family: "Helvetica Neue", Arial, sans-serif; } }
 
 .grid--full {
   margin-left: 0; }
-  .grid--full__item {
-    padding-left: 0; }
+.grid-item--full {
+  padding-left: 0; }
 .grid--rev {
   direction: rtl;
   -webkit-flex-flow: wrap-reverse row;
   -ms-flex-flow: wrap-reverse row;
   flex-flow: wrap-reverse row;
   text-align: left; }
-  .grid--rev__item {
-    direction: ltr;
-    text-align: left; }
+.grid-item--rev {
+  direction: ltr;
+  text-align: left; }
 .grid--center {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
   text-align: center; }
-  .grid--center__item {
-    text-align: left; }
+.grid-item--center {
+  text-align: left; }
 .grid--right {
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
   justify-content: flex-end;
   text-align: right; }
-  .grid--right__item {
-    text-align: left; }
+.grid-item--right {
+  text-align: left; }
 .grid--bottom {
   -webkit-align-items: flex-end;
   -ms-flex-align: end;
   align-items: flex-end; }
-  .grid--bottom__item {
-    vertical-align: bottom; }
+.grid-item--bottom {
+  vertical-align: bottom; }
 .grid--middle {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center; }
-  .grid--middle__item {
-    vertical-align: middle; }
+.grid-item--middle {
+  vertical-align: middle; }
 .grid--top {
   -webkit-align-items: flex-start;
   -ms-align-items: flex-start;
   align-items: flex-start; }
-  .grid--top__item {
-    vertical-align: top; }
+.grid-item--top {
+  vertical-align: top; }
 .grid--wide {
   margin-left: -48px; }
-  .grid--wide__item {
-    padding-left: 48px; }
+.grid-item--wide {
+  padding-left: 48px; }
 .grid--narrow {
   margin-left: -12px; }
-  .grid--narrow__item {
-    padding-left: 12px; }
+.grid-item--narrow {
+  padding-left: 12px; }
 .grid--space-around {
   -webkit-justify-content: space-around;
   -ms-justify-content: space-around;
@@ -117,7 +117,7 @@
   -webkit-justify-content: space-between;
   -ms-justify-content: space-between;
   justify-content: space-between; }
-.grid--even__item {
+.grid-item--even {
   width: auto;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
@@ -199,13 +199,13 @@
   width: 91.666%; }
 
 .grid--hide,
-.grid__item--hide {
+.grid-item--hide {
   display: none; }
 
 .grid--show {
   display: block; }
 
-.grid__item--show {
+.grid-item--show {
   display: inline-block; }
 
 @media only screen and (max-width: 480px) {
@@ -285,13 +285,13 @@
     width: 91.666%; }
 
   .palm--grid--hide,
-  .palm--grid__item--hide {
+  .palm--grid-item--hide {
     display: none; }
 
   .palm--grid--show {
     display: block; }
 
-  .palm--grid__item--show {
+  .palm--grid-item--show {
     display: inline-block; } }
 @media only screen and (min-width: 481px) {
   .lap--one-whole {
@@ -370,13 +370,13 @@
     width: 91.666%; }
 
   .lap--grid--hide,
-  .lap--grid__item--hide {
+  .lap--grid-item--hide {
     display: none; }
 
   .lap--grid--show {
     display: block; }
 
-  .lap--grid__item--show {
+  .lap--grid-item--show {
     display: inline-block; } }
 @media only screen and (min-width: 1024px) {
   .desk--one-whole {
@@ -455,13 +455,13 @@
     width: 91.666%; }
 
   .desk--grid--hide,
-  .desk--grid__item--hide {
+  .desk--grid-item--hide {
     display: none; }
 
   .desk--grid--show {
     display: block; }
 
-  .desk--grid__item--show {
+  .desk--grid-item--show {
     display: inline-block; } }
 @media only screen and (min-width: 1500px) {
   .high--one-whole {
@@ -540,13 +540,13 @@
     width: 91.666%; }
 
   .high--grid--hide,
-  .high--grid__item--hide {
+  .high--grid-item--hide {
     display: none; }
 
   .high--grid--show {
     display: block; }
 
-  .high--grid__item--show {
+  .high--grid-item--show {
     display: inline-block; } }
 [class*="push--"] {
   position: relative; }

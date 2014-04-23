@@ -254,7 +254,7 @@
         $fdmt-vsbp: #{$fdmt-grid--class-type}#{$mq}#{$fdmt-grid--namespace};
         @if(fdmt-grid(visibility-helper, hide) == true) {
             #{$fdmt-vsbp}--hide,
-            #{$fdmt-vsbp}__#{$fdmt-grid--item}--hide {
+            #{$fdmt-vsbp}-#{$fdmt-grid--item}--hide {
                 display: none;
             }
         }
@@ -262,7 +262,7 @@
            #{$fdmt-vsbp}--show {
                 display: block;
             }
-            #{$fdmt-vsbp}__#{$fdmt-grid--item}--show {
+            #{$fdmt-vsbp}-#{$fdmt-grid--item}--show {
                 display: inline-block;
             }
         }

@@ -9,11 +9,9 @@
 
 // * Require gulp modules
 
-var gulp          = require("gulp"),
-    cssmin        = require("gulp-minify-css"),
-    plumber       = require("gulp-plumber"),
-    rename        = require("gulp-rename"),
-    sass          = require("gulp-ruby-sass");
+var gulp   = require("gulp"),
+    rename = require("gulp-rename"),
+    sass   = require("gulp-ruby-sass");
 
 // * scss
 // * 1. handle errors
@@ -26,8 +24,7 @@ var gulp          = require("gulp"),
 
 gulp.task("sass", function () {
   gulp.src("scss/fundament-grid.scss")
-    .pipe(plumber({errorHandler: function(){console.log("Exiting")}}))
-    .pipe(sass({noCache: true}))
+    .pipe(sass())
     .pipe(rename("fundament-grid.css"))
     .pipe(gulp.dest("./dist"));
 });

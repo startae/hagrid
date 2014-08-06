@@ -6,9 +6,9 @@
     "url": "https://github.com/felics/fundament.grid"
   },
   "dependencies": {
-    "gulp": "^3.6.0",
+    "gulp": "^3.8.7",
+    "gulp-plumber": "^0.6.4",
     "gulp-rename": "^1.2.0",
-    "gulp-ruby-sass": "^0.4.1",
-    "gulp-plumber": "^0.6.1"
+    "gulp-ruby-sass": "^0.7.1"
   }
 }

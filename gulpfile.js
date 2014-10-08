@@ -11,6 +11,7 @@
 
 var gulp   = require("gulp"),
     rename = require("gulp-rename"),
+    prefix = require("gulp-autoprefixer"),
     sass   = require("gulp-ruby-sass");
 
 // * scss
@@ -25,6 +26,9 @@ var gulp   = require("gulp"),
 gulp.task("sass", function () {
   gulp.src("scss/fundament-grid.scss")
     .pipe(sass())
+    .pipe(prefix({
+        browsers: ["last 1 version", "Explorer >= 4.4"]
+    }))
     .pipe(rename("fundament-grid.css"))
     .pipe(gulp.dest("./dist"));
 });

@@ -42,8 +42,6 @@
         @if(fdmt-grid(modifiers, rev) == true) {
             &--rev {
                 direction: rtl;
-                -webkit-flex-flow: wrap-reverse row;
-                -ms-flex-flow: wrap-reverse row;
                 flex-flow: wrap-reverse row;
                 text-align: left;
             }
@@ -59,8 +57,6 @@
 
         @if(fdmt-grid(modifiers, center) == true) {
             &--center {
-                -webkit-justify-content: center;
-                -ms-flex-pack: center;
                 justify-content: center;
                 text-align: center;
             }
@@ -75,8 +71,6 @@
 
         @if(fdmt-grid(modifiers, right) == true) {
             &--right {
-                -webkit-justify-content: flex-end;
-                -ms-flex-pack: end;
                 justify-content: flex-end;
                 text-align: right;
             }
@@ -91,8 +85,6 @@
 
         @if(fdmt-grid(modifiers, bottom) == true) {
             &--bottom {
-                -webkit-align-items: flex-end;
-                -ms-flex-align: end;
                 align-items: flex-end;
             }
             &-#{$fdmt-grid--item}--bottom {
@@ -106,8 +98,6 @@
 
         @if(fdmt-grid(modifiers, middle) == true) {
             &--middle {
-                -webkit-align-items: center;
-                -ms-flex-align: center;
                 align-items: center;
             }
             &-#{$fdmt-grid--item}--middle {
@@ -121,9 +111,7 @@
 
         @if(fdmt-grid(modifiers, top) == true) {
             &--top {
-                -webkit-align-items: flex-start;
-                    -ms-align-items: flex-start;
-                        align-items: flex-start;
+                align-items: flex-start;
             }
             &-#{$fdmt-grid--item}--top {
                 vertical-align: top;
@@ -162,9 +150,7 @@
 
         @if(fdmt-grid(modifiers, space-around) == true) {
             &--space-around {
-                -webkit-justify-content: space-around;
-                    -ms-justify-content: space-around;
-                        justify-content: space-around;
+                justify-content: space-around;
             }
         }
 
@@ -174,9 +160,7 @@
 
         @if(fdmt-grid(modifiers, space-between) == true) {
             &--space-between {
-                -webkit-justify-content: space-between;
-                    -ms-justify-content: space-between;
-                        justify-content: space-between;
+                justify-content: space-between;
             }
         }
 
@@ -187,9 +171,7 @@
         @if(fdmt-grid(modifiers, even) == true) {
             &-#{$fdmt-grid--item}--even {
                 width: auto;
-                -webkit-flex: 1 1 auto;
-                    -ms-flex: 1 1 auto;
-                        flex: 1 1 auto;
+                flex: 1 1 auto;
             }
         }
     }

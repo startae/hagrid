@@ -61,12 +61,8 @@ $fdmt-grid--item: fdmt-grid(settings, item);
 // * ---------------------
 
 @mixin fdmt-grid--flex-support(){
-    display: -webkit-flex;                             //* [1] */
-    display: -ms-flexbox;                              //* [1] */
     display: flex;                                     //* [1] */
-    -webkit-flex-flow: row wrap;                       //* [1] */
-        -ms-flex-flow: row wrap;                       //* [1] */
-            flex-flow: row wrap;                       //* [1] */
+    flex-flow: row wrap;                               //* [1] */
 }
 
 // * Grid Parent
@@ -82,9 +78,7 @@ $fdmt-grid--item: fdmt-grid(settings, item);
 #{$fdmt-grid--class-type}#{$fdmt-grid--namespace} {
     display: block;
     @include fdmt-grid--flex-support();
-    -webkit-flex: 1 1 100%;                      //* [1] */
-        -ms-flex: 1 1 100%;                      //* [1] */
-            flex: 1 1 100%;                      //* [1] */
+    flex: 1 1 100%;                              //* [1] */
     list-style: none;                            //* [2] */
     margin: 0;                                   //* [3] */
     padding: 0;                                  //* [3] */
@@ -125,9 +119,7 @@ $fdmt-grid--item: fdmt-grid(settings, item);
     @include fdmt-grid--flex-support();                //* [2] */
     padding-left: fdmt-grid(settings, gutter);         //* [3] */
     vertical-align: top;                               //* [4] */
-    -webkit-box-sizing: border-box;                    //* [5] */
-       -moz-box-sizing: border-box;                    //* [5] */
-            box-sizing: border-box;                    //* [5] */
+    box-sizing: border-box;                            //* [5] */
     @if(fdmt-grid(settings, mobile-first) == true) {   //* [6] */
         width: 100%;
     }

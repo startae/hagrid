@@ -83,6 +83,7 @@ $fdmt-grid--item: fdmt-grid(settings, item);
     margin: 0;                                   //* [3] */
     padding: 0;                                  //* [3] */
     margin-left: -(fdmt-grid(settings, gutter)); //* [4] */
+    align-items: flex-start;
     //* [5] */
     @supports not(flex-wrap: wrap) {
         @include fdmt-grid--fallback-support("parent");

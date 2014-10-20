@@ -86,14 +86,14 @@
         </article>
     </section>
     <h2>Nesting</h2>
-    <section class="grid">
+    <section class="grid  grid--stretch">
         <article class="grid-item  one-half">
                 <p>Nesting</p>
-                <div class="grid">
+                <div class="grid  grid--stretch">
                     <div class="grid-item  one-half"><p>Nested 1/2 in 1/2</p></div>
                     <div class="grid-item  one-half"><p>Nested 1/2 in 1/2</p></div>
                 </div>
-                <div class="grid">
+                <div class="grid  grid--stretch">
                     <div class="grid-item  one-third"><p>Nested 1/3 in 1/2</p></div>
                     <div class="grid-item  one-third"><p>Nested 1/3 in 1/2</p></div>
                     <div class="grid-item  one-third"><p>Nested 1/3 in 1/2</p></div>
@@ -221,8 +221,20 @@
                 <p>A long text that is somewhat boring to read, though incredibly important to demonstrate this behaviour –much like 90% of science papers. What the fuck did I just read.</p>
             </article>
         </section>
-        <h3>Vertically aligned to bottom grid (--top)</h3>
-        <section class="grid  grid--top">
+        <h3>Vertically stretch grid (--stretch)</h3>
+        <section class="grid  grid--stretch">
+            <article class="grid-item  grid-item--stretch  grid-item--top one-third">
+                <p>A long text that is somewhat boring to read, though incredibly important to demonstrate this behaviour –much like 90% of science papers. What the fuck did I just read.</p>
+            </article>
+            <article class="grid-item  grid-item--stretch  grid-item--top one-third">
+                <p>A short text</p>
+            </article>
+            <article class="grid-item  grid-item--stretch  grid-item--top one-third">
+                <p>A long text that is somewhat boring to read, though incredibly important to demonstrate this behaviour –much like 90% of science papers. What the fuck did I just read.</p>
+            </article>
+        </section>
+        <h3>Vertically align to top (default)</h3>
+        <section class="grid">
             <article class="grid-item  grid-item--top one-third">
                 <p>A long text that is somewhat boring to read, though incredibly important to demonstrate this behaviour –much like 90% of science papers. What the fuck did I just read.</p>
             </article>

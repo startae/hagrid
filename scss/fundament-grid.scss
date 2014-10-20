@@ -90,8 +90,10 @@ $fdmt-grid: (
         bottom:         true,
         // * include --middle (vertically-center grid)
         middle:         true,
-        // * include --top (vertically stretch)
+        // * include --top (vertically align to top)
         top:            true,
+        // * include --stretch (vertically stretch grid-items)
+        stretch:        true,
         // * include --space-around (flex-only)
         space-around:   true,
         // * include --space-between (flex-only)

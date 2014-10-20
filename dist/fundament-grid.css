@@ -22,6 +22,9 @@
   margin: 0;
   padding: 0;
   margin-left: -24px;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   letter-spacing: -.31em;
   font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif; }
   @supports not ((-webkit-flex-wrap: wrap) or (-ms-flex-wrap: wrap) or (flex-wrap: wrap)) {
@@ -87,17 +90,27 @@
           align-items: flex-end; }
 .grid-item--bottom {
   vertical-align: bottom; }
+.grid--top {
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start; }
+.grid-item--top {
+  vertical-align: top; }
 .grid--middle {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center; }
 .grid-item--middle {
   vertical-align: middle; }
-.grid--top {
-  -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-          align-items: flex-start; }
-.grid-item--top {
+.grid--stretch {
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch; }
+  .grid--stretch img {
+    -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+            align-items: flex-start; }
+.grid-item--stretch {
   vertical-align: top; }
 .grid--wide {
   margin-left: -48px; }

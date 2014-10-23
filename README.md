@@ -279,6 +279,8 @@ or
 
 ```
 
+**Discrepancy**: `grid--stretch` needs flex-box to be set on the child. This causes block-elements inside `grid-item--stretch` to not fill the container by default. Be sure to re-set the width!
+
 ### Using the generated grid in `/dist`:
 
 This repo includes a pre-built version of the grid. To use this version, please make sure to re-set your font-family on `grid-item`(used for inline-block grid) like this:
@@ -306,13 +308,13 @@ Tested (could work on earlier versions, glad to accept PR's after tests):
 ## Credit:
 
  - Syntax inspired by Harry Roberts' [csswizardry-grids](https://github.com/csswizardry/csswizardry-grids)
- - Font-family improvement for letter-spacing fix by [yui/pure](https://github.com/yui/pure) (c)2014 Yahoo Inc.
+ - Font-family improvement for letter-spacing fix by [yui/pure](https://github.com/yui/pure) © 2014 Yahoo Inc.
 
 ## License:
 
 The MIT License (MIT)
 
-Copyright (c) **2014 Felix Spöttel**
+Copyright © **2014 Felix Spöttel**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

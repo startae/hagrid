@@ -29,6 +29,9 @@ article {
     color: #ecf0f1;
     border: .125em solid #ecf0f1;
     padding: 1.5em;
+}
+
+.grid-item--stretch p {
     width: 100%;
 }
 

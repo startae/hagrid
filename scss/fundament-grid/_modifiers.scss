@@ -128,6 +128,7 @@
                 }
             }
             &-#{$fdmt-grid--item}--stretch {
+                @include fdmt-grid--flex-support();
                 vertical-align: top;
             }
         }

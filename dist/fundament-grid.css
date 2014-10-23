@@ -38,12 +38,6 @@
 
 .grid-item {
   display: inline-block;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
   padding-left: 24px;
   vertical-align: top;
   box-sizing: border-box;
@@ -111,6 +105,12 @@
         -ms-flex-align: start;
             align-items: flex-start; }
 .grid-item--stretch {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
   vertical-align: top; }
 .grid--wide {
   margin-left: -48px; }

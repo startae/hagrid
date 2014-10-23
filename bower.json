@@ -1,8 +1,8 @@
 {
   "name": "fundament.grid",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "authors": [
-    "felics <fspoettel@gmail.com>"
+    "felics <hi@felics.me>"
   ],
   "description": "A flexbox-first, semantic and customizable scss grid system with a robust inline-block fallback.",
   "main": "fundament.scss",

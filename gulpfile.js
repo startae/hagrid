@@ -24,8 +24,7 @@ var gulp   = require("gulp"),
 // * ---------------------
 
 gulp.task("sass", function () {
-  gulp.src("scss/fundament-grid.scss")
-    .pipe(sass({noCache:true, 'sourcemap=none': true}))
+  return sass("scss/fundament-grid.scss", {sourcemap: false})
     .pipe(prefix({
         browsers: ["last 1 version", "Explorer >= 10", "Android >= 4.4"]
     }))

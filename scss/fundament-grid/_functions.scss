@@ -17,7 +17,7 @@
     @if($group and $setting) {
         @return map-get(map-get($fdmt-grid, $group), $setting);
     } @else {
-        @warn "Setting #{$setting} does not exist under #{$group}!";
+        @error "Setting #{$setting} does not exist under #{$group}!";
         @return false;
     }
 }
@@ -73,8 +73,6 @@
 
     // * Get all breakpoints
     $fdmt-grid--breakpoints: map-get($fdmt-grid, breakpoints);
-    // * Test-boolean
-    $breakpoint--ok: false;
 
     // * Build a mq for each breakpoint and include prefixed-widths for this
     @each $breakpoint in $fdmt-grid--breakpoints {
@@ -88,7 +86,7 @@
                 @include fdmt-grid--widths($value, $prefix, '#{$name}--');
             }
         } @else {
-            @warn "Your breakpoint #{$name} is not alright.";
+            @error "Your breakpoint #{$name} is not alright.";
         }
     }
 }

@@ -20,7 +20,7 @@
 
 @if(fdmt-grid(modifiers, use-modifiers) == true) {
 
-    #{$fdmt-grid--class-type}#{$fdmt-grid--namespace} {
+    #{$fdmt-grid--type}#{$fdmt-grid--name} {
 
         // * --full
         // * Full-width grid without any margins & padding.

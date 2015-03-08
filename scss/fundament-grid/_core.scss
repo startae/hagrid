@@ -8,22 +8,22 @@
 // @  3. Core SCSS
 // * ---------------------
 
-// * $fdmt-grid--class-type
+// * $fdmt-grid--type
 // * This sets the class-type either to normal or silent classes. (Based on `fdmt-grid(settings, silent-classes)`)
 // * ---------------------
 
-$fdmt-grid--class-type: unquote(".");
+$fdmt-grid--type: unquote(".");
 
 @if (fdmt-grid(settings, silent-classes) == true){
-    $fdmt-grid--class-type: unquote("%")!global;
+    $fdmt-grid--type: unquote("%")!global;
 }
 
-// * $fdmt-grid--namespace
+// * $fdmt-grid--name
 // * This sets the namespace for grid-classes and modifiers to `fdmt-grid(settings, namespace)`
 // * e.g. if set to "grid", the classes will be `grid`, `grid__#{$fdmt-grid--item}`, `grid--modifier`, `grid__#{$fdmt-grid--item}--modifier`
 // * ---------------------
 
-$fdmt-grid--namespace: fdmt-grid(settings, namespace);
+$fdmt-grid--name: fdmt-grid(settings, namespace);
 
 // * $fdmt-grid--item
 // * This sets the name that gets appended for child-items (parent__child)
@@ -44,6 +44,7 @@ $fdmt-grid--item: fdmt-grid(settings, item);
 @mixin fdmt-grid--fallback-support($element) {
     @if($element == "parent") {
         letter-spacing: -.31em; //* [1] */
+        word-spacing: -0.43em;
         font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif; //* [2] */
     } @elseif ($element == "child") {
         letter-spacing: normal;
@@ -75,7 +76,7 @@ $fdmt-grid--item: fdmt-grid(settings, item);
 // * [6]. Include the fallback-grid if `fdmt-grid(fallback, use-fallback) is true
 // * ---------------------
 
-#{$fdmt-grid--class-type}#{$fdmt-grid--namespace} {
+#{$fdmt-grid--type}#{$fdmt-grid--name} {
     display: block;
     @include fdmt-grid--flex-support();
     flex: 1 1 100%;                              //* [1] */
@@ -100,7 +101,7 @@ $fdmt-grid--item: fdmt-grid(settings, item);
 
 @if (fdmt-grid(fallback, use-fallback) == true and fdmt-grid(fallback, use-markup-fix) != true) {
     .opera:-o-prefocus,
-    #{$fdmt-grid--class-type}#{$fdmt-grid--namespace} {
+    #{$fdmt-grid--type}#{$fdmt-grid--name} {
         word-spacing: -.43em;
     }
 }
@@ -115,7 +116,7 @@ $fdmt-grid--item: fdmt-grid(settings, item);
 // * [7]. Reinstate letter-spacing on fallback-grid
 // * ---------------------
 
-#{$fdmt-grid--class-type}#{$fdmt-grid--namespace}-#{$fdmt-grid--item} {
+#{$fdmt-grid--type}#{$fdmt-grid--name}-#{$fdmt-grid--item} {
     display: inline-block;                             //* [1] */
     padding-left: fdmt-grid(settings, gutter);         //* [3] */
     vertical-align: top;                               //* [4] */

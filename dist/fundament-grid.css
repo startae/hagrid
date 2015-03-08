@@ -2,7 +2,7 @@
 /* Fundament Grid System
 // * ---------------------
 // * A flexbox-first, semantic and customizable scss grid system with a robust inline-block fallback.
-// * For documentation, see: https://github.com/felics/fundament/wiki
+// * For documentation, see: https://github.com/felics/fundament.grid
 // * Syntax inspired by Harry Roberts' csswizardry-grids: https://github.com/csswizardry/csswizardry-grids
 // * Font-family improvement for letter-spacing fix by yui/pure, copyright 2014 yahoo inc.
 // * MIT LICENSE (c) 2014 Felix Spöttel
@@ -26,10 +26,12 @@
       -ms-flex-align: start;
           align-items: flex-start;
   letter-spacing: -.31em;
+  word-spacing: -0.43em;
   font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif; }
   @supports not ((-webkit-flex-wrap: wrap) or (-ms-flex-wrap: wrap) or (flex-wrap: wrap)) {
     .grid {
       letter-spacing: -.31em;
+      word-spacing: -0.43em;
       font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif; } }
 
 .opera:-o-prefocus,

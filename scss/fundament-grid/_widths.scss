@@ -15,7 +15,7 @@
 
 @mixin fdmt-grid--widths($property: "width", $prefix: "", $mq: "") {
 
-    $fdmt-bp: #{$fdmt-grid--class-type}#{$prefix}#{$mq};
+    $fdmt-bp: #{$fdmt-grid--type}#{$prefix}#{$mq};
 
     // * Wholes
     #{$fdmt-bp}one-whole              { #{$property}: 100%; }
@@ -251,7 +251,7 @@
     // * ---------------------
 
     @if($prefix == "") {
-        $fdmt-vsbp: #{$fdmt-grid--class-type}#{$mq}#{$fdmt-grid--namespace};
+        $fdmt-vsbp: #{$fdmt-grid--type}#{$mq}#{$fdmt-grid--name};
         @if(fdmt-grid(visibility-helper, hide) == true) {
             #{$fdmt-vsbp}--hide,
             #{$fdmt-vsbp}-#{$fdmt-grid--item}--hide {

@@ -1,395 +1,89 @@
-<!DOCTYPE html>
-<html class="no-js" lang="en">
-<head>
-    <title>Fundament Grid System</title>
-    <meta name="description" content="" />
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../dist/fundament-grid.css">
-    <link rel="stylesheet" href="css/test.css">
-    <script src="js/lib/modernizr-2.7.1.js"></script>
-    <!--[if lt IE 9]>
-        <script src="js/lib/html5shiv-3.7.0.min.js"></script>
-        <script src="js/lib/respond-1.4.2.min.js"></script>
-    <![endif]-->
-</head>
-<body>
-    <h1>Fundament Grid System Demo / Test</h1>
-    <h2>Widths</h2>
-    <div class="test__description">
-        <ul class="test__spec">
-            <li>After thirds, fall back to wholes on mobile.</li>
-            <li>After fifths, fall back to wholes on lap.</li>
-        </ul>
-    </div>
-    <!-- Tests for grid system -->
-    <section class="grid  test__widths">
-        <!-- Test full width -->
-        <article class="grid-item">
-            <p>Full width</p>
-        </article>
-        <!-- Test halves -->
-        <article class="grid-item  one-half">
-            <p>One half</p>
-        </article>
-        <article class="grid-item  one-half">
-            <p>One half</p>
-        </article>
-        <!-- Test Thirds -->
-        <article class="grid-item  one-third">
-            <p>One third</p>
-        </article>
-        <article class="grid-item  two-thirds">
-            <p>Two thirds</p>
-        </article>
-        <!-- Test Quarters -->
-        <article class="grid-item  lap--one-quarter">
-            <p>One quarter</p>
-        </article>
-        <article class="grid-item   lap--three-quarters">
-            <p>Three quarters</p>
-        </article>
-        <!-- Test Fifths -->
-        <article class="grid-item   lap--one-fifth">
-            <p>One fifth</p>
-        </article>
-        <article class="grid-item   lap--four-fifths">
-            <p>Four fifths.</p>
-        </article>
-        <!-- Test Sixths -->
-        <article class="grid-item   desk--one-sixth">
-            <p>One sixth</p>
-        </article>
-        <article class="grid-item   desk--five-sixths">
-            <p>Five sixths</p>
-        </article>
-        <!-- Test Eigths -->
-        <article class="grid-item   desk--one-eighth">
-            <p>1/8</p>
-        </article>
-        <article class="grid-item   desk--seven-eighths">
-            <p>Seven eighths</p>
-        </article>
-        <!-- Test Tenths -->
-        <article class="grid-item   desk--one-tenth">
-            <p>1/10</p>
-        </article>
-        <article class="grid-item   desk--nine-tenths">
-            <p>Nine tenths</p>
-        </article>
-        <!-- Test Twelfths -->
-        <article class="grid-item   desk--one-twelfth">
-            <p>1/12  Test Test Test </p>
-        </article>
-        <article class="grid-item   desk--eleven-twelfths">
-            <p>Eleven twelfths.</p>
-        </article>
-    </section>
-    <h2>Nesting</h2>
-    <section class="grid  grid--stretch">
-        <article class="grid-item  grid-item--stretch  one-half">
-                <p>Nesting</p>
-                <div class="grid  grid--stretch">
-                    <div class="grid-item  grid-item--stretch  one-half"><p>Nested 1/2 in 1/2</p></div>
-                    <div class="grid-item  grid-item--stretch  one-half"><p>Nested 1/2 in 1/2</p></div>
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/test.css">
+
+    </head>
+    <body>
+
+        <section>
+            <header>
+                <h1>Grid Left</h1>
+            </header>
+            <div class="grid-left">
+                <div class="grid-item  one-third">
+                    <p>1/3</p>
                 </div>
-                <div class="grid  grid--stretch">
-                    <div class="grid-item  grid-item--stretch  one-third"><p>Nested 1/3 in 1/2</p></div>
-                    <div class="grid-item  grid-item--stretch  one-third"><p>Nested 1/3 in 1/2</p></div>
-                    <div class="grid-item  grid-item--stretch  one-third"><p>Nested 1/3 in 1/2</p></div>
+                <div class="grid-item  one-third">
+                    <p>1/3</p>
                 </div>
-        </article>
-        <article class="grid-item  one-half">
-                <p>1st</p>
-                <div class="grid">
-                    <div class="grid-item  one-third"><p>2nd</p></div>
-                    <div class="grid-item  two-thirds">
-                        <p>2nd</p>
-                        <div class="grid">
-                            <div class="grid-item  one-half"><p>3rd</p></div>
-                            <div class="grid-item  one-half">
-                            <p>3rd</p>
-                            <div class="grid">
-                                <div class="grid-item  one-whole"><p>4rth</p></div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
+            </div>
+        </section>
+
+        <section>
+            <header>
+                <h1>Grid Right</h1>
+            </header>
+            <div class="grid-right">
+                <div class="grid-item  one-third">
+                    <p>1/3</p>
                 </div>
-                <div class="grid">
-                    <div class="grid-item"><p>1st</p></div>
+                <div class="grid-item  one-third">
+                    <p>1/3</p>
                 </div>
-        </article>
-    </section>
-    <h2>Modifiers</h2>
-    <section class="test__modifiers">
-        <h3>Even (--even) [flexbox only]</h3>
-        <p>Distribute items evenly if no width is set. If you want to set a width to some items, apply grid-item--even only to the other elements and they will be distributed as best as flex-box can.</p>
-        <section class="grid  grid--even">
-            <!-- Arbitraty -->
-            <article class="grid-item  one-third">
-                <p>Width set.</p>
-            </article>
-            <article class="grid-item grid-item--even">
-                <p>Dynamic.</p>
-            </article>
-            <article class="grid-item grid-item--even">
-                <p>Dynamic.</p>
-            </article>
-            <article class="grid-item  one-fifth">
-                <p>Width set.</p>
-            </article>
-            <article class="grid-item grid-item--even">
-                <p>Dynamic.</p>
-            </article>
+            </div>
         </section>
-        <h3>Full grid (--full)</h3>
-        <section class="grid  grid--full">
-            <article class="grid-item  grid-item--full  one-third">
-                <p>One third &amp; no margins</p>
-            </article>
-            <article class="grid-item  grid-item--full  two-sixths">
-                <p>One third &amp; no margins</p>
-            </article>
-            <article class="grid-item  grid-item--full  one-third">
-                <p>One third &amp; no margins</p>
-            </article>
+
+        <section>
+            <header>
+                <h1>Grid Center</h1>
+            </header>
+            <div class="grid-center">
+                <div class="grid-item  one-third">
+                    <p>1/3</p>
+                </div>
+                <div class="grid-item  one-third">
+                    <p>1/3</p>
+                </div>
+            </div>
         </section>
-        <h3>Reversed grid (--rev)</h3>
-        <section class="grid  grid--rev">
-            <article class="grid-item  grid-item--rev  one-third">
-                <p>Item 1 of 3</p>
-            </article>
-            <article class="grid-item  grid-item--rev   one-third">
-                <p>Item 2 of 3</p>
-            </article>
-            <article class="grid-item  grid-item--rev  one-third">
-                <p>Item 3 of 3</p>
-            </article>
+
+        <section>
+            <header>
+                <h1>Grid Middle</h1>
+            </header>
+            <div class="grid-middle">
+                <div class="grid-item  one-third">
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="grid-item  one-third">
+                    <p>1/3</p>
+                </div>
+            </div>
         </section>
-        <h3>Narrow grid (--narrow)</h3>
-        <section class="grid  grid--narrow">
-            <article class="grid-item  grid-item--narrow  one-third">
-                <p>Smaller margins</p>
-            </article>
-            <article class="grid-item  grid-item--narrow  one-third">
-                <p>Smaller margins</p>
-            </article>
-            <article class="grid-item  grid-item--narrow  one-third">
-                <p>Smaller margins</p>
-            </article>
+
+        <section>
+            <header>
+                <h1>Grid Bottom</h1>
+            </header>
+            <div class="grid-bottom">
+                <div class="grid-item  one-third">
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="grid-item  one-third">
+                    <p>1/3</p>
+                </div>
+                <div class="grid-item  one-third">
+                    <p>1/3</p>
+                </div>
+            </div>
         </section>
-        <h3>Wider grid (--wide)</h3>
-        <section class="grid  grid--wide">
-            <article class="grid-item  grid-item--wide  one-third">
-                <p>Bigger margins</p>
-            </article>
-            <article class="grid-item  grid-item--wide  one-third">
-                <p>Bigger margins</p>
-            </article>
-            <article class="grid-item  grid-item--wide  one-third">
-                <p>Bigger margins</p>
-            </article>
-        </section>
-        <h3>Centered grid (--center)</h3>
-        <section class="grid  grid--center">
-            <article class="grid-item  grid-item--center one-third">
-                <p>One third</p>
-            </article>
-            <article class="grid-item  grid-item--center one-third">
-                <p>One third</p>
-            </article>
-        </section>
-        <h3>Right aligned grid (--right)</h3>
-        <section class="grid  grid--right">
-            <article class="grid-item  grid-item--center one-third">
-                <p>One third</p>
-            </article>
-            <article class="grid-item  grid-item--right one-third">
-                <p>One third</p>
-            </article>
-        </section>
-        <h3>Vertically aligned to bottom grid (--bottom)</h3>
-        <section class="grid  grid--bottom">
-            <article class="grid-item  grid-item--bottom one-third">
-                <p>A long text that is somewhat boring to read, though incredibly important to demonstrate this behaviour –much like 90% of science papers. What the fuck did I just read.</p>
-            </article>
-            <article class="grid-item  grid-item--bottom one-third">
-                <p>A short text</p>
-            </article>
-            <article class="grid-item  grid-item--bottom one-third">
-                <p>A long text that is somewhat boring to read, though incredibly important to demonstrate this behaviour –much like 90% of science papers. What the fuck did I just read.</p>
-            </article>
-        </section>
-        <h3>Vertically stretch grid (--stretch)</h3>
-        <section class="grid  grid--stretch">
-            <article class="grid-item  grid-item--stretch  grid-item--top one-third">
-                <p>A long text that is somewhat boring to read, though incredibly important to demonstrate this behaviour –much like 90% of science papers. What the fuck did I just read.</p>
-            </article>
-            <article class="grid-item  grid-item--stretch  grid-item--top one-third">
-                <p>Grid--stretch needs the width of block-elements to be reset!</p>
-            </article>
-            <article class="grid-item  grid-item--stretch  grid-item--top one-third">
-                <p>A long text that is somewhat boring to read, though incredibly important to demonstrate this behaviour –much like 90% of science papers. What the fuck did I just read.</p>
-            </article>
-        </section>
-        <h3>Vertically align to top (default)</h3>
-        <section class="grid">
-            <article class="grid-item  grid-item--top one-third">
-                <p>A long text that is somewhat boring to read, though incredibly important to demonstrate this behaviour –much like 90% of science papers. What the fuck did I just read.</p>
-            </article>
-            <article class="grid-item  grid-item--top one-third">
-                <p>A short text</p>
-            </article>
-            <article class="grid-item  grid-item--top one-third">
-                <p>A long text that is somewhat boring to read, though incredibly important to demonstrate this behaviour –much like 90% of science papers. What the fuck did I just read.</p>
-            </article>
-        </section>
-        <h3>Vertically centered grid (--middle)</h3>
-        <section class="grid  grid--middle">
-            <article class="grid-item  grid-item--middle one-third">
-                <p>A long text that is somewhat boring to read, though incredibly important to demonstrate this behaviour –much like 90% of science papers. What the fuck did I just read.</p>
-            </article>
-            <article class="grid-item  grid-item--middle one-third">
-                <p>A short text</p>
-            </article>
-            <article class="grid-item  grid-item--middle one-third">
-                <p>A long text that is somewhat boring to read, though incredibly important to demonstrate this behaviour –much like 90% of science papers. What the fuck did I just read.</p>
-            </article>
-        </section>
-        <h3>Use Space-around (--space-around) [flexbox only]</h3>
-        <section class="grid  grid--space-around">
-            <article class="grid-item one-third">
-                <p>1/3</p>
-            </article>
-            <article class="grid-item one-third">
-                <p>1/3</p>
-            </article>
-        </section>
-        <h3>Use Space-between (--space-between) [flexbox only]</h3>
-        <section class="grid  grid--space-between">
-            <article class="grid-item one-third">
-                <p>1/3</p>
-            </article>
-            <article class="grid-item one-third">
-                <p>1/3</p>
-            </article>
-        </section>
-    </section>
-    <section class="test__breakpoints">
-        <h2>Test Breakpoints</h2>
-        <div class="test__description">
-            <ul class="test__spec">
-                <li>Halves on palm.</li>
-                <li>Thirds on lap.</li>
-                <li>Quarters on desk.</li>
-                <li>Sixths on high.</li>
-            </ul>
-        </div>
-        <section class="grid">
-            <article class="grid-item  one-half  lap--one-third  desk--one-quarter  high--one-sixth">
-                <p>Content</p>
-            </article>
-            <article class="grid-item  one-half  lap--one-third  desk--one-quarter  high--one-sixth">
-                <p>Content</p>
-            </article>
-            <article class="grid-item  one-half  lap--one-third  desk--one-quarter  high--one-sixth">
-                <p>Content</p>
-            </article>
-            <article class="grid-item  one-half  lap--one-third  desk--one-quarter  high--one-sixth">
-                <p>Content</p>
-            </article>
-            <article class="grid-item  one-half  lap--one-third  desk--one-quarter  high--one-sixth">
-                <p>Content</p>
-            </article>
-            <article class="grid-item  one-half  lap--one-third  desk--one-quarter  high--one-sixth">
-                <p>Content</p>
-            </article>
-            <article class="grid-item  one-half  lap--one-third  desk--one-quarter  high--one-sixth">
-                <p>Content</p>
-            </article>
-            <article class="grid-item  one-half  lap--one-third  desk--one-quarter  high--one-sixth">
-                <p>Content</p>
-            </article>
-            <article class="grid-item  one-half  lap--one-third  desk--one-quarter  high--one-sixth">
-                <p>Content</p>
-            </article>
-            <article class="grid-item  one-half  lap--one-third  desk--one-quarter  high--one-sixth">
-                <p>Content</p>
-            </article>
-            <article class="grid-item  one-half  lap--one-third  desk--one-quarter  high--one-sixth">
-                <p>Content</p>
-            </article>
-            <article class="grid-item  one-half  lap--one-third  desk--one-quarter  high--one-sixth">
-                <p>Content</p>
-            </article>
-        </section>
-    </section>
-    <section class="test__pull">
-        <h2>Test generic pull</h2>
-        <p class="test__description">
-            Middle should be empty.
-        </p>
-        <section class="grid  grid--right">
-            <article class="grid-item  grid-item--right  pull--one-third  one-third">
-                <p>Left</p>
-            </article>
-            <article class="grid-item  grid-item--right  one-third">
-                <p>Right</p>
-            </article>
-        </section>
-    </section>
-    <section class="test__push">
-        <h2>Test generic push</h2>
-        <p class="test__description">
-            Left should be empty.
-        </p>
-        <section class="grid">
-            <article class="grid-item  one-third  push--one-third">
-                <p>Left</p>
-            </article>
-            <article class="grid-item  one-third  push--one-third">
-                <p>Right</p>
-            </article>
-        </section>
-    </section>
-    <section class="test__visibility">
-        <h2>Test visibility helper</h2>
-        <h3>Test Hide</h3>
-        <p>There should be only 1 item at all times</p>
-        <section class="grid">
-            <article class="grid-item  grid-item--hide  palm--grid-item--show  one-quarter">
-                <p>Visible on palm only.</p>
-            </article>
-            <article class="grid-item  grid-item--hide  lap--grid-item--show desk--grid-item--hide  high--grid-item--hide  one-quarter">
-                <p>Visible on lap only.</p>
-            </article>
-            <article class="grid-item  grid-item--hide  desk--grid-item--show  high--grid-item--hide  one-quarter">
-                <p>Visible on desk only.</p>
-            </article>
-            <article class="grid-item  grid-item--hide  high--grid-item--show  one-quarter">
-                <p>Visible on high only.</p>
-            </article>
-        </section>
-        <h3>Test Show</h3>
-        <p>There should be 3 out of 3 items all the time (5 in the markup)</p>
-        <section class="grid">
-            <article class="grid-item  one-third  palm--grid-item--hide">
-                <p>1 of 3, hide on palm.</p>
-            </article>
-            <article class="grid-item  one-third  lap--grid-item--hide  desk--grid-item--show high--grid-item--show">
-                <p>2 of 3, hide on lap.</p>
-            </article>
-            <article class="grid-item  one-third  desk--grid-item--hide  high--grid-item--show">
-                <p>3 of 3, hide on desk.</p>
-            </article>
-            <article class="grid-item  one-third  high--grid-item--hide">
-                <p>4 of 3, hide on high.</p>
-            </article>
-            <article class="grid-item  one-third  grid-item--hide">
-                <p>1 of 3, hide everywhere.</p>
-            </article>
-        </section>
-    </section>
-</body>
+
+    </body>
 </html>

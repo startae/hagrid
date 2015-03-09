@@ -1,193 +1,101 @@
 
-// * Fundament Modifiers
-// * ---------------------
-// * These modifiers can be applied to the grid and __#{$fdmt-grid--item}s.
-// * To apply a modifier, use --modifier on parent and --modifier__#{$fdmt-grid--item} on child.
-// * The separation of --modifier and __#{$fdmt-grid--item}--modifier prevents bullshit selectors in output.
-// @contains:
-// @  1. --full
-// @  2. --rev
-// @  3. --center
-// @  4. --right
-// @  5. --bottom
-// @  6. --middle
-// @  7. --wide
-// @  8. --narrow
-// @  9. --space-around (flex-only)
-// @ 10. --space-between (flex-only)
-// * ---------------------
+//////////////////////////////
+// Modifiers
+///////////////////////////////
 
+@mixin grid-modifiers($modifiers...) {
+    @each $modifier in $modifiers {
+        @include grid-modifier($modifier);
+    }
+}
 
-@if(fdmt-grid(modifiers, use-modifiers) == true) {
+@mixin grid-modifier($modifier){
 
-    #{$fdmt-grid--type}#{$fdmt-grid--name} {
+    // x-Axis Alignment
+    //////////////////////////////
 
-        // * --full
-        // * Full-width grid without any margins & padding.
-        // * ---------------------
+    @if $modifier == left {
+        justify-content: flex-start;
+    }
+    @else if $modifier == right {
+        justify-content: flex-end;
+    }
+    @else if $modifier == center {
+        justify-content: center;
+    }
 
-        @if(fdmt-grid(modifiers, full) == true) {
-            &--full {
-                margin-left: 0;
-            }
-            &-#{$fdmt-grid--item}--full {
-                padding-left: 0;
-            }
+    // * y-Axis Alignment
+    //////////////////////////////
+
+    @else if $modifier == top {
+        align-items: flex-start;
+    }
+    @else if $modifier == bottom {
+        align-items: flex-end;
+    }
+    @else if $modifier == middle {
+        align-items: center;
+    }
+    @else if $modifier == stretch {
+        align-items: stretch;
+        > * {
+            display: flex;
+            flex-flow: row wrap;
         }
+    }
 
-        // * --rev
-        // * Reversed source-order. (!The fallback grid will only not work on 100%-items, flexbox does. !)
-        // * ---------------------
+    // Flex Alignment
+    ///////////////////////////////
 
-        @if(fdmt-grid(modifiers, rev) == true) {
-            &--rev {
-                direction: rtl;
-                flex-flow: wrap-reverse row;
-                text-align: left;
-            }
-            &-#{$fdmt-grid--item}--rev {
-                direction: ltr;
-                text-align: left;
-            }
+    @else if $modifier == space-around {
+        justify-content: space-around;
+    }
+    @else if $modifier == space-between {
+        justify-content: space-between;
+    }
+
+    // Spacing
+    //////////////////////////////
+
+    @else if $modifier == default {
+        margin-left: -$fdmt-gutter;
+        > * {
+            padding-left: $fdmt-gutter;
         }
-
-        // * --center
-        // * Center the grid if items don't add up to 100%
-        // * ---------------------
-
-        @if(fdmt-grid(modifiers, center) == true) {
-            &--center {
-                justify-content: center;
-                text-align: center;
-            }
-            &-#{$fdmt-grid--item}--center {
-                text-align: left;
-            }
+    }
+    @else if $modifier == full {
+        margin-left: 0;
+        > * {
+            padding-left: 0;
         }
-
-        // * --right
-        // * Align the grid to the right if items don't add up to 100%
-        // * ---------------------
-
-        @if(fdmt-grid(modifiers, right) == true) {
-            &--right {
-                justify-content: flex-end;
-                text-align: right;
-            }
-            &-#{$fdmt-grid--item}--right {
-                text-align: left;
-            }
+    }
+    @else if $modifier == wide {
+        margin-left: -$fdmt-gutter * 2;
+        > * {
+            padding-left: $fdmt-gutter * 2;
         }
-
-        // * --bottom
-        // * Vertically align items of a row to the bottom.
-        // * ---------------------
-            @if(fdmt-grid(modifiers, bottom) == true) {
-                &--bottom {
-                    align-items: flex-end;
-                }
-                &-#{$fdmt-grid--item}--bottom {
-                     vertical-align: bottom;
-                 }
-            }
-
-        // * --top
-        // * Align items to top in flexbox(default: stretch)
-        // * ---------------------
-        @if(fdmt-grid(modifiers, top) == true) {
-            &--top {
-                align-items: flex-start;
-            }
-            &-#{$fdmt-grid--item}--top {
-                vertical-align: top;
-            }
+    }
+    @else if $modifier == narrow {
+        margin-left: -$fdmt-gutter / 2;
+        > * {
+            padding-left: $fdmt-gutter / 2;
         }
+    }
 
-        // * --middle
-        // * Vertically center items of a row.
-        // * ---------------------
+    // Flex Spacing
+    ///////////////////////////////
 
-        @if(fdmt-grid(modifiers, middle) == true) {
-            &--middle {
-                align-items: center;
-            }
-            &-#{$fdmt-grid--item}--middle {
-                vertical-align: middle;
-            }
+    @else if $modifier == auto {
+        > * {
+            width: auto;
+            flex: 1 1 auto;
         }
+    }
 
-        // * --stretch
-        // * Vertically stretch items to fill parent (flexbox only)
-        // * ---------------------
+    // Direction
+    ///////////////////////////////
 
-        @if(fdmt-grid(modifiers, stretch) == true) {
-            &--stretch {
-                align-items: stretch;
-                img {
-                    align-items: flex-start
-                }
-            }
-            &-#{$fdmt-grid--item}--stretch {
-                @include fdmt-grid--flex-support();
-                vertical-align: top;
-            }
-        }
-
-        // * --wide
-        // * Wider margins
-        // * ---------------------
-
-        @if(fdmt-grid(modifiers, wide) == true) {
-            &--wide {
-                margin-left: -(fdmt-grid(settings,gutter) * 2 );
-            }
-            &-#{$fdmt-grid--item}--wide {
-                padding-left: (fdmt-grid(settings,gutter) * 2 );
-            }
-        }
-
-        // * --narrow
-        // * Narrower margins.
-        // * ---------------------
-
-        @if(fdmt-grid(modifiers, narrow) == true) {
-            &--narrow {
-                margin-left: -(fdmt-grid(settings,gutter) / 2);
-            }
-            &-#{$fdmt-grid--item}--narrow {
-                padding-left: (fdmt-grid(settings,gutter) / 2);
-            }
-        }
-
-        // * --space-around
-        // * Align items by dynamic margins around (flexbox only)
-        // * ---------------------
-
-        @if(fdmt-grid(modifiers, space-around) == true) {
-            &--space-around {
-                justify-content: space-around;
-            }
-        }
-
-        // * --space-between
-        // * Align items by dynamic margins between them (flexbox only)
-        // * ---------------------
-
-        @if(fdmt-grid(modifiers, space-between) == true) {
-            &--space-between {
-                justify-content: space-between;
-            }
-        }
-
-        // * --even
-        // * Align items by dynamic margins between them, no widths needed (flexbox only)
-        // * ---------------------
-
-        @if(fdmt-grid(modifiers, even) == true) {
-            &-#{$fdmt-grid--item}--even {
-                width: auto;
-                flex: 1 1 auto;
-            }
-        }
+    @else if $modifier == rev {
+        flex-flow: wrap-reverse row;
     }
 }

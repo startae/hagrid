@@ -1,133 +1,88 @@
 
-// * Fundament Core
-// * ---------------------
-// * Contains the core scss and variables.
-// @contents:
-// @  1. Class-type
-// @  2. Name-space
-// @  3. Core SCSS
-// * ---------------------
+///////////////////////////////
+// Core
+///////////////////////////////
 
-// * $fdmt-grid--type
-// * This sets the class-type either to normal or silent classes. (Based on `fdmt-grid(settings, silent-classes)`)
-// * ---------------------
+// Static Content
+// 1. https://github.com/philipwalton/flexbugs#1-minimum-content-sizing-of-flex-items-not-honored
+///////////////////////////////
 
-$fdmt-grid--type: unquote(".");
-
-@if (fdmt-grid(settings, silent-classes) == true){
-    $fdmt-grid--type: unquote("%")!global;
+@mixin grid-static {
+    @include mixin-dryer("grid"){
+        display: flex;
+        flex: auto;
+        flex-flow: row wrap;
+        list-style: none;
+        margin: 0;
+        margin-left: -$fdmt-gutter;
+        padding: 0;
+        @include grid-modifiers(top, left);
+    }
 }
 
-// * $fdmt-grid--name
-// * This sets the namespace for grid-classes and modifiers to `fdmt-grid(settings, namespace)`
-// * e.g. if set to "grid", the classes will be `grid`, `grid__#{$fdmt-grid--item}`, `grid--modifier`, `grid__#{$fdmt-grid--item}--modifier`
-// * ---------------------
 
-$fdmt-grid--name: fdmt-grid(settings, namespace);
+@mixin item-static {
+    @include mixin-dryer("item"){
+        flex-shrink: 0; // 1
+        box-sizing: border-box;
+        padding-left: $fdmt-gutter;
+    }
+}
 
-// * $fdmt-grid--item
-// * This sets the name that gets appended for child-items (parent__child)
-// * e.g. if set to "grid", the classes will be `grid`, `grid__#{$fdmt-grid--item}`, `grid--modifier`, `grid__#{$fdmt-grid--item}--modifier`
-// * ---------------------
+@mixin push-pull-static {
+    @include mixin-dryer("push-pull"){
+        position: relative;
+    }
+}
 
-$fdmt-grid--item: fdmt-grid(settings, item);
+// Grid Wrapper
+///////////////////////////////
 
-// * mixin fdmt-grid--fallback-support($element: "parent"|"child")
-// * Provides fallback support for elements.
-// * [1] & [2]. Fix white-space on fallback-grid.
-// * [2]. Declare a font-family that the letter-spacing fix is sure to work on all known evironments.
-// *      See: https://github.com/yui/pure/issues/41
-// @type: mixin
-// @exports: fdmt-grid--fallback-support($element: "parent"|"child")
-// * ---------------------
+@mixin grid($modifiers...) {
 
-@mixin fdmt-grid--fallback-support($element) {
-    @if($element == "parent") {
-        letter-spacing: -.31em; //* [1] */
-        word-spacing: -0.43em;
-        font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif; //* [2] */
-    } @elseif ($element == "child") {
-        letter-spacing: normal;
-        word-spacing: normal;
-        @if (fdmt-grid(fallback, custom-font) != false) {
-            font-family: unquote(fdmt-grid(fallback, grid-item-font)); //* [2] */
+    @include grid-static();
+
+    @include grid-modifiers($modifiers...);
+}
+
+// Grid Item
+///////////////////////////////
+
+@mixin item($widths...) {
+
+    @include item-static();
+
+    @include grid-calc(width, $widths...);
+}
+
+
+// Push / Pull
+///////////////////////////////
+
+@mixin pull($widths...) {
+
+    @include push-pull-static();
+
+    @include grid-calc(right, $widths...);
+
+
+}
+
+@mixin push($widths...) {
+
+    @include push-pull-static();
+
+    @include grid-calc(left, $widths...);
+
+}
+
+// Breakpoints
+///////////////////////////////
+
+@mixin bp($breakpoint) {
+    @if map-has-key($fdmt-breakpoints, $breakpoint){
+        @media (#{map-get($fdmt-breakpoints, $breakpoint)}) {
+            @content;
         }
-    }
-}
-
-// * Shared Flex-box Support
-// @type: mixin
-// @exports: fdmt-grid--flex-support()
-// * [1]. Use the new flex-box where possible (IE10+, Moz. 28+, Chrome 20+, Safari 7+, Opera 12.1+, Android 4.4+)
-// * ---------------------
-
-@mixin fdmt-grid--flex-support(){
-    display: flex;                                     //* [1] */
-    flex-flow: row wrap;                               //* [1] */
-}
-
-// * Grid Parent
-// * [1]. Make flex-box fill nested grids.
-// * [2]. Makes the grid usable on lists
-// * [3]. Remove all existing spacing from grid
-// * [4]. Add a negative margin to negate first items padding (aligns grid)
-// *      !If you want to center a grid-parent with margin: auto, use `--full` to achieve symmetric centering!
-// * [5]. Firefox < 28 doesn't implement flex-flow correctly (...), fall back to `inline-block`.
-// * [6]. Include the fallback-grid if `fdmt-grid(fallback, use-fallback) is true
-// * ---------------------
-
-#{$fdmt-grid--type}#{$fdmt-grid--name} {
-    display: block;
-    @include fdmt-grid--flex-support();
-    flex: 1 1 100%;                              //* [1] */
-    list-style: none;                            //* [2] */
-    margin: 0;                                   //* [3] */
-    padding: 0;                                  //* [3] */
-    margin-left: -(fdmt-grid(settings, gutter)); //* [4] */
-    align-items: flex-start;
-    //* [5] */
-    @supports not(flex-wrap: wrap) {
-        @include fdmt-grid--fallback-support("parent");
-    }
-    //* [6] */
-    @if(fdmt-grid(fallback, use-fallback) == true) {
-        @if(fdmt-grid(fallback, markup-fix) != true) {
-            @include fdmt-grid--fallback-support("parent");
-        }
-    }
-}
-
-// * [7] Opera < 12.1 Hack (may be removed soon) */
-
-@if (fdmt-grid(fallback, use-fallback) == true and fdmt-grid(fallback, use-markup-fix) != true) {
-    .opera:-o-prefocus,
-    #{$fdmt-grid--type}#{$fdmt-grid--name} {
-        word-spacing: -.43em;
-    }
-}
-
-// * Grid Items
-// * [1]. Stack items next to each other
-// * [2]. Needed for nested grids
-// * [3]. Space items apart
-// * [4]. Default alignment of __#{$fdmt-grid--item}s in fallback is top
-// * [5]. Use new box-model on all grid items
-// * [6]. If mobile first, fill the container by default
-// * [7]. Reinstate letter-spacing on fallback-grid
-// * ---------------------
-
-#{$fdmt-grid--type}#{$fdmt-grid--name}-#{$fdmt-grid--item} {
-    display: inline-block;                             //* [1] */
-    padding-left: fdmt-grid(settings, gutter);         //* [3] */
-    vertical-align: top;                               //* [4] */
-    box-sizing: border-box;                            //* [5] */
-    @if(fdmt-grid(settings, mobile-first) == true) {   //* [6] */
-        width: 100%;
-    }
-    @supports not(flex-wrap: wrap) {
-        @include fdmt-grid--fallback-support("child");
-    }
-    @if(fdmt-grid(fallback, use-fallback) == true and fdmt-grid(fallback, use-markup-fix) != true) {
-            @include fdmt-grid--fallback-support("child");
     }
 }

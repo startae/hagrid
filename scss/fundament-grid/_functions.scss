@@ -111,12 +111,16 @@ $fdmt-placeholders: ();
 // Calculate Width (Fraction => Percentage)
 //////////////////////////////
 
-@function calculate-width($fraction) {
-    @return ($fraction * 100 * 1%);
+@function calculate-width($value) {
+    @if unit($value) != "" {
+        @return $value;
+    } @else {
+        @return ($value * 100 * 1%);
+    }
 }
 
-@function cw($fraction) {
-    @return calculate-width($fraction);
+@function cw($value) {
+    @return calculate-width($value);
 }
 
 // Shorthands

@@ -11,9 +11,9 @@
 $fdmt-gutter: 1.5rem;
 
 $fdmt-breakpoints: (
-    lap:  "min-width: 561px",
-    desk: "min-width: 1025px",
-    high: "min-width: 1500px"
+    lap:  "(min-width: 561px)",
+    desk: "(min-width: 1025px)",
+    high: "(min-width: 1500px)"
 );
 
 // Imports

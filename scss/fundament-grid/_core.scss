@@ -81,7 +81,7 @@
 
 @mixin bp($breakpoint) {
     @if map-has-key($fdmt-breakpoints, $breakpoint){
-        @media (#{map-get($fdmt-breakpoints, $breakpoint)}) {
+        @media only screen and #{map-get($fdmt-breakpoints, $breakpoint)} {
             @content;
         }
     }

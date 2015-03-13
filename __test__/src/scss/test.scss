@@ -1,0 +1,45 @@
+
+
+$color-primary: #C31C13;
+$color-secondary: #971416;
+$color-shade: #6A0D18;
+$color-border: #3D051A;
+
+
+@import "normalize";
+@import "../../../src/hagrid";
+@import "tests/widths";
+@import "tests/pushpull";
+@import "tests/modifiers";
+
+
+body {
+    margin: 2em;
+    background: $color-primary;
+}
+
+.block {
+    // * Behave like a grid-item
+    @include i();
+    background: $color-secondary;
+    border: 1px solid $color-border;
+    box-shadow: inset 0 0 .5em .5em rgba($color-shade, .1);
+    min-height: 2em;
+    border-radius: .25em;
+    margin-bottom: .5rem;
+    &.large {
+        height: 6em;
+    }
+}
+
+header {
+    text-align: center;
+    h1,
+    h2 {
+        display: inline-block;
+        color: $color-border;
+        border-radius: .25rem;
+        padding-bottom: .125rem;
+        border-bottom: .25rem solid $color-border;
+    }
+}

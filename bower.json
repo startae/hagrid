@@ -16,5 +16,8 @@
   "ignore": [
     "node_modules",
     "test"
-  ]
+  ],
+  "dependencies": {
+    "normalize.css": "~3.0.2"
+  }
 }

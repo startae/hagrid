@@ -1,0 +1,76 @@
+.modifier {
+
+    &-grid {
+        @include g();
+    }
+
+    &-item {
+        @include i(1/3);
+        &:last-child {
+            .block {
+                background: $color-primary;
+            }
+        }
+    }
+
+    &-header {
+        @include i();
+    }
+
+    &-right {
+        @include g(right);
+    }
+    &-center {
+        @include g(center);
+    }
+
+    &-space-around {
+        @include g(space-around);
+    }
+
+    &-space-between {
+        @include g(space-between);
+    }
+
+    &-middle {
+        @include g(middle);
+    }
+
+    &-bottom {
+        @include g(bottom);
+    }
+
+    &-stretch {
+        @include g();
+        > .modifier-item {
+            @include stretch;
+        }
+    }
+
+    &-narrow {
+        @include g(narrow);
+    }
+
+    &-wide {
+        @include g(wide);
+    }
+
+    &-xrev {
+        @include g(x-rev);
+        .modifier-item {
+            &:last-child {
+                .block {
+                    background: $color-primary;
+                }
+            }
+        }
+    }
+    &-yrev {
+        @include g(y-rev);
+    }
+    &-rev {
+        @include g(rev);
+    }
+}
+
+

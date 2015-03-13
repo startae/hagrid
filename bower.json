@@ -1,5 +1,5 @@
 {
-  "name": "fundament.grid",
+  "name": "hagrid",
   "version": "0.8.2",
   "authors": [
     "felics <hi@felics.me>"
@@ -12,7 +12,7 @@
     "flexbox"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/felics/fundament.grid.git",
+  "homepage": "https://github.com/felics/hagrid.git",
   "ignore": [
     "node_modules",
     "test"

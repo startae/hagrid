@@ -36,13 +36,6 @@
     @else if $modifier == middle {
         align-items: center;
     }
-    @else if $modifier == stretch {
-        align-items: stretch;
-        > * {
-            display: flex;
-            flex-flow: row wrap;
-        }
-    }
 
     // Flex Alignment
     ///////////////////////////////
@@ -58,27 +51,36 @@
     //////////////////////////////
 
     @else if $modifier == default {
-        margin-left: -$fdmt-gutter;
+        margin-left: (-$hagrid-gutter/2);
+        margin-right: (-$hagrid-gutter/2);
         > * {
-            padding-left: $fdmt-gutter;
+            padding-left: ($hagrid-gutter/2);
+            padding-right: ($hagrid-gutter/2);
         }
     }
     @else if $modifier == full {
         margin-left: 0;
+        margin-right: 0;
         > * {
             padding-left: 0;
+            padding-right: 0;
         }
     }
     @else if $modifier == wide {
-        margin-left: -$fdmt-gutter * 2;
+        margin-left: (-$hagrid-gutter);
+        margin-right: (-$hagrid-gutter);
         > * {
-            padding-left: $fdmt-gutter * 2;
+            padding-left: $hagrid-gutter;
+            padding-right: $hagrid-gutter;
+
         }
     }
     @else if $modifier == narrow {
-        margin-left: -$fdmt-gutter / 2;
+        margin-left: (-$hagrid-gutter/4);
+        margin-right: (-$hagrid-gutter/4);
         > * {
-            padding-left: $fdmt-gutter / 2;
+            padding-left: ($hagrid-gutter/4);
+            padding-right: ($hagrid-gutter/4);
         }
     }
 
@@ -95,7 +97,15 @@
     // Direction
     ///////////////////////////////
 
+    @else if $modifier == x-rev {
+        flex-flow: row-reverse wrap;
+    }
+
+    @else if $modifier == y-rev {
+        flex-flow: row wrap-reverse;
+    }
+
     @else if $modifier == rev {
-        flex-flow: wrap-reverse row;
+        flex-flow: row-reverse wrap-reverse;
     }
 }

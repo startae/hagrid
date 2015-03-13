@@ -1,0 +1,28 @@
+
+//////////////////////////////
+// hagrid
+// MIT LICENSE © 2015 Felix Spöttel
+///////////////////////////////
+
+
+// Configuration
+//////////////////////////////
+
+// * Set the default gutter
+$hagrid-gutter: 1.5rem;
+
+// * Breakpoints
+// * Can be used for the grid e.g. (@include i(breakpoint 2/3))
+// * Can be used for MQs (@include bp(breakpoint){@content})
+$hagrid-breakpoints: (
+    lap:  "(min-width: 561px)",
+    desk: "(min-width: 1025px)",
+    high: "(min-width: 1500px)"
+);
+
+// Imports
+//////////////////////////////
+
+@import "hagrid/core";
+@import "hagrid/functions";
+@import "hagrid/modifiers";

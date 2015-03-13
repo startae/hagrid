@@ -65,7 +65,7 @@ $hagrid-placeholders: ();
             #{$prop}: 100%;
         }
         @else {
-            @error "You need to pass at least one statement to push/pull "
+            @error "You need to pass at least one statement to push/pull"
         }
     }
     @else {
@@ -96,7 +96,7 @@ $hagrid-placeholders: ();
                 }
 
                 @if map-has-key($hagrid-breakpoints, $key) {
-                    @include bp($key){
+                    @include bp($key) {
                         #{$prop}: cw($value)
                     }
                 } @else {
@@ -126,7 +126,7 @@ $hagrid-placeholders: ();
 // Shorthands
 //////////////////////////////
 
-@mixin g($modifiers...){
+@mixin g($modifiers...) {
     @include grid($modifiers...);
 }
 

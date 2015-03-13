@@ -8,7 +8,7 @@
 ///////////////////////////////
 
 @mixin grid-static {
-    @include mixin-dryer("grid"){
+    @include mixin-dryer("grid") {
         display: flex;
         flex: initial;
         flex-flow: row wrap;
@@ -22,7 +22,7 @@
 
 
 @mixin item-static {
-    @include mixin-dryer("item"){
+    @include mixin-dryer("item") {
         flex-shrink: 0; // * 1
         box-sizing: border-box;
         padding-left: ($hagrid-gutter/2);
@@ -93,7 +93,7 @@
 ///////////////////////////////
 
 @mixin bp($breakpoint) {
-    @if map-has-key($hagrid-breakpoints, $breakpoint){
+    @if map-has-key($hagrid-breakpoints, $breakpoint) {
         @media only screen and #{map-get($hagrid-breakpoints, $breakpoint)} {
             @content;
         }

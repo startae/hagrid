@@ -16,12 +16,30 @@
 
     @if $modifier == left {
         justify-content: flex-start;
+
+        @if $hagrid-fallback {
+            text-align: left;
+        }
     }
     @else if $modifier == right {
         justify-content: flex-end;
+
+        @if $hagrid-fallback {
+            text-align: right;
+            > * {
+                text-align: left;
+            }
+        }
     }
     @else if $modifier == center {
         justify-content: center;
+
+        @if $hagrid-fallback {
+            text-align: center;
+            > * {
+                text-align: left;
+            }
+        }
     }
 
     // * y-Axis Alignment
@@ -29,22 +47,52 @@
 
     @else if $modifier == top {
         align-items: flex-start;
+
+        @if $hagrid-fallback {
+            > * {
+                vertical-align: top;
+            }
+        }
+
     }
     @else if $modifier == bottom {
         align-items: flex-end;
+
+        @if $hagrid-fallback {
+            > * {
+                vertical-align: bottom;
+            }
+        }
+
     }
     @else if $modifier == middle {
         align-items: center;
+
+        @if $hagrid-fallback {
+            > * {
+                vertical-align: middle;
+            }
+        }
+
     }
 
     // Flex Alignment
     ///////////////////////////////
 
     @else if $modifier == space-around {
+
         justify-content: space-around;
+
+        @if $hagrid-fallback and $hagrid-show-warnings {
+            @warn "Modifier #{$modifier} won't work on fallback-grid!"
+        }
     }
     @else if $modifier == space-between {
         justify-content: space-between;
+
+        @if $hagrid-fallback and $hagrid-show-warnings {
+            @warn "Modifier #{$modifier} won't work on fallback-grid!"
+        }
     }
 
     // Spacing
@@ -72,7 +120,6 @@
         > * {
             padding-left: $hagrid-gutter;
             padding-right: $hagrid-gutter;
-
         }
     }
     @else if $modifier == narrow {
@@ -92,20 +139,53 @@
             width: auto;
             flex: 1 1 auto;
         }
+
+        @if $hagrid-fallback and $hagrid-show-warnings {
+            @warn "Modifier #{$modifier} won't work on fallback-grid!"
+        }
     }
 
     // Direction
     ///////////////////////////////
 
     @else if $modifier == x-rev {
-        flex-flow: row-reverse wrap;
+
+        @if $hagrid-fallback {
+            direction: rtl;
+            text-align: left;
+            > * {
+                direction: ltr;
+                text-align: left;
+            }
+        } @else {
+            flex-flow: row-reverse wrap;
+        }
+
     }
 
     @else if $modifier == y-rev {
         flex-flow: row wrap-reverse;
+
+        @if $hagrid-fallback and $hagrid-show-warnings {
+            @warn "Modifier #{$modifier} won't work on fallback-grid!"
+        }
     }
 
     @else if $modifier == rev {
-        flex-flow: row-reverse wrap-reverse;
+
+        @if $hagrid-fallback {
+            flex-flow: row wrap-reverse;
+            direction: rtl;
+            text-align: left;
+            > * {
+                direction: ltr;
+                text-align: left;
+            }
+            @if  $hagrid-show-warnings {
+                @warn "Modifier #{$modifier} won't work as expected on fallback-grid!"
+            }
+        } @else {
+            flex-flow: row-reverse wrap-reverse;
+        }
     }
 }

@@ -18,7 +18,7 @@
         margin-right: (-$hagrid-gutter/2);
         padding: 0;
 
-        @if ($hagrid-fallback) {
+        @if $hagrid-fallback and $hagrid-fallback-fontfix {
             letter-spacing: -0.31em;
             font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
             text-rendering: optimizespeed;
@@ -34,20 +34,22 @@
         padding-left: ($hagrid-gutter/2);
         padding-right: ($hagrid-gutter/2);
 
-        @if ($hagrid-fallback) {
+        @if $hagrid-fallback {
             display: inline-block;
-            font-family: $hagrid-font;
-            zoom: 1;
-            letter-spacing: normal;
             vertical-align: top;
-            text-rendering: auto;
-        }
+            zoom: 1;
 
+            @if $hagrid-fallback-fontfix {
+                font-family: $hagrid-fallback-font;
+                text-rendering: auto;
+                letter-spacing: normal;
+            }
+        }
     }
 }
 
 @mixin push-pull-static {
-    @include mixin-dryer("push-pull"){
+    @include mixin-dryer("push-pull") {
         position: relative;
     }
 }
@@ -103,7 +105,7 @@
     > * {
         flex: 1 1 100%;
     }
-    @if $hagrid-fallback and $hagrid-show-warnings {
+    @if $hagrid-fallback and $hagrid-fallback-warnings {
         @warn "Stretch won't work on fallback-grid!"
     }
 }

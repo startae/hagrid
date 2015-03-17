@@ -46,7 +46,7 @@ By default, the grid is just a light wrapper around flexbox, so go nuts with fle
 ## Options:
  - `$hagrid-gutter`: Set the gutter between items.
  - `$hagrid-breakpoints`: Set the breakpoints. Can be used with the @bp-mixin too.
- - `$hagrid-fallback`: If you want to add an `inline-block`-grid for older browsers, set this to true. You have to reset font-family on grid-items with `$hagrid-font`.
+ - `$hagrid-fallback`: If you want to add an `inline-block`-grid for older browsers, set this to true. By default, the whitespace issue is fixed the [pure](http://purecss.io)-way via letter-spacing / font-family. You have to reset item-font with `$hagrid-fallback-font`. If you want to fix the issue via 0-whitespace HTML, set `$hagrid-fallback-fontfix` to false
 
 ## Modifiers:
 

@@ -83,14 +83,14 @@
 
         justify-content: space-around;
 
-        @if $hagrid-fallback and $hagrid-show-warnings {
+        @if $hagrid-fallback and $hagrid-fallback-warnings {
             @warn "Modifier #{$modifier} won't work on fallback-grid!"
         }
     }
     @else if $modifier == space-between {
         justify-content: space-between;
 
-        @if $hagrid-fallback and $hagrid-show-warnings {
+        @if $hagrid-fallback and $hagrid-fallback-warnings {
             @warn "Modifier #{$modifier} won't work on fallback-grid!"
         }
     }
@@ -140,7 +140,7 @@
             flex: 1 1 auto;
         }
 
-        @if $hagrid-fallback and $hagrid-show-warnings {
+        @if $hagrid-fallback and $hagrid-fallback-warnings {
             @warn "Modifier #{$modifier} won't work on fallback-grid!"
         }
     }
@@ -166,7 +166,7 @@
     @else if $modifier == y-rev {
         flex-flow: row wrap-reverse;
 
-        @if $hagrid-fallback and $hagrid-show-warnings {
+        @if $hagrid-fallback and $hagrid-fallback-warnings {
             @warn "Modifier #{$modifier} won't work on fallback-grid!"
         }
     }
@@ -181,7 +181,7 @@
                 direction: ltr;
                 text-align: left;
             }
-            @if  $hagrid-show-warnings {
+            @if  $hagrid-fallback-warnings {
                 @warn "Modifier #{$modifier} won't work as expected on fallback-grid!"
             }
         } @else {

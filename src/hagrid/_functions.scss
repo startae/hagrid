@@ -1,0 +1,146 @@
+
+///////////////////////////////
+// Functions
+///////////////////////////////
+
+
+// DRY Mixins @ atimport/toolkit
+//////////////////////////////
+
+$hagrid-placeholders: ();
+
+// Placeholder Get/Set
+//////////////////////////////
+
+@function hagrid-placeholder-get($id) {
+    @return map-get($hagrid-placeholders, $id);
+}
+
+@function hagrid-placeholder-set($id) {
+    $unique-id: unique-id();
+    $hagrid-placeholders: map-merge($hagrid-placeholders, ($id: $unique-id)) !global;
+    @return $unique-id;
+}
+
+// Generate Placeholder Class and Extend
+//////////////////////////////
+
+@mixin dynamic-extend($id) {
+    $placeholder-id: hagrid-placeholder-get($id);
+
+    @if $placeholder-id == null {
+<<<<<<< HEAD
+        $placeholder-id: hagrid-placeholder-set($id);
+        @at-root %#{$placeholder-id} {
+            @content;
+        }
+=======
+    $placeholder-id: hagrid-placeholder-set($id);
+    @at-root %#{$placeholder-id} {
+      @content;
+    }
+>>>>>>> origin/mixin
+    }
+    @extend %#{$placeholder-id};
+}
+
+// Static Mixin Helper
+//////////////////////////////
+
+@mixin mixin-dryer($id, $extend: true) {
+    @if $extend == true {
+        @include dynamic-extend($id) {
+            @content;
+        }
+    }
+    @else {
+        @content;
+    }
+}
+
+// Argument Parser
+//////////////////////////////
+
+@mixin grid-calc($prop, $widths...) {
+
+    $arg-length: length($widths);
+
+    @if $arg-length == 0 {
+
+        // * If no params are passed, default to mobile-first
+        @if $prop == width {
+            #{$prop}: 100%;
+        }
+        @else {
+            @error "You need to pass at least one statement to push/pull"
+        }
+    }
+    @else {
+
+        $width-detected: false;
+
+        @each $width in $widths {
+            // * If a general width is passed in, use it
+            @if type-of($width) == number or $width == auto {
+                #{$prop}: cw($width);
+                $width-detected: true;
+            }
+            // * If false is passed, assign no width
+            @else if $width == false {
+                $width-detected: true;
+            }
+            // * Handle responsive args
+            @else {
+
+                // * "lap 2/3"-synthax
+                $key: nth($width, 1);
+                $value: nth($width, 2);
+
+                // * Cater for "2/3 lap"-synthax
+                @if type-of($key) == number {
+                    $value: nth($width, 1);
+                    $key: nth($width, 2);
+                }
+
+                @if map-has-key($hagrid-breakpoints, $key) {
+                    @include bp($key) {
+                        #{$prop}: cw($value)
+                    }
+                } @else {
+                    @warn "You are trying to assign a width to an unknown breakpoint: #{$key}"
+                }
+            }
+        }
+
+        // * If only responsive params are passed, default to mobile-first
+        @if $width-detected == false and $prop == width {
+            #{$prop}: 100%;
+        }
+    }
+}
+
+// Calculate Width (Fraction => Percentage)
+//////////////////////////////
+
+@function calculate-width($value) {
+    @if $value == auto or unit($value) != "" {
+        @return $value;
+    } @else {
+        @return ($value * 100 * 1%);
+    }
+}
+
+// Shorthands
+//////////////////////////////
+
+@mixin g($modifiers...) {
+    @include grid($modifiers...);
+}
+
+@mixin i($widths...) {
+    @include item($widths...);
+}
+
+@function cw($value) {
+    @return calculate-width($value);
+}

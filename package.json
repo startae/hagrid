@@ -1,14 +1,15 @@
 {
-  "name": "fundament.grid",
-  "version": "0.8.2",
+  "name": "hagrid",
+  "version": "0.9.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/felics/fundament.grid"
+    "url": "https://github.com/felics/hagrid"
   },
   "devDependencies": {
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.1.0",
     "gulp-rename": "^1.2.0",
-    "gulp-ruby-sass": "^1.0.0-alpha.3"
+    "gulp-ruby-sass": "^1.0.0-alpha.3",
+    "gulp-jade": "^1.0.0"
   }
 }

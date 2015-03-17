@@ -12,24 +12,25 @@
 var gulp   = require("gulp"),
     rename = require("gulp-rename"),
     prefix = require("gulp-autoprefixer"),
-    sass   = require("gulp-ruby-sass");
+    sass   = require("gulp-ruby-sass"),
+    jade   = require("gulp-jade");
 
-// * scss
-// * 1. handle errors
-// * 2. sass
-// * 3. prefix
-// * --> write out
-// * 4. minify
-// * --> write out
-// * ---------------------
 
 gulp.task("sass", function () {
-  return sass("scss/fundament-grid.scss", {sourcemap: false})
+  return sass("./__test__/src/scss/test.scss", {sourcemap: false})
     .pipe(prefix({
-        browsers: ["last 1 version", "Explorer >= 10", "Android >= 4.4"]
+        browsers: ["last 2 versions", "Explorer >= 10", "Android >= 4.4"]
     }))
-    .pipe(rename("fundament-grid.css"))
-    .pipe(gulp.dest("./dist"));
+    .pipe(rename("styles.css"))
+    .pipe(gulp.dest("./__test__/css"));
+});
+
+gulp.task("jade", function(){
+  return gulp.src("./__test__/src/jade/*.jade")
+    .pipe(jade({
+      pretty: true
+    }))
+    .pipe(gulp.dest("./__test__/"))
 });
 
 
@@ -38,4 +39,23 @@ gulp.task("sass", function () {
 
 // * Default task
 
-gulp.task("default", ["sass"]);
+gulp.task("default", ["watch"]);
+
+gulp.task("watch", ["sass", "jade"], function(){
+
+    gulp.watch([
+<<<<<<< HEAD
+      "./src/*.scss", "./src/**/*.scss",
+=======
+      "./scss/*.scss", "./scss/**/*.scss",
+>>>>>>> origin/mixin
+      "./__test__/src/scss/test.scss",
+      "./__test__/src/scss/**/*.scss"
+    ], ["sass"]);
+
+    gulp.watch([
+      "./__test__/src/jade/*.jade",
+      "./__test__/src/jade/*/**.jade"
+    ], ["jade"]);
+
+})

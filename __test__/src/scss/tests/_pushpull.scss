@@ -1,0 +1,41 @@
+.push {
+    &-container {
+        @include g();
+        margin-bottom: 1.5rem;
+    }
+
+
+    &-four-five {
+        @include push(lap 3/5, desk 4/5);
+    }
+    &-three-four {
+        @include push(lap 2/4, desk 3/4);
+    }
+    &-two-three {
+        @include push(lap 1/3, desk 2/3);
+    }
+    &-one-two {
+        @include push(desk 1/2);
+    }
+}
+
+.pull {
+    &-container {
+        @include g(right);
+        margin-bottom: 1.5rem;
+    }
+    &-three-four {
+        @include pull(3/4, lap 2/4, desk 3/4);
+    }
+
+    &-two-three {
+        @include pull(2/3, lap 1/3, desk 2/3);
+
+    }
+    &-one-two {
+        @include pull(1/2, lap 0, desk 1/2);
+    }
+    &-four-five {
+        @include pull(4/5, lap 3/5, desk 4/5);
+    }
+}

@@ -51,6 +51,10 @@
         @include g(narrow);
     }
 
+    &-full {
+        @include g(full);
+    }
+
     &-wide {
         @include g(wide);
     }

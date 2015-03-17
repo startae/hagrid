@@ -80,10 +80,7 @@
     ///////////////////////////////
 
     @else if $modifier == space-around {
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/mixin
         justify-content: space-around;
 
         @if $hagrid-fallback and $hagrid-fallback-warnings {
@@ -184,10 +181,7 @@
                 direction: ltr;
                 text-align: left;
             }
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/mixin
             @if  $hagrid-fallback-warnings {
                 @warn "Modifier #{$modifier} won't work as expected on fallback-grid!"
             }

@@ -29,17 +29,10 @@ $hagrid-placeholders: ();
     $placeholder-id: hagrid-placeholder-get($id);
 
     @if $placeholder-id == null {
-<<<<<<< HEAD
         $placeholder-id: hagrid-placeholder-set($id);
         @at-root %#{$placeholder-id} {
             @content;
         }
-=======
-    $placeholder-id: hagrid-placeholder-set($id);
-    @at-root %#{$placeholder-id} {
-      @content;
-    }
->>>>>>> origin/mixin
     }
     @extend %#{$placeholder-id};
 }

@@ -118,10 +118,8 @@
         @media only screen and #{map-get($hagrid-breakpoints, $breakpoint)} {
             @content;
         }
-<<<<<<< HEAD
-    } @else {
+    }
+    @else {
         @error "Breakpoint #{$breakpoint} is not specified in $hagrid-breakpoints."
-=======
->>>>>>> origin/mixin
     }
 }

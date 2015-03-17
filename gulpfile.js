@@ -44,11 +44,7 @@ gulp.task("default", ["watch"]);
 gulp.task("watch", ["sass", "jade"], function(){
 
     gulp.watch([
-<<<<<<< HEAD
       "./src/*.scss", "./src/**/*.scss",
-=======
-      "./scss/*.scss", "./scss/**/*.scss",
->>>>>>> origin/mixin
       "./__test__/src/scss/test.scss",
       "./__test__/src/scss/**/*.scss"
     ], ["sass"]);

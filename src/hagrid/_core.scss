@@ -12,11 +12,17 @@
         display: flex;
         flex: initial;
         flex-flow: row wrap;
+        align-items: flex-start;
         list-style: none;
         margin-left: (-$hagrid-gutter/2);
         margin-right: (-$hagrid-gutter/2);
         padding: 0;
-        @include grid-modifiers(top,left);
+
+        @if ($hagrid-fallback) {
+            letter-spacing: -0.31em;
+            font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
+            text-rendering: optimizespeed;
+        }
     }
 }
 
@@ -26,7 +32,17 @@
         flex-shrink: 0; // * 1
         box-sizing: border-box;
         padding-left: ($hagrid-gutter/2);
-        padding-right:  ($hagrid-gutter/2);
+        padding-right: ($hagrid-gutter/2);
+
+        @if ($hagrid-fallback) {
+            display: inline-block;
+            font-family: $hagrid-font;
+            zoom: 1;
+            letter-spacing: normal;
+            vertical-align: top;
+            text-rendering: auto;
+        }
+
     }
 }
 
@@ -86,6 +102,9 @@
     flex-flow: row wrap;
     > * {
         flex: 1 1 100%;
+    }
+    @if $hagrid-fallback and $hagrid-show-warnings {
+        @warn "Stretch won't work on fallback-grid!"
     }
 }
 

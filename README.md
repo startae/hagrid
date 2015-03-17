@@ -21,19 +21,19 @@
     // * Responsive widths are set in the config-map $fdmt-breakpoints
     @include i(1/2, 1/3 lap, 1/4 desk);
 
-    // * If you initialize the item without arguments or a general width, it defaults to 100%
+    // * If you initialize the item without arguments or a general width, it defaults to 100% (mobile first)
     @include i();
     @include i(2/3 lap, 3/4 desk);
 
     // * You can use whatever you want as values.
     // * Fractions work great for grids and allow infinite columns without doing math.
-    // * using auto/px-values can be cool in combination with the "auto"-modifier
-
-    //* Possible
-    @include i(auto, lap 240px, desk 50%);
+    // * using auto can be cool in combination with the "auto"-modifier
 
     // * Recommended
     @include i(1/2, 1/3 lap, 1/4 desk);
+
+    //* Possible
+    @include i(auto, desk 50%);
 
     // * Alternative syntax
     @include item();
@@ -41,7 +41,12 @@
 
 ```
 
-The grid is just a light wrapper around flexbox, so go nuts with flexbox on your grids. Note: `display: flex` is only set on the grid, so you may have to re-set it on grid-items and children.
+By default, the grid is just a light wrapper around flexbox, so go nuts with flexbox. Note: `display: flex` is only set on the grid, so you may have to re-set it on grid-items and children.
+
+## Options:
+ - `$hagrid-gutter`: Set the gutter between items.
+ - `$hagrid-breakpoints`: Set the breakpoints. Can be used with the @bp-mixin too.
+ - `$hagrid-fallback`: If you want to add an `inline-block`-grid for older browsers, set this to true. You have to reset font-family on grid-items with `$hagrid-font`.
 
 ## Modifiers:
 
@@ -77,14 +82,15 @@ The grid is just a light wrapper around flexbox, so go nuts with flexbox on your
 ### Mixins:
 
  - **stretch:** Assign stretch mixin to a group of grid-items in a grid to stretch-align their contents.
+ - **bp:** Usage: @include bp(breakpoint){ @content; }
 
 ## Browser Support:
 
  - Chrome
  - Firefox
- - Safari 7+
- - Android 4.4+
- - IE 10+
+ - Safari 7+ (Fallback 6+)
+ - Android 4.4+ (Fallback 2.3+)
+ - IE 10+ (Fallback 9+ / 8+ with polyfill & -rem)
 
 ## License:
 

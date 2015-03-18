@@ -1,0 +1,192 @@
+
+//////////////////////////////
+// Modifiers
+///////////////////////////////
+
+@mixin grid-modifiers($modifiers...) {
+    @each $modifier in $modifiers {
+        @include grid-modifier($modifier);
+    }
+}
+
+@mixin grid-modifier($modifier) {
+
+    // x-Axis Alignment
+    //////////////////////////////
+
+    @if $modifier == left {
+        justify-content: flex-start;
+
+        @if $hagrid-fallback {
+            text-align: left;
+        }
+    }
+    @else if $modifier == right {
+        justify-content: flex-end;
+
+        @if $hagrid-fallback {
+            text-align: right;
+            > * {
+                text-align: left;
+            }
+        }
+    }
+    @else if $modifier == center {
+        justify-content: center;
+
+        @if $hagrid-fallback {
+            text-align: center;
+            > * {
+                text-align: left;
+            }
+        }
+    }
+
+    // * y-Axis Alignment
+    //////////////////////////////
+
+    @else if $modifier == top {
+        align-items: flex-start;
+
+        @if $hagrid-fallback {
+            > * {
+                vertical-align: top;
+            }
+        }
+
+    }
+    @else if $modifier == bottom {
+        align-items: flex-end;
+
+        @if $hagrid-fallback {
+            > * {
+                vertical-align: bottom;
+            }
+        }
+
+    }
+    @else if $modifier == middle {
+        align-items: center;
+
+        @if $hagrid-fallback {
+            > * {
+                vertical-align: middle;
+            }
+        }
+
+    }
+
+    // Flex Alignment
+    ///////////////////////////////
+
+    @else if $modifier == space-around {
+
+        justify-content: space-around;
+
+        @if $hagrid-fallback and $hagrid-fallback-warnings {
+            @warn "Modifier #{$modifier} won't work on fallback-grid!"
+        }
+    }
+    @else if $modifier == space-between {
+        justify-content: space-between;
+
+        @if $hagrid-fallback and $hagrid-fallback-warnings {
+            @warn "Modifier #{$modifier} won't work on fallback-grid!"
+        }
+    }
+
+    // Spacing
+    //////////////////////////////
+
+    @else if $modifier == default {
+        margin-left: (-$hagrid-gutter/2);
+        margin-right: (-$hagrid-gutter/2);
+        > * {
+            padding-left: ($hagrid-gutter/2);
+            padding-right: ($hagrid-gutter/2);
+        }
+    }
+    @else if $modifier == full {
+        margin-left: 0;
+        margin-right: 0;
+        > * {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+    @else if $modifier == wide {
+        margin-left: (-$hagrid-gutter);
+        margin-right: (-$hagrid-gutter);
+        > * {
+            padding-left: $hagrid-gutter;
+            padding-right: $hagrid-gutter;
+        }
+    }
+    @else if $modifier == narrow {
+        margin-left: (-$hagrid-gutter/4);
+        margin-right: (-$hagrid-gutter/4);
+        > * {
+            padding-left: ($hagrid-gutter/4);
+            padding-right: ($hagrid-gutter/4);
+        }
+    }
+
+    // Flex Spacing
+    ///////////////////////////////
+
+    @else if $modifier == auto {
+        > * {
+            width: auto;
+            flex: 1 1 auto;
+        }
+
+        @if $hagrid-fallback and $hagrid-fallback-warnings {
+            @warn "Modifier #{$modifier} won't work on fallback-grid!"
+        }
+    }
+
+    // Direction
+    ///////////////////////////////
+
+    @else if $modifier == x-rev {
+
+        @if $hagrid-fallback {
+            direction: rtl;
+            text-align: left;
+            > * {
+                direction: ltr;
+                text-align: left;
+            }
+        } @else {
+            flex-flow: row-reverse wrap;
+        }
+
+    }
+
+    @else if $modifier == y-rev {
+        flex-flow: row wrap-reverse;
+
+        @if $hagrid-fallback and $hagrid-fallback-warnings {
+            @warn "Modifier #{$modifier} won't work on fallback-grid!"
+        }
+    }
+
+    @else if $modifier == rev {
+
+        @if $hagrid-fallback {
+            flex-flow: row wrap-reverse;
+            direction: rtl;
+            text-align: left;
+            > * {
+                direction: ltr;
+                text-align: left;
+            }
+
+            @if  $hagrid-fallback-warnings {
+                @warn "Modifier #{$modifier} won't work as expected on fallback-grid!"
+            }
+        } @else {
+            flex-flow: row-reverse wrap-reverse;
+        }
+    }
+}

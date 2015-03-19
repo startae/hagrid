@@ -58,7 +58,7 @@ By default, the grid is just a light wrapper around flexbox, so go nuts with fle
  - **space-around:** Distribute items by using variable space around them.
  - **space-between:** Distribute items by using variable space between them.
  - **auto:** Let flexbox attempt to align items when no width is set on them.
-             *Note:* If you want to use this on grid-items, set @include i(auto);
+ *Note: If you want to use this on grid-items, set @include i(auto);*
 
 ### y-axis Alignment:
 
@@ -91,6 +91,10 @@ By default, the grid is just a light wrapper around flexbox, so go nuts with fle
  - Safari 7+ (Fallback 6+)
  - Android 4.4+ (Fallback 2.3+)
  - IE 10+ (Fallback 9+ / 8+ with polyfill & -rem)
+
+## Known Issues:
+
+ - Reversing the y-axis does not seem to work on IE 10/11 (Modifier: y-rev)
 
 ## License:
 

@@ -4,8 +4,8 @@
   "authors": [
     "felics <hi@felics.me>"
   ],
-  "description": "A flexbox-first, semantic and customizable scss grid system with a robust inline-block fallback.",
-  "main": "fundament.scss",
+  "description": "Flexbox-first, mixin-based SCSS Grid",
+  "main": "src/hagrid.scss",
   "keywords": [
     "scss",
     "grid",
@@ -15,9 +15,9 @@
   "homepage": "https://github.com/felics/hagrid.git",
   "ignore": [
     "node_modules",
-    "test"
-  ],
-  "dependencies": {
-    "normalize.css": "~3.0.2"
-  }
+    "__test__",
+    "gulpfile.js",
+    "package.json",
+    ".editorconfig"
+  ]
 }

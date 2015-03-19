@@ -1,6 +1,6 @@
 # hagrid
 
-> Streamlined, mixin-based flexbox grid for modern browsers
+> Flexbox-first, mixin-based SCSS Grid
 
 ## Usage:
 

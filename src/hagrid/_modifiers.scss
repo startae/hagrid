@@ -4,9 +4,40 @@
 ///////////////////////////////
 
 @mixin grid-modifiers($modifiers...) {
+
+    $is-y: false;
+    $is-orientation: false;
+    $is-spacing: false;
+
     @each $modifier in $modifiers {
+        // * Check for modifiers that collide with defaults
+        @if $modifier == bottom or $modifier == top or $modifier == middle {
+            $is-y: true;
+        }
+        @else if $modifier == rev or $modifier == x-rev or $modifier == y-rev {
+            $is-orientation: true;
+        }
+        @else if $modifier == narrow or $modifier == wide or $modifier == full {
+            $is-spacing: true;
+        }
+
         @include grid-modifier($modifier);
+
     }
+
+    @if $is-y == false {
+        align-items: flex-start;
+    }
+
+    @if $is-orientation == false {
+        flex-flow: row wrap;
+    }
+
+    @if $is-spacing == false {
+        margin-left: (-$hagrid-gutter/2);
+        margin-right: (-$hagrid-gutter/2);
+    }
+
 }
 
 @mixin grid-modifier($modifier) {
@@ -43,6 +74,7 @@
     }
 
     // * y-Axis Alignment
+    // * We have to use !important on some properties in order to keep the nice syntax
     //////////////////////////////
 
     @else if $modifier == top {
@@ -60,7 +92,7 @@
 
         @if $hagrid-fallback {
             > * {
-                vertical-align: bottom;
+                vertical-align: bottom!important;
             }
         }
 
@@ -70,7 +102,7 @@
 
         @if $hagrid-fallback {
             > * {
-                vertical-align: middle;
+                vertical-align: middle!important;
             }
         }
 
@@ -110,24 +142,24 @@
         margin-left: 0;
         margin-right: 0;
         > * {
-            padding-left: 0;
-            padding-right: 0;
+            padding-left: 0!important;
+            padding-right: 0!important;
         }
     }
     @else if $modifier == wide {
         margin-left: (-$hagrid-gutter);
         margin-right: (-$hagrid-gutter);
         > * {
-            padding-left: $hagrid-gutter;
-            padding-right: $hagrid-gutter;
+            padding-left: $hagrid-gutter!important;
+            padding-right: $hagrid-gutter!important;
         }
     }
     @else if $modifier == narrow {
         margin-left: (-$hagrid-gutter/4);
         margin-right: (-$hagrid-gutter/4);
         > * {
-            padding-left: ($hagrid-gutter/4);
-            padding-right: ($hagrid-gutter/4);
+            padding-left: ($hagrid-gutter/4) !important;
+            padding-right: ($hagrid-gutter/4) !important;
         }
     }
 
@@ -150,6 +182,8 @@
     @else if $modifier == x-rev {
 
         @if $hagrid-fallback {
+            // * Needs to be reset - will be skipped otherwise
+            flex-flow: row wrap;
             direction: rtl;
             text-align: left;
             > * {
@@ -187,5 +221,7 @@
         } @else {
             flex-flow: row-reverse wrap-reverse;
         }
+    } @else {
+        @error "Modifier #{ modifier } does not exist."
     }
 }

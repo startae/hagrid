@@ -7,15 +7,13 @@
 // 1. https://github.com/philipwalton/flexbugs#1-minimum-content-sizing-of-flex-items-not-honored
 ///////////////////////////////
 
+// * Only carries properties that are not overwritten in modifiers. Rest is added
+// * in @grid-modifiers via conditionals
 @mixin grid-static {
     @include mixin-dryer("grid") {
         display: flex;
         flex: initial;
-        flex-flow: row wrap;
-        align-items: flex-start;
         list-style: none;
-        margin-left: (-$hagrid-gutter/2);
-        margin-right: (-$hagrid-gutter/2);
         padding: 0;
 
         @if $hagrid-fallback and $hagrid-fallback-fontfix {
@@ -23,14 +21,15 @@
             font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
             text-rendering: optimizespeed;
         }
+        
     }
 }
-
 
 @mixin item-static {
     @include mixin-dryer("item") {
         flex-shrink: 0; // * 1
         box-sizing: border-box;
+
         padding-left: ($hagrid-gutter/2);
         padding-right: ($hagrid-gutter/2);
 

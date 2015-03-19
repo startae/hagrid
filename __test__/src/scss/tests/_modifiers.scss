@@ -32,6 +32,25 @@
         @include g(space-between);
     }
 
+    &-auto {
+        @include g(auto);
+        .modifier-header {
+            @include i();
+        }
+        .auto-item {
+            @include i(140px);
+        }
+        .first {
+            max-width: 140px;
+        }
+        .second {
+            @include i(false, 10% desk);
+            @include bp(desk) {
+                max-width: 10%;
+            }
+        }
+    }
+
     &-middle {
         @include g(middle);
     }
@@ -61,13 +80,6 @@
 
     &-xrev {
         @include g(x-rev);
-        .modifier-item {
-            &:last-child {
-                .block {
-                    background: $color-primary;
-                }
-            }
-        }
     }
     &-yrev {
         @include g(y-rev);
@@ -76,5 +88,3 @@
         @include g(rev);
     }
 }
-
-

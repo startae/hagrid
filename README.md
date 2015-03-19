@@ -2,7 +2,13 @@
 
 > Flexbox-first, mixin-based SCSS Grid
 
-## Usage:
+## Install:
+
+```
+bower install hagrid
+```
+
+## Use:
 
 ```scss
 
@@ -27,13 +33,14 @@
 
     // * You can use whatever you want as values.
     // * Fractions work great for grids and allow infinite columns without doing math.
-    // * using auto can be cool in combination with the "auto"-modifier
+    // * Passing in false will prevent @i from setting any general width (Responsive widths are false by default)
+    // * using false/static values can be cool in combination with the "auto"-modifier
 
     // * Recommended
     @include i(1/2, 1/3 lap, 1/4 desk);
 
     //* Possible
-    @include i(auto, desk 50%);
+    @include i(false, desk 50%);
 
     // * Alternative syntax
     @include item();
@@ -57,8 +64,33 @@ By default, the grid is just a light wrapper around flexbox, so go nuts with fle
  - **center:** Center grid-items in partially filled rows.
  - **space-around:** Distribute items by using variable space around them.
  - **space-between:** Distribute items by using variable space between them.
- - **auto:** Let flexbox attempt to align items when no width is set on them.
- *Note: If you want to use this on grid-items, set @include i(auto);*
+ - **auto:** Let flexbox attempt to align items when no width / static widths are set on them. If you set a static width, it will be used as "min-width" by flexbox. Flexbox will still grow it to fill the container together with all other items. Set max-width&width on one or more items to let flexbox layout all other items around them. If you set @i(false) on all items, flexbox will evenly layout the items.
+ 
+ #### Example (auto):
+ 
+```scss
+
+.auto-grid {
+    @include g(auto);
+    // Auto-Layout all
+    > .item {
+        @include i(false);
+    }
+}
+
+.auto-grid {
+    @include g(auto);
+    // Auto-Layout around one static
+    > .item {
+        @include i(false);
+    }
+    > .item.first {
+        @include i(240px);
+        max-width: 240px;
+    }
+}
+
+```
 
 ### y-axis Alignment:
 
@@ -83,7 +115,20 @@ By default, the grid is just a light wrapper around flexbox, so go nuts with fle
 
  - **stretch:** Assign stretch mixin to a group of grid-items in a grid to stretch-align their contents.
  - **bp:** Usage: @include bp(breakpoint){ @content; }
+ 
+#### Example (stretch):
 
+```scss
+
+.stretch {
+    @include g();
+    > .item {
+        @include i();
+        @include stretch;
+    }
+}
+
+```
 ## Browser Support:
 
  - Chrome
@@ -91,6 +136,7 @@ By default, the grid is just a light wrapper around flexbox, so go nuts with fle
  - Safari 7+ (Fallback 6+)
  - Android 4.4+ (Fallback 2.3+)
  - IE 10+ (Fallback 9+ / 8+ with polyfill & -rem)
+ - Opera 12+
 
 ## Known Issues:
 

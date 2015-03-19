@@ -18,7 +18,7 @@
 .child {
     // * Initialize a grid-item with a set of responsive widths
     // * The general width is set without a breakpoint-keyword (Here: 1/2)
-    // * Responsive widths are set in the config-map $fdmt-breakpoints
+    // * Responsive widths are set in the config-map $hagrid-breakpoints
     @include i(1/2, 1/3 lap, 1/4 desk);
 
     // * If you initialize the item without arguments or a general width, it defaults to 100% (mobile first)

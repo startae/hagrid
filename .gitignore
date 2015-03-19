@@ -1,3 +1,8 @@
+bower_components/*
+
 node_modules/*
+
 .sass-cache/*
-*sublime*
+
+__test__/css
+__test__/index.html

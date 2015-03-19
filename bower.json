@@ -1,6 +1,6 @@
 {
-  "name": "fundament.grid",
-  "version": "0.8.2",
+  "name": "hagrid",
+  "version": "0.9.0",
   "authors": [
     "felics <hi@felics.me>"
   ],
@@ -12,9 +12,12 @@
     "flexbox"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/felics/fundament.grid.git",
+  "homepage": "https://github.com/felics/hagrid.git",
   "ignore": [
     "node_modules",
     "test"
-  ]
+  ],
+  "dependencies": {
+    "normalize.css": "~3.0.2"
+  }
 }

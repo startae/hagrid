@@ -198,14 +198,20 @@
 
     @else if $modifier == y-rev {
         flex-flow: row wrap-reverse;
-
+        // * Workaround for IE rendering diff, see: https://github.com/felics/hagrid/issues/13
+        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+            align-items: flex-end;
+        }
         @if $hagrid-fallback and $hagrid-fallback-warnings {
             @warn "Modifier #{$modifier} won't work on fallback-grid!"
         }
     }
 
     @else if $modifier == rev {
-
+        // * Workaround for IE rendering diff, see: https://github.com/felics/hagrid/issues/13
+        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+            align-items: flex-end;
+        }
         @if $hagrid-fallback {
             flex-flow: row wrap-reverse;
             direction: rtl;

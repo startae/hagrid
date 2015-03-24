@@ -138,10 +138,6 @@ By default, the grid is just a light wrapper around flexbox, so go nuts with fle
  - IE 10+ (Fallback 9+ / 8+ with polyfill & -rem)
  - Opera 12+
 
-## Known Issues:
-
- - Reversing the y-axis does not seem to work on IE 10/11 (Modifier: y-rev)
-
 ## License:
 
 The MIT License (MIT)

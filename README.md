@@ -54,12 +54,13 @@ By default, the grid is just a light wrapper around flexbox, so go nuts with fle
  - `$hagrid-gutter`: Set the gutter between items.
  - `$hagrid-breakpoints`: Set the breakpoints. Can be used with the @bp-mixin too.
  - `$hagrid-fallback`: If you want to add an `inline-block`-grid for older browsers, set this to true. By default, the whitespace issue is fixed the [pure](http://purecss.io)-way via letter-spacing / font-family. You have to reset item-font with `$hagrid-fallback-font`. If you want to fix the issue via 0-whitespace HTML, set `$hagrid-fallback-fontfix` to false
+ - `$hagrid-fallback-warnings:` Displays warnings about modifiers / mixins that won't work on the fallback
+ - `$hagrid-dry-mixins`: By default, mixins apply all properties every time they are called. This makes the output CSS more readable, but also larger. GZIP negates this. If you don't have access to gzip or want to bundle static properties for all selectors at the first mixin-call, set this to true.
 
 ## Modifiers:
 
 ### x-axis Alignment:
 
- - **left:** Align grid-items to the left in partially filled rows. *(default)*
  - **right:** Align grid-items to the right in partially filled rows.
  - **center:** Center grid-items in partially filled rows.
  - **space-around:** Distribute items by using variable space around them.

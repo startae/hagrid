@@ -97,7 +97,6 @@
     ///////////////////////////////
 
     @else if $modifier == space-around {
-
         justify-content: space-around;
 
         @if $hagrid-fallback and $hagrid-fallback-warnings {

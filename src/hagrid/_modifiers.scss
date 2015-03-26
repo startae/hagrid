@@ -47,14 +47,7 @@
     // x-Axis Alignment
     //////////////////////////////
 
-    @if $modifier == left {
-        justify-content: flex-start;
-
-        @if $hagrid-fallback {
-            text-align: left;
-        }
-    }
-    @else if $modifier == right {
+    @if $modifier == right {
         justify-content: flex-end;
 
         @if $hagrid-fallback {
@@ -79,16 +72,6 @@
     // * We have to use !important on some properties in order to keep the nice syntax
     //////////////////////////////
 
-    @else if $modifier == top {
-        align-items: flex-start;
-
-        @if $hagrid-fallback {
-            > * {
-                vertical-align: top;
-            }
-        }
-
-    }
     @else if $modifier == bottom {
         align-items: flex-end;
 
@@ -234,6 +217,6 @@
             flex-flow: row-reverse wrap-reverse;
         }
     } @else {
-        @error "Modifier #{ modifier } does not exist."
+        @error "Modifier #{ $modifier } does not exist."
     }
 }

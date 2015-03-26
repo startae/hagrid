@@ -94,7 +94,6 @@ By default, the grid is just a light wrapper around flexbox, so go nuts with fle
 
 ### y-axis Alignment:
 
- - **top**: Align items to the top of the grid. *(default)*
  - **bottom**: Align items to the middle of the grid.
  - **middle**: Vertically center grid items.
 
@@ -103,7 +102,6 @@ By default, the grid is just a light wrapper around flexbox, so go nuts with fle
  - **narrow:** Half the gutter between items.
  - **wide:** Double the gutter between items.
  - **full:** No gutter between items.
- - **default:** Standard gutter between items
 
 ### Direction:
 

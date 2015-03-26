@@ -79,12 +79,12 @@
     }
 
     &-xrev {
-        @include g(x-rev);
+        @include g(rev);
     }
     &-yrev {
-        @include g(y-rev);
+        @include g(flip);
     }
     &-rev {
-        @include g(rev);
+        @include g(rev, flip);
     }
 }

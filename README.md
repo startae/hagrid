@@ -105,9 +105,8 @@ By default, the grid is just a light wrapper around flexbox, so go nuts with fle
 
 ### Direction:
 
- - **rev:**  Reverted grid on both axis.
- - **x-rev:** Reverted grid on x-axis.
- - **y-rev:** Reverted grid on y-axis.
+ - **rev:**  Reverted grid on x-axis.
+ - **flip:** Reverted grid on y-axis.
 
 ### Mixins:
 

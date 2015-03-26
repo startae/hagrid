@@ -6,7 +6,7 @@
 @mixin grid-modifiers($modifiers...) {
 
     $is-y: false;
-    $is-orientation: false;
+    $is-wrap: false;
     $is-spacing: false;
 
     @each $modifier in $modifiers {
@@ -14,8 +14,8 @@
         @if $modifier == bottom or $modifier == top or $modifier == middle {
             $is-y: true;
         }
-        @else if $modifier == rev or $modifier == x-rev or $modifier == y-rev {
-            $is-orientation: true;
+        @else if $modifier == flip {
+            $is-wrap: true;
         }
         @else if $modifier == narrow or $modifier == wide or $modifier == full {
             $is-spacing: true;
@@ -29,8 +29,8 @@
         align-items: flex-start;
     }
 
-    @if $is-orientation == false {
-        flex-flow: row wrap;
+    @if $is-wrap == false {
+        flex-wrap: wrap;
     }
 
     @if $is-spacing == false {
@@ -168,25 +168,22 @@
     // Direction
     ///////////////////////////////
 
-    @else if $modifier == x-rev {
+    @else if $modifier == rev {
 
         @if $hagrid-fallback {
-            // * Needs to be reset - will be skipped otherwise
-            flex-flow: row wrap;
             direction: rtl;
-            text-align: left;
             > * {
                 direction: ltr;
                 text-align: left;
             }
         } @else {
-            flex-flow: row-reverse wrap;
+            flex-direction: row-reverse;
         }
 
     }
 
-    @else if $modifier == y-rev {
-        flex-flow: row wrap-reverse;
+    @else if $modifier == flip {
+        flex-wrap: wrap-reverse;
         // * Workaround for IE rendering diff, see: https://github.com/felics/hagrid/issues/13
         @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
             align-items: flex-end;
@@ -195,28 +192,7 @@
             @warn "Modifier #{$modifier} won't work on fallback-grid!"
         }
     }
-
-    @else if $modifier == rev {
-        // * Workaround for IE rendering diff, see: https://github.com/felics/hagrid/issues/13
-        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-            align-items: flex-end;
-        }
-        @if $hagrid-fallback {
-            flex-flow: row wrap-reverse;
-            direction: rtl;
-            text-align: left;
-            > * {
-                direction: ltr;
-                text-align: left;
-            }
-
-            @if  $hagrid-fallback-warnings {
-                @warn "Modifier #{$modifier} won't work as expected on fallback-grid!"
-            }
-        } @else {
-            flex-flow: row-reverse wrap-reverse;
-        }
-    } @else {
+    @else {
         @error "Modifier #{ $modifier } does not exist."
     }
 }

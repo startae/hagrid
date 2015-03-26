@@ -40,7 +40,7 @@ $hagrid-placeholders: ();
 // Static Mixin Helper
 //////////////////////////////
 
-@mixin mixin-dryer($id, $extend: true) {
+@mixin mixin-dryer($id, $extend: $hagrid-dry-mixins) {
     @if $extend == true {
         @include dynamic-extend($id) {
             @content;

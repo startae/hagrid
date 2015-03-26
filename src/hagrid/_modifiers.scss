@@ -34,8 +34,10 @@
     }
 
     @if $is-spacing == false {
-        margin-left: (-$hagrid-gutter/2);
-        margin-right: (-$hagrid-gutter/2);
+        margin: {
+            left: (-$hagrid-gutter/2);
+            right: (-$hagrid-gutter/2);
+        };
     }
 
 }
@@ -130,36 +132,40 @@
     // Spacing
     //////////////////////////////
 
-    @else if $modifier == default {
-        margin-left: (-$hagrid-gutter/2);
-        margin-right: (-$hagrid-gutter/2);
-        > * {
-            padding-left: ($hagrid-gutter/2);
-            padding-right: ($hagrid-gutter/2);
-        }
-    }
     @else if $modifier == full {
-        margin-left: 0;
-        margin-right: 0;
+        margin: {
+            left: 0;
+            right: 0;
+        };
         > * {
-            padding-left: 0!important;
-            padding-right: 0!important;
+            padding: {
+                left: 0!important;
+                right: 0!important;
+            };
         }
     }
     @else if $modifier == wide {
-        margin-left: (-$hagrid-gutter);
-        margin-right: (-$hagrid-gutter);
+        margin: {
+            left: (-$hagrid-gutter);
+            right: (-$hagrid-gutter);
+        };
         > * {
-            padding-left: $hagrid-gutter!important;
-            padding-right: $hagrid-gutter!important;
+            padding: {
+                left: $hagrid-gutter!important;
+                right: $hagrid-gutter!important;
+            };
         }
     }
     @else if $modifier == narrow {
-        margin-left: (-$hagrid-gutter/4);
-        margin-right: (-$hagrid-gutter/4);
+        margin: {
+            left: (-$hagrid-gutter/4);
+            right: (-$hagrid-gutter/4);
+        };
         > * {
-            padding-left: ($hagrid-gutter/4) !important;
-            padding-right: ($hagrid-gutter/4) !important;
+            padding: {
+                left: ($hagrid-gutter/4)!important;
+                right: ($hagrid-gutter/4)!important;
+            };
         }
     }
 

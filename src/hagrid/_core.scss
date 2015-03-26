@@ -30,8 +30,10 @@
         flex-shrink: 0; // * 1
         box-sizing: border-box;
 
-        padding-left: ($hagrid-gutter/2);
-        padding-right: ($hagrid-gutter/2);
+        padding: {
+            left: ($hagrid-gutter/2);
+            right: ($hagrid-gutter/2);
+        };
 
         @if $hagrid-fallback {
             display: inline-block;

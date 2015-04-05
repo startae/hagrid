@@ -6,3 +6,5 @@ node_modules/*
 
 __test__/css
 __test__/index.html
+
+.DS_Store

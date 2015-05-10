@@ -12,12 +12,13 @@
 var gulp   = require("gulp"),
     rename = require("gulp-rename"),
     prefix = require("gulp-autoprefixer"),
-    sass   = require("gulp-ruby-sass"),
+    sass   = require("gulp-sass"),
     jade   = require("gulp-jade");
 
 
 gulp.task("sass", function () {
-  return sass("./__test__/src/scss/test.scss", {sourcemap: false})
+  return gulp.src("./__test__/src/scss/test.scss")
+    .pipe(sass().on('error', sass.logError))
     .pipe(prefix({
         browsers: ["last 2 versions", "Explorer >= 10", "Android >= 4.4"]
     }))

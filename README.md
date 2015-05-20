@@ -136,6 +136,11 @@ By default, the grid is just a light wrapper around flexbox, so go nuts with fle
  - IE 10+ (Fallback 9+ / 8+ with polyfill & -rem)
  - Opera 12+
 
+## Prefixes:
+
+Hagrid does not generate prefixes (`-webkit-`,`-ms-`)
+ as it is designed to be integrated with common SASS workflows in mind (Gulp / Grunt with [Autoprefixer](https://github.com/postcss/autoprefixer)). A sample configuration for Autoprefixer is available in the [test build-file](https://github.com/felics/hagrid/blob/master/gulpfile.js#L22-L23).
+
 ## License:
 
 The MIT License (MIT)

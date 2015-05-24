@@ -1,6 +1,18 @@
 # hagrid
 
-> Flexbox-first, mixin-based SCSS Grid
+![Logo](http://felics.me/hagrid/hagrid_logo_small.png)
+
+> Simple but powerful flexbox-grid
+
+## Content:
+
+ 1. [Installing](https://github.com/felics/hagrid#install)
+ 2. [Using the Mixin](https://github.com/felics/hagrid#use)
+ 3. [Configuration Options](https://github.com/felics/hagrid#options)
+ 4. [Avaiable Modifiers](https://github.com/felics/hagrid#modifiers)
+ 5. [Browser Support](https://github.com/felics/hagrid#browser-support)
+ 6. [Prefixes](https://github.com/felics/hagrid#prefixes)
+ 7. [Credit & License](https://github.com/felics/hagrid#credit)
 
 ## Install:
 
@@ -140,6 +152,10 @@ By default, the grid is just a light wrapper around flexbox, so go nuts with fle
 
 Hagrid does not generate prefixes (`-webkit-`,`-ms-`)
  as it is designed to be integrated with common SASS workflows in mind (Gulp / Grunt with [Autoprefixer](https://github.com/postcss/autoprefixer)). A sample configuration for Autoprefixer is available in the [test build-file](https://github.com/felics/hagrid/blob/master/gulpfile.js#L22-L23).
+
+## Credit:
+
+Beard used in the logo by [ZQ](http://www.designbolts.com/2013/02/24/free-vector-hipster-stock-mustache-beard-rayban-glasses/).
 
 ## License:
 

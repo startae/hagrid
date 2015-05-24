@@ -4,7 +4,6 @@
 	<img width="237" src="http://felics.me/hagrid/hagrid_logo_small.png" alt="logo">
 	<br>
 	<br>
-	<br>
 </h1>
 
 ## Contents:

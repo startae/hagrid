@@ -1,10 +1,7 @@
-# hagrid
 
 ![Logo](http://felics.me/hagrid/hagrid_logo_small.png)
 
-> Simple but powerful flexbox-grid
-
-## Content:
+## Contents:
 
  1. [Installing](https://github.com/felics/hagrid#install)
  2. [Using the Mixin](https://github.com/felics/hagrid#use)

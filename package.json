@@ -6,8 +6,8 @@
     "url": "https://github.com/felics/hagrid"
   },
   "devDependencies": {
-    "gulp": "^3.8.11",
-    "gulp-autoprefixer": "^2.3.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
     "gulp-jade": "^1.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.0.1"

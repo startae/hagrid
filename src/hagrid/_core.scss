@@ -17,19 +17,17 @@
         padding: 0;
 
         @if $hagrid-fallback and $hagrid-fallback-fontfix {
-            letter-spacing: -0.31em;
             font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
+            letter-spacing: -0.31em;
             text-rendering: optimizespeed;
         }
-        
     }
 }
 
 @mixin item-static {
     @include mixin-dryer("item") {
-        flex-shrink: 0; // * 1
         box-sizing: border-box;
-
+        flex-shrink: 0; // * 1
         padding: {
             left: ($hagrid-gutter/2);
             right: ($hagrid-gutter/2);
@@ -42,8 +40,8 @@
 
             @if $hagrid-fallback-fontfix {
                 font-family: $hagrid-fallback-font;
-                text-rendering: auto;
                 letter-spacing: normal;
+                text-rendering: auto;
             }
         }
     }
@@ -84,8 +82,6 @@
     @include push-pull-static();
 
     @include grid-calc(right, $widths...);
-
-
 }
 
 @mixin push($widths...) {
@@ -93,7 +89,6 @@
     @include push-pull-static();
 
     @include grid-calc(left, $widths...);
-
 }
 
 // Stretch

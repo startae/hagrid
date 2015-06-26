@@ -104,7 +104,6 @@ $hagrid-placeholders: ();
                 }
             }
         }
-
         // * If only responsive params are passed, default to mobile-first
         @if $width-detected == false and $prop == width {
             #{$prop}: 100%;

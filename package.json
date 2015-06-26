@@ -5,6 +5,14 @@
     "type": "git",
     "url": "https://github.com/felics/hagrid"
   },
+  "jscsConfig": {
+    "preset": "airbnb",
+    "validateQuoteMarks": {
+      "mark": "\"",
+      "escape": true
+    },
+    "esnext": true
+  },
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",

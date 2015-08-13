@@ -31,7 +31,7 @@ bower install hagrid
     @include g(full, rev);
 
     // * Alternative syntax
-    @include grid(full,rev);
+    @include grid(full, rev);
 
 }
 
@@ -39,11 +39,11 @@ bower install hagrid
     // * Initialize a grid-item with a set of responsive widths
     // * The general width is set without a breakpoint-keyword (Here: 1/2)
     // * Responsive widths are set in the config-map $hagrid-breakpoints
-    @include i(1/2, 1/3 lap, 1/4 desk);
+    @include i(1/2, 1/3 md, 1/4 lg);
 
     // * If you initialize the item without arguments or a general width, it defaults to 100% (mobile first)
-    @include i();
-    @include i(2/3 lap, 3/4 desk);
+    @include i;
+    @include i(2/3 md, 3/4 lg);
 
     // * You can use whatever you want as values.
     // * Fractions work great for grids and allow infinite columns without doing math.
@@ -51,10 +51,10 @@ bower install hagrid
     // * using false/static values can be cool in combination with the "auto"-modifier
 
     // * Recommended
-    @include i(1/2, 1/3 lap, 1/4 desk);
+    @include i(1/2, 1/3 md, 1/4 lg);
 
     //* Possible
-    @include i(false, desk 50%);
+    @include i(false, lg 50%);
 
     // * Alternative syntax
     @include item();

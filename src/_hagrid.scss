@@ -19,9 +19,10 @@ $hagrid-gutter: 1.5rem;
 //////////////////////////////
 
 $hagrid-breakpoints: (
-    lap:  "(min-width: 561px)",
-    desk: "(min-width: 1025px)",
-    high: "(min-width: 1500px)"
+    sm: "(min-width: 35.5em)",
+    md: "(min-width: 48em)",
+    lg: "(min-width: 64em)",
+    xl: "(min-width: 80em)"
 );
 
 

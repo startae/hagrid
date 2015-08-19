@@ -80,9 +80,9 @@ By default, the grid is just a light wrapper around flexbox, so go nuts with fle
  - **space-around:** Distribute items by using variable space around them.
  - **space-between:** Distribute items by using variable space between them.
  - **auto:** Let flexbox attempt to align items when no width / static widths are set on them. If you set a static width, it will be used as "min-width" by flexbox. Flexbox will still grow it to fill the container together with all other items. Set max-width&width on one or more items to let flexbox layout all other items around them. If you set @i(false) on all items, flexbox will evenly layout the items.
- 
+
  #### Example (auto):
- 
+
 ```scss
 
 .auto-grid {
@@ -127,7 +127,7 @@ By default, the grid is just a light wrapper around flexbox, so go nuts with fle
 
  - **stretch:** Assign stretch mixin to a group of grid-items in a grid to stretch-align their contents.
  - **bp:** Usage: @include bp(breakpoint){ @content; }
- 
+
 #### Example (stretch):
 
 ```scss

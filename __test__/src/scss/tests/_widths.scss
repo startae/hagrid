@@ -3,13 +3,16 @@
         @include g();
         margin-bottom: 1.5rem;
     }
+
     &-item {
         @include i();
     }
+
     &-column {
-        @include i(100%, lap 1/2);
+        @include i(100%, md 1/2);
+
         &:first-child {
-            @include i(100%, lap 1/2)
+            @include i(100%, md 1/2)
         }
     }
 }
@@ -48,45 +51,45 @@
 }
 
 .one-six {
-    @include i(1, desk 1/6);
+    @include i(1, lg 1/6);
 }
 
 .five-six {
     display: none;
-    @include i(1, desk 5/6);
-    @include bp(desk) {
+    @include i(1, lg 5/6);
+    @include bp(lg) {
         display: block;
     }
 }
 
 .one-seven {
-    @include i(1/2, desk 1/7)
+    @include i(1/2, lg 1/7)
 }
 
 .six-seven {
-    @include i(1/2, desk 6/7)
+    @include i(1/2, lg 6/7)
 }
 
 .one-eight {
-    @include i(1/3, desk 1/8)
+    @include i(1/3, lg 1/8)
 }
 
 .seven-eight {
-    @include i(2/3, desk 7/8)
+    @include i(2/3, lg 7/8)
 }
 
 .one-nine {
-    @include i(1/4, desk 1/9)
+    @include i(1/4, lg 1/9)
 }
 
 .eight-nine {
-    @include i(3/4, desk 8/9)
+    @include i(3/4, lg 8/9)
 }
 
 .one-ten {
-    @include i(1/5, desk 1/10)
+    @include i(1/5, lg 1/10)
 }
 
 .nine-ten {
-    @include i(4/5, desk 9/10)
+    @include i(4/5, lg 9/10)
 }

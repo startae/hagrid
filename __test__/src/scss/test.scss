@@ -1,17 +1,13 @@
-
-
 $color-primary: #C31C13;
 $color-secondary: #971416;
 $color-shade: #6A0D18;
 $color-border: #3D051A;
-
 
 @import "normalize";
 @import "../../../src/hagrid";
 @import "tests/widths";
 @import "tests/pushpull";
 @import "tests/modifiers";
-
 
 body {
     margin: 2em;
@@ -27,13 +23,15 @@ body {
     min-height: 2em;
     border-radius: .25em;
     margin-bottom: .5rem;
+
     &.large {
         height: 6em;
     }
 }
 
 header {
-    text-align: center!important;
+    text-align: center !important;
+
     h1,
     h2 {
         display: inline-block;

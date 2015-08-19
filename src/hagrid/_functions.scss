@@ -85,11 +85,11 @@ $hagrid-placeholders: ();
             // * Handle responsive args
             @else {
 
-                // * "lap 2/3"-synthax
+                // * "md 2/3"-synthax
                 $key: nth($width, 1);
                 $value: nth($width, 2);
 
-                // * Cater for "2/3 lap"-synthax
+                // * Cater for "2/3 md"-synthax
                 @if type-of($key) == number {
                     $value: nth($width, 1);
                     $key: nth($width, 2);

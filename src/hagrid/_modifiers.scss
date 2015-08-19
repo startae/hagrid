@@ -39,7 +39,6 @@
             right: (-$hagrid-gutter/2);
         };
     }
-
 }
 
 @mixin grid-modifier($modifier) {
@@ -119,6 +118,7 @@
             left: 0;
             right: 0;
         };
+
         > * {
             padding: {
                 left: 0!important;
@@ -131,6 +131,7 @@
             left: (-$hagrid-gutter);
             right: (-$hagrid-gutter);
         };
+
         > * {
             padding: {
                 left: $hagrid-gutter!important;
@@ -143,6 +144,7 @@
             left: (-$hagrid-gutter/4);
             right: (-$hagrid-gutter/4);
         };
+
         > * {
             padding: {
                 left: ($hagrid-gutter/4)!important;
@@ -187,6 +189,7 @@
         @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
             align-items: flex-end;
         }
+
         @if $hagrid-fallback and $hagrid-fallback-warnings {
             @warn "Modifier #{$modifier} won't work on fallback-grid!"
         }

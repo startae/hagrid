@@ -27,6 +27,10 @@ bower install hagrid
 ```scss
 
 .parent {
+
+		// * Initialize basic grid
+		@include g;
+
     // * Initialize a grid with a set of modifiers
     @include g(full, rev);
 

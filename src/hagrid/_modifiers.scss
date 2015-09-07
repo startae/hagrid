@@ -56,7 +56,7 @@
             }
         }
     }
-    @else if $modifier == center {
+    @elseif $modifier == center {
         justify-content: center;
 
         @if $hagrid-fallback {
@@ -71,7 +71,7 @@
     // * We have to use !important on some properties in order to keep the nice syntax
     //////////////////////////////
 
-    @else if $modifier == bottom {
+    @elseif $modifier == bottom {
         align-items: flex-end;
 
         @if $hagrid-fallback {
@@ -81,7 +81,7 @@
         }
 
     }
-    @else if $modifier == middle {
+    @elseif $modifier == middle {
         align-items: center;
 
         @if $hagrid-fallback {
@@ -95,14 +95,14 @@
     // Flex Alignment
     ///////////////////////////////
 
-    @else if $modifier == space-around {
+    @elseif $modifier == space-around {
         justify-content: space-around;
 
         @if $hagrid-fallback and $hagrid-fallback-warnings {
             @warn "Modifier #{$modifier} won't work on fallback-grid!"
         }
     }
-    @else if $modifier == space-between {
+    @elseif $modifier == space-between {
         justify-content: space-between;
 
         @if $hagrid-fallback and $hagrid-fallback-warnings {
@@ -156,7 +156,7 @@
     // Flex Spacing
     ///////////////////////////////
 
-    @else if $modifier == auto {
+    @elseif $modifier == auto {
         > * {
             flex: 1 1 auto;
         }
@@ -169,7 +169,7 @@
     // Direction
     ///////////////////////////////
 
-    @else if $modifier == rev {
+    @elseif $modifier == rev {
 
         @if $hagrid-fallback {
             direction: rtl;
@@ -183,7 +183,7 @@
 
     }
 
-    @else if $modifier == flip {
+    @elseif $modifier == flip {
         flex-wrap: wrap-reverse;
         // * Workaround for IE rendering diff, see: https://github.com/felics/hagrid/issues/13
         @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {

@@ -79,7 +79,7 @@ $hagrid-placeholders: ();
                 $width-detected: true;
             }
             // * If false is passed, assign no width
-            @else if $width == false {
+            @elseif $width == false {
                 $width-detected: true;
             }
             // * Handle responsive args

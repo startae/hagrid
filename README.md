@@ -69,7 +69,7 @@ bower install hagrid
 By default, the grid is just a light wrapper around flexbox, so go nuts with flexbox. Note: `display: flex` is only set on the grid, so you may have to re-set it on grid-items and children.
 
 ## Options:
- - `$hagrid-gutter`: Set the gutter between items.
+ - `$hagrid-gutters`: Specify gutters between items. They are used like modifiers or applied to all grids (default). (see below)
  - `$hagrid-breakpoints`: Set the breakpoints. Can be used with the @bp-mixin too.
  - `$hagrid-fallback`: If you want to add an `inline-block`-grid for older browsers, set this to true. By default, the whitespace issue is fixed the [pure](http://purecss.io)-way via letter-spacing / font-family. You have to reset item-font with `$hagrid-fallback-font`. If you want to fix the issue via 0-whitespace HTML, set `$hagrid-fallback-fontfix` to false
  - `$hagrid-fallback-warnings:` Displays warnings about modifiers / mixins that won't work on the fallback

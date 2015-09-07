@@ -118,9 +118,7 @@ By default, the grid is just a light wrapper around flexbox, so go nuts with fle
 
 ### Spacing:
 
- - **narrow:** Half the gutter between items.
- - **wide:** Double the gutter between items.
- - **full:** No gutter between items.
+You can provide custom gutters in the grid via the config-variable `$hagrid-gutters`. Use them as you would use a normal modifier. (e.g. `@include g(wide)`)
 
 ### Direction:
 

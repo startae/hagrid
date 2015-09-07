@@ -5,20 +5,21 @@
 
 @mixin grid-modifiers($modifiers...) {
 
+
     $is-y: false;
     $is-wrap: false;
-    $is-spacing: false;
+    $is-not-spacing: true;
 
     @each $modifier in $modifiers {
         // * Check for modifiers that collide with defaults
         @if $modifier == bottom or $modifier == top or $modifier == middle {
             $is-y: true;
         }
-        @else if $modifier == flip {
+        @elseif $modifier == flip {
             $is-wrap: true;
         }
-        @else if $modifier == narrow or $modifier == wide or $modifier == full {
-            $is-spacing: true;
+        @elseif hagrid-gutter-exists($modifier) {
+            $is-not-spacing: false;
         }
 
         @include grid-modifier($modifier);
@@ -33,11 +34,19 @@
         flex-wrap: wrap;
     }
 
-    @if $is-spacing == false {
+    @if $is-not-spacing == true {
+        $gutter: hagrid-gutter-get(default);
         margin: {
-            left: (-$hagrid-gutter/2);
-            right: (-$hagrid-gutter/2);
+            left: -$gutter / 2;
+            right: -$gutter / 2;
         };
+
+        > * {
+            padding: {
+                left: $gutter / 2;
+                right: $gutter / 2;
+            };
+        }
     }
 }
 
@@ -113,46 +122,6 @@
     // Spacing
     //////////////////////////////
 
-    @else if $modifier == full {
-        margin: {
-            left: 0;
-            right: 0;
-        };
-
-        > * {
-            padding: {
-                left: 0!important;
-                right: 0!important;
-            };
-        }
-    }
-    @else if $modifier == wide {
-        margin: {
-            left: (-$hagrid-gutter);
-            right: (-$hagrid-gutter);
-        };
-
-        > * {
-            padding: {
-                left: $hagrid-gutter!important;
-                right: $hagrid-gutter!important;
-            };
-        }
-    }
-    @else if $modifier == narrow {
-        margin: {
-            left: (-$hagrid-gutter/4);
-            right: (-$hagrid-gutter/4);
-        };
-
-        > * {
-            padding: {
-                left: ($hagrid-gutter/4)!important;
-                right: ($hagrid-gutter/4)!important;
-            };
-        }
-    }
-
     // Flex Spacing
     ///////////////////////////////
 
@@ -195,6 +164,26 @@
         }
     }
     @else {
-        @error "Modifier #{ $modifier } does not exist."
+
+        @if hagrid-gutter-exists($modifier) {
+            $gutter: hagrid-gutter-get($modifier);
+
+            margin: {
+                left: -$gutter / 2;
+                right: -$gutter / 2;
+            };
+
+            > * {
+                padding: {
+                    left: $gutter / 2;
+                    right: $gutter / 2;
+                };
+            }
+
+        }
+        @else {
+            @error "Modifier #{ $modifier } does not exist.";
+        }
+
     }
 }

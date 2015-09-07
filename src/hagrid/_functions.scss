@@ -122,6 +122,17 @@ $hagrid-placeholders: ();
     }
 }
 
+// Gutter Modifier Functions
+//////////////////////////////
+
+@function hagrid-gutter-exists($id) {
+    @return map-has-key($hagrid-gutters, $id);
+}
+
+@function hagrid-gutter-get($id) {
+    @return map-get($hagrid-gutters, $id);
+}
+
 // Shorthands
 //////////////////////////////
 

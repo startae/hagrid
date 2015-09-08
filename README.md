@@ -28,42 +28,41 @@ bower install hagrid
 
 .parent {
 
-		// * Initialize basic grid
-		@include g;
+	// * Initialize basic grid
+	@include g;
 
-    // * Initialize a grid with a set of modifiers
-    @include g(full, rev);
+	// * Initialize a grid with a set of modifiers
+	@include g(full, rev);
 
-    // * Alternative syntax
-    @include grid(full, rev);
+	// * Alternative syntax
+	@include grid(full, rev);
 
 }
 
 .child {
-    // * Initialize a grid-item with a set of responsive widths
-    // * The general width is set without a breakpoint-keyword (Here: 1/2)
-    // * Responsive widths are set in the config-map $hagrid-breakpoints
-    @include i(1/2, 1/3 md, 1/4 lg);
+	// * Initialize a grid-item with a set of responsive widths
+	// * The general width is set without a breakpoint-keyword (Here: 1/2)
+	// * Responsive widths are set in the config-map $hagrid-breakpoints
+	@include i(1/2, 1/3 md, 1/4 lg);
 
-    // * If you initialize the item without arguments or a general width, it defaults to 100% (mobile first)
-    @include i;
-    @include i(2/3 md, 3/4 lg);
+	// * If you initialize the item without arguments or a general width, it defaults to 100% (mobile first)
+	@include i;
+	@include i(2/3 md, 3/4 lg);
 
-    // * You can use whatever you want as values.
-    // * Fractions work great for grids and allow infinite columns without doing math.
-    // * Passing in false will prevent @i from setting any general width (Responsive widths are false by default)
-    // * using false/static values can be cool in combination with the "auto"-modifier
+	// * You can use whatever you want as values.
+	// * Fractions work great for grids and allow infinite columns without doing math.
+	// * Passing in false will prevent @i from setting any general width (Responsive widths are false by default)
+	// * using false/static values can be cool in combination with the "auto"-modifier
 
-    // * Recommended
-    @include i(1/2, 1/3 md, 1/4 lg);
+	// * Recommended
+	@include i(1/2, 1/3 md, 1/4 lg);
 
-    //* Possible
-    @include i(false, lg 50%);
+	//* Possible
+	@include i(false, lg 50%);
 
-    // * Alternative syntax
-    @include item();
+	// * Alternative syntax
+	@include item();
 }
-
 ```
 
 By default, the grid is just a light wrapper around flexbox, so go nuts with flexbox. Note: `display: flex` is only set on the grid, so you may have to re-set it on grid-items and children.
@@ -90,23 +89,23 @@ By default, the grid is just a light wrapper around flexbox, so go nuts with fle
 ```scss
 
 .auto-grid {
-    @include g(auto);
-    // Auto-Layout all
-    > .item {
-        @include i(false);
-    }
+	@include g(auto);
+	// Auto-Layout all
+	> .item {
+		@include i(false);
+	}
 }
 
 .auto-grid {
-    @include g(auto);
-    // Auto-Layout around one static
-    > .item {
-        @include i(false);
-    }
-    > .item.first {
-        @include i(240px);
-        max-width: 240px;
-    }
+	@include g(auto);
+	// Auto-Layout around one static
+	> .item {
+		@include i(false);
+	}
+	> .item.first {
+		@include i(240px);
+		max-width: 240px;
+	}
 }
 
 ```
@@ -135,11 +134,11 @@ You can provide custom gutters in the grid via the config-variable `$hagrid-gutt
 ```scss
 
 .stretch {
-    @include g();
-    > .item {
-        @include i();
-        @include stretch;
-    }
+	@include g;
+	> .item {
+		@include i;
+		@include stretch;
+	}
 }
 
 ```

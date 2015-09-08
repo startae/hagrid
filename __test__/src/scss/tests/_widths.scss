@@ -1,11 +1,11 @@
 .widths {
     &-container {
-        @include g();
+        @include g;
         margin-bottom: 1.5rem;
     }
 
     &-item {
-        @include i();
+        @include i;
     }
 
     &-column {

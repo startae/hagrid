@@ -28,10 +28,6 @@
     @include mixin-dryer("item") {
         box-sizing: border-box;
         flex-shrink: 0; // * 1
-        padding: {
-            left: ($hagrid-gutter/2);
-            right: ($hagrid-gutter/2);
-        };
 
         @if $hagrid-fallback {
             display: inline-block;
@@ -58,7 +54,7 @@
 
 @mixin grid($modifiers...) {
 
-    @include grid-static();
+    @include grid-static;
 
     @include grid-modifiers($modifiers...);
 }
@@ -68,7 +64,7 @@
 
 @mixin item($widths...) {
 
-    @include item-static();
+    @include item-static;
 
     @include grid-calc(width, $widths...);
 }
@@ -79,14 +75,14 @@
 
 @mixin pull($widths...) {
 
-    @include push-pull-static();
+    @include push-pull-static;
 
     @include grid-calc(right, $widths...);
 }
 
 @mixin push($widths...) {
 
-    @include push-pull-static();
+    @include push-pull-static;
 
     @include grid-calc(left, $widths...);
 }

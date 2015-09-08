@@ -16,7 +16,7 @@ body {
 
 .block {
     // * Behave like a grid-item
-    @include i();
+    @include i;
     background: $color-secondary;
     border: 1px solid $color-border;
     box-shadow: inset 0 0 .5em .5em rgba($color-shade, .1);

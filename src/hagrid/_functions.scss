@@ -79,7 +79,7 @@ $hagrid-placeholders: ();
                 $width-detected: true;
             }
             // * If false is passed, assign no width
-            @else if $width == false {
+            @elseif $width == false {
                 $width-detected: true;
             }
             // * Handle responsive args
@@ -120,6 +120,17 @@ $hagrid-placeholders: ();
     } @else {
         @return ($value * 100 * 1%);
     }
+}
+
+// Gutter Modifier Functions
+//////////////////////////////
+
+@function hagrid-gutter-exists($id) {
+    @return map-has-key($hagrid-gutters, $id);
+}
+
+@function hagrid-gutter-get($id) {
+    @return map-get($hagrid-gutters, $id);
 }
 
 // Shorthands

@@ -5,7 +5,7 @@
 
 @mixin grid-modifiers($modifiers...) {
 
-
+    $gutter: hagrid-gutter-get(default);
     $is-y: false;
     $is-wrap: false;
     $is-not-spacing: true;
@@ -41,7 +41,7 @@
             right: -$gutter / 2;
         };
 
-        > * {
+    #{$hagrid-child-selector} {
             padding: {
                 left: $gutter / 2;
                 right: $gutter / 2;
@@ -60,7 +60,7 @@
 
         @if $hagrid-fallback {
             text-align: right;
-            > * {
+            #{$hagrid-child-selector} {
                 text-align: left;
             }
         }
@@ -70,7 +70,7 @@
 
         @if $hagrid-fallback {
             text-align: center;
-            > * {
+            #{$hagrid-child-selector} {
                 text-align: left;
             }
         }
@@ -84,8 +84,8 @@
         align-items: flex-end;
 
         @if $hagrid-fallback {
-            > * {
                 vertical-align: bottom!important;
+            #{$hagrid-child-selector} {
             }
         }
 
@@ -94,8 +94,8 @@
         align-items: center;
 
         @if $hagrid-fallback {
-            > * {
                 vertical-align: middle!important;
+            #{$hagrid-child-selector} {
             }
         }
 
@@ -126,7 +126,7 @@
     ///////////////////////////////
 
     @elseif $modifier == auto {
-        > * {
+        #{$hagrid-child-selector} {
             flex: 1 1 auto;
         }
 
@@ -142,7 +142,7 @@
 
         @if $hagrid-fallback {
             direction: rtl;
-            > * {
+            #{$hagrid-child-selector} {
                 direction: ltr;
                 text-align: left;
             }
@@ -173,7 +173,7 @@
                 right: -$gutter / 2;
             };
 
-            > * {
+            #{$hagrid-child-selector} {
                 padding: {
                     left: $gutter / 2;
                     right: $gutter / 2;

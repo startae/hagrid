@@ -35,17 +35,21 @@
     }
 
     @if $is-not-spacing == true {
-        $gutter: hagrid-gutter-get(default);
         margin: {
             left: -$gutter / 2;
             right: -$gutter / 2;
         };
+    }
 
     #{$hagrid-child-selector} {
+        @if $is-not-spacing == true {
             padding: {
                 left: $gutter / 2;
                 right: $gutter / 2;
             };
+        }
+        @if $is-y == false and $hagrid-fallback {
+            vertical-align: top;
         }
     }
 }
@@ -84,8 +88,8 @@
         align-items: flex-end;
 
         @if $hagrid-fallback {
-                vertical-align: bottom!important;
             #{$hagrid-child-selector} {
+                vertical-align: bottom;
             }
         }
 
@@ -94,8 +98,8 @@
         align-items: center;
 
         @if $hagrid-fallback {
-                vertical-align: middle!important;
             #{$hagrid-child-selector} {
+                vertical-align: middle;
             }
         }
 

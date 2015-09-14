@@ -81,7 +81,6 @@
     }
 
     // * y-Axis Alignment
-    // * We have to use !important on some properties in order to keep the nice syntax
     //////////////////////////////
 
     @elseif $modifier == bottom {
@@ -152,6 +151,9 @@
         }
     }
     @else {
+
+        // Gutter Modifiers
+        ///////////////////////////////
 
         @if hagrid-gutter-exists($modifier) {
             $gutter: hagrid-gutter-get($modifier);

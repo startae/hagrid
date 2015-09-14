@@ -34,29 +34,6 @@
         @include g(space-between);
     }
 
-    &-auto {
-        @include g(auto);
-
-        .modifier-header {
-            @include i;
-        }
-
-        .auto-item {
-            @include i(140px);
-        }
-
-        .first {
-            max-width: 140px;
-        }
-
-        .second {
-            @include i(false, 10% lg);
-            @include bp(lg) {
-                max-width: 10%;
-            }
-        }
-    }
-
     &-middle {
         @include g(middle);
     }

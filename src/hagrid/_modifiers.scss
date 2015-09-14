@@ -123,22 +123,6 @@
         }
     }
 
-    // Spacing
-    //////////////////////////////
-
-    // Flex Spacing
-    ///////////////////////////////
-
-    @elseif $modifier == auto {
-        #{$hagrid-child-selector} {
-            flex: 1 1 auto;
-        }
-
-        @if $hagrid-fallback and $hagrid-fallback-warnings {
-            @warn "Modifier #{$modifier} won't work on fallback-grid!"
-        }
-    }
-
     // Direction
     ///////////////////////////////
 

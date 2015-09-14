@@ -8,7 +8,8 @@
 // Configuration
 //////////////////////////////
 
-// * Set gutters
+// * Gutters
+// * Set gutters used in your project.
 // * do not delete default!
 //////////////////////////////
 
@@ -31,6 +32,13 @@ $hagrid-breakpoints: (
     xl: "(min-width: 80em)"
 );
 
+
+// * Gutter & Modifier Selector
+// * Margins and modifiers get applied to the grid by setting them on all children of each grid
+// * By default, the selector used is `> *`. If you use a consistent selector for grid-items, you can set hagrid to use it here
+//////////////////////////////
+
+$hagrid-child-selector: "> *";
 
 // * Fallback Grid
 // * Inline-block grid fallback if you need to support IE9 / Android 4.3-

@@ -31,7 +31,6 @@
 
         @if $hagrid-fallback {
             display: inline-block;
-            vertical-align: top;
             zoom: 1;
 
             @if $hagrid-fallback-fontfix {
@@ -95,7 +94,7 @@
     display: flex;
     flex-flow: row wrap;
 
-    > * {
+    #{$hagrid-child-selector} {
         flex: 1 1 100%;
     }
 

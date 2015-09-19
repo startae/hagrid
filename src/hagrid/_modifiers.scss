@@ -81,7 +81,6 @@
     }
 
     // * y-Axis Alignment
-    // * We have to use !important on some properties in order to keep the nice syntax
     //////////////////////////////
 
     @elseif $modifier == bottom {
@@ -123,22 +122,6 @@
         }
     }
 
-    // Spacing
-    //////////////////////////////
-
-    // Flex Spacing
-    ///////////////////////////////
-
-    @elseif $modifier == auto {
-        #{$hagrid-child-selector} {
-            flex: 1 1 auto;
-        }
-
-        @if $hagrid-fallback and $hagrid-fallback-warnings {
-            @warn "Modifier #{$modifier} won't work on fallback-grid!"
-        }
-    }
-
     // Direction
     ///////////////////////////////
 
@@ -168,6 +151,9 @@
         }
     }
     @else {
+
+        // Gutter Modifiers
+        ///////////////////////////////
 
         @if hagrid-gutter-exists($modifier) {
             $gutter: hagrid-gutter-get($modifier);

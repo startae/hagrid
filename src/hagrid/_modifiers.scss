@@ -36,16 +36,14 @@
 
     @if $is-not-spacing == true {
         margin: {
-            left: -$gutter / 2;
-            right: -$gutter / 2;
+            left: -$gutter;
         };
     }
 
     #{$hagrid-child-selector} {
         @if $is-not-spacing == true {
             padding: {
-                left: $gutter / 2;
-                right: $gutter / 2;
+                left: $gutter;
             };
         }
         @if $is-y == false and $hagrid-fallback {
@@ -159,14 +157,12 @@
             $gutter: hagrid-gutter-get($modifier);
 
             margin: {
-                left: -$gutter / 2;
-                right: -$gutter / 2;
+                left: -$gutter;
             };
 
             #{$hagrid-child-selector} {
                 padding: {
-                    left: $gutter / 2;
-                    right: $gutter / 2;
+                    left: $gutter;
                 };
             }
 

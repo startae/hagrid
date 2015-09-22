@@ -58,7 +58,7 @@
     display: none;
     @include i(1, lg 5/6);
     @include bp(lg) {
-        display: block;
+        display: inline-block;
     }
 }
 

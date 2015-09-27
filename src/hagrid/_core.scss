@@ -106,13 +106,19 @@
 // Breakpoints
 ///////////////////////////////
 
-@mixin bp($breakpoint) {
-    @if map-has-key($hagrid-breakpoints, $breakpoint) {
-        @media only screen and #{map-get($hagrid-breakpoints, $breakpoint)} {
-            @content;
+@mixin bp($breakpoints...) {
+
+    @each $breakpoint in $breakpoints {
+
+        $bp: parse-breakpoint($breakpoint);
+
+        @if $bp != false {
+            @media only screen and #{$bp} {
+                @content;
+            }
         }
-    }
-    @else {
-        @error "Breakpoint #{$breakpoint} is not specified in $hagrid-breakpoints."
+        @else {
+            @warn "You are trying to call @bp with an unknown, unquoted breakpoint: #{$bp}";
+        }
     }
 }

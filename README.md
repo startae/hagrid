@@ -9,11 +9,11 @@
 ## Contents:
 
  1. [Installing](https://github.com/felics/hagrid#install)
- 2. [Using the Mixin](https://github.com/felics/hagrid#use)
- 3. [Configuration Options](https://github.com/felics/hagrid#options)
- 4. [Avaiable Modifiers](https://github.com/felics/hagrid#modifiers)
+ 2. [Usage](https://github.com/felics/hagrid#use)
+ 3. [Configuration](https://github.com/felics/hagrid#options)
+ 4. [Modifiers](https://github.com/felics/hagrid#modifiers)
  5. [Browser Support](https://github.com/felics/hagrid#browser-support)
- 6. [Prefixes](https://github.com/felics/hagrid#prefixes)
+ 6. [Prefixing](https://github.com/felics/hagrid#prefixes)
  7. [Credit & License](https://github.com/felics/hagrid#credit)
 
 ## Install:
@@ -22,36 +22,44 @@
 bower install hagrid
 ```
 
+```scss
+@import "hagrid";
+```
+
 ## Use:
 
 ```scss
 
+// * Initialize a basic grid
+
 .parent {
 
-	// * Initialize basic grid
 	@include g;
 
 	// * Initialize a grid with a set of modifiers
+	// * Modifiers are applied to all items of one grid
 	@include g(full, rev);
 
-	// * Alternative syntax
+	// * Alt. Syntax
 	@include grid(full, rev);
 
 }
 
-.child {
-	// * Initialize a grid-item with a set of responsive widths
-	// * The general width is set without a breakpoint-keyword (Here: 1/2)
+// * Initialize a grid-item with a set of responsive widths
+
+.item {
+
+	// * The general width is set without a breakpoint-keyword (e.g. md)
 	// * Responsive widths are set in the config-map $hagrid-breakpoints
 	@include i(1/2, 1/3 md, 1/4 lg);
 
-	// * If you initialize the item without arguments or a general width, it defaults to 100% (mobile first)
+	// * If you initialize an item without arguments or a general width, it defaults to 100% (mobile first)
 	@include i;
 	@include i(2/3 md, 3/4 lg);
 
-	// * You can use whatever you want as values.
-	// * Fractions work great for grids and allow infinite columns without doing math.
-	// * Passing in false will prevent @i from setting any general width (Responsive widths are false by default)
+	// * You can use whatever you want as values
+	// * Fractions work great for grids and allow for complex grids without doing math
+	// * Passing in false will prevent @i from setting any general width
 
 	// * Recommended
 	@include i(1/2, 1/3 md, 1/4 lg);
@@ -59,38 +67,85 @@ bower install hagrid
 	//* Possible
 	@include i(false, lg 50%);
 
-	// * Alternative syntax
+	// * You can use custom breakpoints in Hagrid. Those should be quoted
+	// * Breakpoints pointing at $hagrid-breakpoints should not be quoted
+	@include i(2/3 "min-width: 580px", 1/3 lg);
+
+	// * Alt. Syntax
 	@include item();
 }
 ```
 
-By default, the grid is just a light wrapper around flexbox, so go nuts with flexbox. Note: `display: flex` is only set on the grid, so you may have to re-set it on grid-items and children.
+*Note:* `display: flex` is set on each grid-parent, so you have to re-set it on grid-items if you use the fallback-frid and want to use flexbox-properties in grid-items.
 
 ## Options:
- - `$hagrid-gutters`: Specify gutters between items. They are used like modifiers or applied to all grids (default). (see below)
- - `$hagrid-breakpoints`: Set the breakpoints. Can be used with the @bp-mixin too.
- - `$hagrid-child-selector`: Gutters and modifiers are applied to all children of each grid-container. By default, the selector `> *` is used. If you use a consistent selector for grid-items, you can set it here.
- - `$hagrid-fallback`: If you want to add an `inline-block`-grid for older browsers, set this to true. By default, the whitespace issue is fixed the [pure](http://purecss.io)-way via letter-spacing / font-family. You have to reset item-font with `$hagrid-fallback-font`. If you want to fix the issue via 0-whitespace HTML, set `$hagrid-fallback-fontfix` to false
- - `$hagrid-fallback-warnings:` Displays warnings about modifiers / mixins that won't work on the fallback
- - `$hagrid-dry-mixins`: By default, mixins apply all properties every time they are called. This makes the output CSS more readable, but also larger. GZIP negates this. If you don't have access to gzip or want to bundle static properties for all selectors at the first mixin-call, set this to true.
+
+```scss
+
+
+// *  Specify gutters between items. They are used like modifiers or applied to all grids
+$hagrid-gutters: (
+    default: 1.5rem,
+    full: 0,
+    narrow: 0.5rem,
+    wide: 3rem
+);
+
+// * Set common breakpoints used in your project. Can be used in the @bp-mixin (see below)
+$hagrid-breakpoints: (
+    sm: "(min-width: 35.5em)",
+    md: "(min-width: 48em)",
+    lg: "(min-width: 64em)",
+    xl: "(min-width: 80em)"
+);
+
+// * Gutters and modifiers are applied to all items of each grid-container
+// * By default, the selector `> *` is used. If you use a consistent selector for grid-items, you can set it here
+$hagrid-item-selector: "> *";
+
+
+// * If you want to add an `inline-block`-grid for older browsers, set this to true
+$hagrid-fallback: false;
+
+// * By default, the whitespace issue is fixed the pure-way via letter-spacing / font-family
+// * If you want to fix the issue via 0-whitespace HTML, set `$hagrid-fallback-fontfix` to false
+$hagrid-fallback-fontfix: true;
+
+// * If you are using the fontfix (recommended), reset your typeface here
+$hagrid-fallback-font: sans-serif;
+
+// * Displays warnings about modifiers / mixins that won't work on the fallback
+$hagrid-fallback-warnings: false;
+
+// * When set to true, hagrid will extend shared properties among grids and grid-items
+// * When set to false (default), the output will be better traceable but slightly larger (gzip will eat this up)
+$hagrid-dry-mixins: false;
+```
 
 ## Modifiers:
+
+```scss
+
+// * Modifiers are set on grids
+@include g(center, middle, full);
+
+```
 
 ### x-axis Alignment:
 
  - **right:** Align grid-items to the right in partially filled rows.
  - **center:** Center grid-items in partially filled rows.
- - **space-around:** Distribute items by using variable space around them.
- - **space-between:** Distribute items by using variable space between them.
+ - **space-around:** Distribute items in partially filled rows by using variable space around them.
+ - **space-between:** Distribute items in partially filled rows by using variable space between them.
 
 ### y-axis Alignment:
 
- - **bottom**: Align items to the middle of the grid.
+ - **bottom**: Align items to the bottom of the grid.
  - **middle**: Vertically center grid items.
 
 ### Spacing:
 
-You can provide custom gutters in the grid via the config-variable `$hagrid-gutters`. Use them as you would use a normal modifier. (e.g. `@include g(wide)`)
+> You can provide custom gutters to the grid via the config-variable `$hagrid-gutters`. Use them as you would use a normal modifier. (e.g. `@include g(wide)`)
 
 ### Direction:
 
@@ -99,8 +154,29 @@ You can provide custom gutters in the grid via the config-variable `$hagrid-gutt
 
 ### Mixins:
 
- - **stretch:** Assign stretch mixin to a group of grid-items in a grid to stretch-align their contents.
  - **bp:** Use breakpoints directly in a class.
+ - **stretch:** Assign stretch-mixin to a group of grid-items in a grid to stretch-align their contents.
+
+#### Example (bp):
+
+```scss
+
+ .item {
+ 		// * Single Breakpoint
+ 		@include bp(md) {
+ 			text-align: left;
+ 		}
+ 		// * Multiple Breakpoints
+ 		@include bp(md, lg) {
+ 			text-align: left;
+ 		}
+ 		// * Specific Breakpoints
+ 		@include bp("(min-width: 568px and max-width: 640px)") {
+ 			text-align: left;
+ 		}
+ }
+```
+
 
 #### Example (stretch):
 
@@ -115,34 +191,23 @@ You can provide custom gutters in the grid via the config-variable `$hagrid-gutt
 }
 ```
 
-#### Example (bp):
-
-```scss
-
-.item {
-		@include bp(md) {
-			text-align: left;
-		}
-}
-```
-
 ## Browser Support:
 
  - Chrome
  - Firefox
- - Safari 7+ (Fallback 6+)
- - Android 4.4+ (Fallback 2.3+)
- - IE 10+ (Fallback 9+ / 8+ with polyfill & -rem)
- - Opera 12+
+ - Safari **7+** *(Fallback 6+)*
+ - Android **4.4+** *(Fallback 2.3+)*
+ - IE **10+** *(Fallback 9+ / 8+ with polyfill & -rem)*
+ - Opera **12+**
 
 ## Prefixes:
 
-Hagrid does not generate prefixes (`-webkit-`,`-ms-`)
- as it is designed to be integrated with common SASS workflows in mind (Gulp / Grunt with [Autoprefixer](https://github.com/postcss/autoprefixer)). A sample configuration for Autoprefixer is available in the [test build-file](https://github.com/felics/hagrid/blob/master/gulpfile.js#L22-L23).
+Hagrid does not generate prefixes (`-webkit-`,`-ms-`) as it is designed to be integrated with common SASS workflows in mind (Gulp / Grunt with [Autoprefixer](https://github.com/postcss/autoprefixer)). A sample configuration for Autoprefixer is available in the [test build-file](https://github.com/felics/hagrid/blob/master/gulpfile.js#L22-L23). Be careful not to set browsers in a way that generates legacy flexbox syntax!
 
 ## Credit:
 
-Beard used in the logo by [ZQ](http://www.designbolts.com/2013/02/24/free-vector-hipster-stock-mustache-beard-rayban-glasses/).
+ - Started as a fork of [csswizardry-grids](http://github.com/csswizardry/csswizardry-grids)
+ - Beard used in the logo by [ZQ](http://www.designbolts.com/2013/02/24/free-vector-hipster-stock-mustache-beard-rayban-glasses/).
 
 ## License:
 

@@ -32,10 +32,9 @@ $hagrid-breakpoints: (
     xl: "(min-width: 80em)"
 );
 
-
 // * Gutter & Modifier Selector
-// * Margins and modifiers get applied to the grid by setting them on all children of each grid
-// * By default, the selector used is `> *`. If you use a consistent selector for grid-items, you can set hagrid to use it here
+// * Gutters and modifiers are applied to all items of each grid-container
+// * By default, the selector `> *` is used. If you use a consistent selector for grid-items, you can set hagrid to use it here
 //////////////////////////////
 
 $hagrid-item-selector: "> *";
@@ -50,11 +49,11 @@ $hagrid-fallback: false;
 // * Display warnings if you use modifiers that behave different on the fallback
 $hagrid-fallback-warnings: false;
 
-// * Default: Inline-Block Whitespace Issues are fixed in CSS via letter-spacing. Reset the font below
-// * false: You manually remove all whitespace in your html
+// * By default, the whitespace issue is fixed the pure-way via letter-spacing / font-family
+// * If you want to fix the issue via 0-whitespace HTML, set `$hagrid-fallback-fontfix` to false
 $hagrid-fallback-fontfix: true;
 
-// * If you are using the fontfix (recommended), reset your <body>-font here
+// * If you are using the fontfix (recommended), reset your typeface here
 $hagrid-fallback-font: sans-serif;
 
 

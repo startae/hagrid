@@ -40,7 +40,7 @@
         };
     }
 
-    #{$hagrid-child-selector} {
+    #{$hagrid-item-selector} {
         @if $is-not-spacing == true {
             padding: {
                 left: $gutter;
@@ -62,7 +62,7 @@
 
         @if $hagrid-fallback {
             text-align: right;
-            #{$hagrid-child-selector} {
+            #{$hagrid-item-selector} {
                 text-align: left;
             }
         }
@@ -72,7 +72,7 @@
 
         @if $hagrid-fallback {
             text-align: center;
-            #{$hagrid-child-selector} {
+            #{$hagrid-item-selector} {
                 text-align: left;
             }
         }
@@ -85,7 +85,7 @@
         align-items: flex-end;
 
         @if $hagrid-fallback {
-            #{$hagrid-child-selector} {
+            #{$hagrid-item-selector} {
                 vertical-align: bottom;
             }
         }
@@ -95,7 +95,7 @@
         align-items: center;
 
         @if $hagrid-fallback {
-            #{$hagrid-child-selector} {
+            #{$hagrid-item-selector} {
                 vertical-align: middle;
             }
         }
@@ -127,7 +127,7 @@
 
         @if $hagrid-fallback {
             direction: rtl;
-            #{$hagrid-child-selector} {
+            #{$hagrid-item-selector} {
                 direction: ltr;
                 text-align: left;
             }
@@ -160,7 +160,7 @@
                 left: -$gutter;
             };
 
-            #{$hagrid-child-selector} {
+            #{$hagrid-item-selector} {
                 padding: {
                     left: $gutter;
                 };

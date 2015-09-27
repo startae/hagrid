@@ -38,7 +38,7 @@ $hagrid-breakpoints: (
 // * By default, the selector used is `> *`. If you use a consistent selector for grid-items, you can set hagrid to use it here
 //////////////////////////////
 
-$hagrid-child-selector: "> *";
+$hagrid-item-selector: "> *";
 
 // * Fallback Grid
 // * Inline-block grid fallback if you need to support IE9 / Android 4.3-

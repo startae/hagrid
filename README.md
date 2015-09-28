@@ -191,6 +191,27 @@ $hagrid-dry-mixins: false;
 }
 ```
 
+## Automatic Grid Layouts:
+
+An automatic grid modifier was included until v1.1.0 but then removed because of its inconsistency with the fallback-grid. It will be re-added when the fallback can be safely dropped. Example of automatic grids with pure flexbox:
+
+```scss
+
+.grid {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.grid-item {
+     flex: 1 1 0%;
+}
+
+.grid-item.example {
+    flex: 0 0 auto;
+    width: 50%;
+}
+
+```
 ## Browser Support:
 
  - Chrome

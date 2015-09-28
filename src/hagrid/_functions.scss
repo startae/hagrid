@@ -139,7 +139,7 @@ $hagrid-placeholders: ();
     @return map-get($hagrid-gutters, $id);
 }
 
-// Breakpoint Validity CHecker
+// Breakpoint Validity Checker
 // Validated a breakpoint and returns itstype "ref" or "quoted" or false
 //////////////////////////////
 
@@ -160,7 +160,7 @@ $hagrid-placeholders: ();
 }
 
 @function is-mq($string) {
-    @if str-starts-with($string, unquote("(")) and str-end-with($string, unquote(")")) {
+    @if str-starts-with($string, unquote("(")) and str-end-with($string, unquote(")")    ) {
         @return true;
     }
     @else {

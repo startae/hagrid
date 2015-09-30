@@ -1,0 +1,34 @@
+.breakpoint {
+    &-grid {
+        @include g;
+    }
+    &-item {
+        @include i("(min-width: 666px)" 1/2, 1/4 lg);
+    }
+
+    &-text {
+        margin-bottom: 1rem;
+    }
+
+    &-text.visible-md-up {
+        @include bp(md) {
+            color: #fff;
+        }
+    }
+
+    &-text.visible-sm-md {
+        @include bp(sm,md) {
+            color: #fff;
+        }
+        @include bp(lg) {
+            color: $color-secondary;
+        }
+    }
+
+    &-text.visible-custom {
+        @include bp("(min-width: 666px)") {
+            color: #fff;
+        }
+    }
+
+}

@@ -51,7 +51,7 @@ $hagrid-placeholders: ();
     }
 }
 
-// Argument Parser
+// Main Parser
 //////////////////////////////
 
 @mixin grid-calc($prop, $widths...) {
@@ -75,7 +75,7 @@ $hagrid-placeholders: ();
         @each $width in $widths {
             // * If a general width is passed in, use it
             @if type-of($width) == number or $width == auto {
-                #{$prop}: cw($width);
+                #{$prop}: calculate-width($width);
                 $width-detected: true;
             }
             // * If false is passed, assign no width
@@ -95,15 +95,21 @@ $hagrid-placeholders: ();
                     $key: nth($width, 2);
                 }
 
-                @if map-has-key($hagrid-breakpoints, $key) {
-                    @include bp($key) {
-                        #{$prop}: cw($value)
+                // * Cater for specific breakpoints
+
+                $bp: parse-breakpoint($key);
+
+                @if $bp != false {
+                    @include bp(#{$key}) {
+                        #{$prop}: calculate-width($value);
                     }
-                } @else {
-                    @warn "You are trying to assign a width to an unknown breakpoint: #{$key}"
+                }
+                @else {
+                    @warn "You are trying to assign a width to an unknown, unquoted breakpoint: #{$key}"
                 }
             }
         }
+
         // * If only responsive params are passed, default to mobile-first
         @if $width-detected == false and $prop == width {
             #{$prop}: 100%;
@@ -133,6 +139,63 @@ $hagrid-placeholders: ();
     @return map-get($hagrid-gutters, $id);
 }
 
+// Breakpoint Validity Checker
+// Validated a breakpoint and returns itstype "ref" or "quoted" or false
+//////////////////////////////
+
+@function parse-breakpoint($key, $get-map: true) {
+    @if map-has-key($hagrid-breakpoints, $key) {
+        @if $get-map == false {
+            @return $key;
+        } @else {
+            @return map-get($hagrid-breakpoints, $key);
+        }
+    }
+    @elseif is-mq($key) {
+        @return $key;
+    }
+    @else {
+        @return false;
+    }
+}
+
+@function is-mq($string) {
+    @if str-starts-with($string, unquote("(")) and str-end-with($string, unquote(")")    ) {
+        @return true;
+    }
+    @else {
+        @return false;
+    }
+}
+
+@function str-starts-with($string, $needle) {
+  @if type-of($string) != "string" {
+    @warn "`str-starts-with` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  @if type-of($needle) != "string" {
+    @warn "`str-starts-with` function expecting a string for $needle; #{type-of($needle)} given.";
+    @return false;
+  }
+
+  @return str-slice($string, 1, str-length($needle)) == $needle;
+}
+
+@function str-ends-with($string, $needle) {
+  @if type-of($string) != "string" {
+    @warn "`str-starts-with` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  @if type-of($needle) != "string" {
+    @warn "`str-starts-with` function expecting a string for $needle; #{type-of($needle)} given.";
+    @return false;
+  }
+
+  @return str-slice($string, -1 * str-length($needle)) == $needle;
+}
+
 // Shorthands
 //////////////////////////////
 
@@ -142,8 +205,4 @@ $hagrid-placeholders: ();
 
 @mixin i($widths...) {
     @include item($widths...);
-}
-
-@function cw($value) {
-    @return calculate-width($value);
 }

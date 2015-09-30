@@ -76,7 +76,7 @@ bower install hagrid
 }
 ```
 
-*Note:* `display: flex` is set on each grid-parent, so you have to re-set it on grid-items if you use the fallback-frid and want to use flexbox-properties in grid-items.
+*Note:* `display: flex` is set on each grid-parent, so you have to re-set it on grid-items if you use the fallback-grid and want to use flexbox-properties in grid-items.
 
 ## Options:
 

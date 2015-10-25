@@ -8,15 +8,11 @@
   },
   "jscsConfig": {
     "preset": "airbnb",
-    "validateQuoteMarks": {
-      "mark": "\"",
-      "escape": true
-    },
     "esnext": true
   },
   "devDependencies": {
     "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^3.0.1",
+    "gulp-autoprefixer": "^3.1.0",
     "gulp-jade": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.0.4"

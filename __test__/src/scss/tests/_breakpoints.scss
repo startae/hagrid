@@ -2,6 +2,7 @@
     &-grid {
         @include g;
     }
+
     &-item {
         @include i("(min-width: 666px)" 1/2, 1/4 lg);
     }
@@ -30,5 +31,4 @@
             color: #fff;
         }
     }
-
 }

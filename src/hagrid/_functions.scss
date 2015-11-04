@@ -72,7 +72,11 @@ $hagrid-placeholders: ();
     @else {
         $width-detected: false;
 
-        @each $width in $widths {
+
+        @for $i from 1 through length($widths) {
+
+            $width: nth($widths,$i);
+
             // * If a general width is passed in, use it
             @if type-of($width) == number or $width == auto {
                 #{$prop}: calculate-width($width);

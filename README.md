@@ -69,7 +69,7 @@ bower install hagrid
 
 	// * You can use custom breakpoints in Hagrid. Those should be quoted
 	// * Breakpoints pointing at $hagrid-breakpoints should not be quoted
-	@include i(2/3 "min-width: 580px", 1/3 lg);
+	@include i(2/3 "(min-width: 580px)", 1/3 lg);
 
 	// * Alt. Syntax
 	@include item();

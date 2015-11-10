@@ -5,7 +5,7 @@
     "felics <hi@felics.me>"
   ],
   "description": "Flexbox-first, mixin-based SCSS Grid",
-  "main": "src/hagrid.scss",
+  "main": "scss/hagrid.scss",
   "keywords": [
     "scss",
     "grid",

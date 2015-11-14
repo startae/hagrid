@@ -1,6 +1,6 @@
 {
   "name": "hagrid",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "license": "MIT",
   "main": "scss/_hagrid.scss",
   "description": "Flexbox-first, mixin-based SCSS Grid",

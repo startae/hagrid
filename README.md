@@ -1,8 +1,8 @@
 
-<h1 style="text-align:center">
-	<img width="237" src="http://felics.me/\_assets/ext/hagrid/logo.png" alt="logo">
-	<br>
-</h1>
+
+<p align="center">
+        <img width="237" src="http://felics.me/\_assets/ext/hagrid/logo.png" alt="logo" />
+</p>
 
 ## Contents:
 

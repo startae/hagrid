@@ -20,10 +20,12 @@
 
 ```
 bower install hagrid
+
+npm install hagrid
 ```
 
 ```scss
-@import "hagrid";
+@import "[path to hagrid]/hagrid";
 ```
 
 ## Use:

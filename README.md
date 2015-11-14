@@ -1,8 +1,7 @@
 
 <h1 align="center">
 	<br>
-	<img width="237" src="http://felics.me/hagrid/hagrid_logo_small.png" alt="logo">
-	<br>
+	<img width="237" src="http://felics.me/\_assets/ext/hagrid/logo.png" alt="logo">
 	<br>
 </h1>
 

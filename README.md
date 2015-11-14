@@ -1,5 +1,5 @@
 
-<h1 style="text-align:center">
+<h1 align="center">
 	<img width="237" src="http://felics.me/\_assets/ext/hagrid/logo.png" alt="logo">
 	<br>
 </h1>

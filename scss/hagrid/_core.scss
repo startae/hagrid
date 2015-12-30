@@ -22,10 +22,18 @@
     position: relative;
 }
 
+@mixin flexibility {
+    /* autoprefixer: off */
+    -js-display: flex;
+}
+
 // Grid Wrapper
 ///////////////////////////////
 
 @mixin grid($modifiers...) {
+    @if $hagrid-flexibility {
+        @include flexibility;
+    }
     @include grid-static;
     @include grid-modifiers($modifiers...);
 }
@@ -55,6 +63,9 @@
 ///////////////////////////////
 
 @mixin stretch {
+    @if $hagrid-flexibility {
+        @include flexibility;
+    }
     display: flex;
     align-self: stretch;
     flex-flow: row wrap;

@@ -8,25 +8,18 @@
 ///////////////////////////////
 
 @mixin grid-static {
-    @include mixin-dryer("grid") {
-        display: flex;
-        flex: initial;
-        list-style: none;
-        padding: 0;
-    }
+    display: flex;
+    flex: initial;
+    list-style: none;
 }
 
 @mixin item-static {
-    @include mixin-dryer("item") {
-        box-sizing: border-box;
-        flex-shrink: 0; // * 1
-    }
+    box-sizing: border-box;
+    flex-shrink: 0; // * 1
 }
 
 @mixin push-pull-static {
-    @include mixin-dryer("push-pull") {
-        position: relative;
-    }
+    position: relative;
 }
 
 // Grid Wrapper

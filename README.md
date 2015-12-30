@@ -100,10 +100,6 @@ $hagrid-breakpoints: (
 // * Gutters and modifiers are applied to all items of each grid-container
 // * By default, the selector `> *` is used. If you use a consistent selector for grid-items, you can set it here
 $hagrid-item-selector: "> *";
-
-// * When set to true, hagrid will extend shared properties among grids and grid-items
-// * When set to false (default), the output will be better traceable but slightly larger (gzip will eat this up)
-$hagrid-dry-mixins: false;
 ```
 
 ## Modifiers:

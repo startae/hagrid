@@ -173,6 +173,47 @@ $hagrid-item-selector: "> *";
 
 ## Automatic Grid Layouts:
 
+Starting in v3.0.0, you can let flexbox work out the grid for you - on any breakpoint - by passing `auto` to the `i`-mixin.
+
+### Example (Auto Grids):
+
+```scss
+
+// Basic automatic grid
+
+.auto {
+	@include g;
+}
+
+.auto-item {
+	@include i(auto);
+}
+
+// Pinned elements will keep their width - while their surrounding elements change.
+
+.auto-pinned {
+	@include g;
+}
+
+.auto-item--pinned {
+	@include i(1/3);
+}
+
+.auto-item {
+	@include i(auto);
+}
+
+// You can use automatic grids on any breakpoint you like
+
+.auto--responsive {
+	@include g;
+}
+
+.auto-item--responsive {
+	@include i(1/2, md auto);
+}
+
+```
 ## Browser Support:
 
  - Chrome
@@ -182,9 +223,11 @@ $hagrid-item-selector: "> *";
  - IE **10+**
  - Opera **12+**
 
+Older browsers can be supplied with a flexbox polyfill to make this grid work. See [110up/flexibility](https://github.com/10up/flexibility)
+
 ## Prefixes:
 
-Hagrid does not generate prefixes (`-webkit-`,`-ms-`) as it is designed to be integrated with common SASS workflows in mind (Gulp / Grunt with [Autoprefixer](https://github.com/postcss/autoprefixer)). A sample configuration for Autoprefixer is available in the [test build-file](https://github.com/felics/hagrid/blob/master/gulpfile.js#L22-L23). Be careful not to set browsers in a way that generates legacy flexbox syntax!
+Hagrid does not generate prefixes (`-webkit-`,`-ms-`) as it is designed to be integrated with common SASS workflows in mind (Gulp / Grunt with [Autoprefixer](https://github.com/postcss/autoprefixer)). A sample configuration for Autoprefixer is available in the [test build-file](https://github.com/felics/hagrid/blob/master/gulpfile.js#L24). Be careful not to set browsers in a way that generates legacy flexbox syntax!
 
 ## Credit:
 
@@ -195,7 +238,7 @@ Hagrid does not generate prefixes (`-webkit-`,`-ms-`) as it is designed to be in
 
 The MIT License (MIT)
 
-Copyright © **2015 Felix Spöttel**
+Copyright © **2016 Felix Spöttel**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

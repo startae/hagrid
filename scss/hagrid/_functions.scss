@@ -62,7 +62,7 @@ $hagrid-placeholders: ();
 
     @if $arg-length == 0 {
         // * If no params are passed, default to mobile-first
-        @if $prop == width {
+        @if $prop == flex-basis {
             #{$prop}: 100%;
         }
         @else {
@@ -78,7 +78,7 @@ $hagrid-placeholders: ();
             $width: nth($widths,$i);
 
             // * If a general width is passed in, use it
-            @if type-of($width) == number or $width == auto {
+            @if type-of($width) == number {
                 #{$prop}: calculate-width($width);
                 $width-detected: true;
             }
@@ -113,7 +113,7 @@ $hagrid-placeholders: ();
         }
 
         // * If only responsive params are passed, default to mobile-first
-        @if $width-detected == false and $prop == width {
+        @if $width-detected == false and $prop == flex-basis {
             #{$prop}: 100%;
         }
     }

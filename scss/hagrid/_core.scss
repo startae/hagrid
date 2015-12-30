@@ -42,7 +42,7 @@
 
 @mixin item($widths...) {
     @include item-static;
-    @include grid-calc(width, $widths...);
+    @include grid-calc(flex-basis, $widths...);
 }
 
 // Push / Pull

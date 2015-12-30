@@ -76,8 +76,6 @@ npm install hagrid
 }
 ```
 
-*Note:* `display: flex` is set on each grid-parent, so you have to re-set it on grid-items if you use the fallback-grid and want to use flexbox-properties in grid-items.
-
 ## Options:
 
 ```scss
@@ -102,20 +100,6 @@ $hagrid-breakpoints: (
 // * Gutters and modifiers are applied to all items of each grid-container
 // * By default, the selector `> *` is used. If you use a consistent selector for grid-items, you can set it here
 $hagrid-item-selector: "> *";
-
-
-// * If you want to add an `inline-block`-grid for older browsers, set this to true
-$hagrid-fallback: false;
-
-// * By default, the whitespace issue is fixed the pure-way via letter-spacing / font-family
-// * If you want to fix the issue via 0-whitespace HTML, set `$hagrid-fallback-fontfix` to false
-$hagrid-fallback-fontfix: true;
-
-// * If you are using the fontfix (recommended), reset your typeface here
-$hagrid-fallback-font: sans-serif;
-
-// * Displays warnings about modifiers / mixins that won't work on the fallback
-$hagrid-fallback-warnings: false;
 
 // * When set to true, hagrid will extend shared properties among grids and grid-items
 // * When set to false (default), the output will be better traceable but slightly larger (gzip will eat this up)
@@ -193,32 +177,13 @@ $hagrid-dry-mixins: false;
 
 ## Automatic Grid Layouts:
 
-An automatic grid modifier was included until v1.1.0 but then removed because of its inconsistency with the fallback-grid. It will be re-added when the fallback can be safely dropped. Example of automatic grids with pure flexbox:
-
-```scss
-
-.grid {
-    display: flex;
-    flex: 1 1 auto;
-}
-
-.grid-item {
-     flex: 1 1 0%;
-}
-
-.grid-item.example {
-    flex: 0 0 auto;
-    width: 50%;
-}
-
-```
 ## Browser Support:
 
  - Chrome
  - Firefox
- - Safari **7+** *(Fallback 6+)*
- - Android **4.4+** *(Fallback 2.3+)*
- - IE **10+** *(Fallback 9+ / 8+ with polyfill & -rem)*
+ - Safari **7+**
+ - Android **4.4+**
+ - IE **10+**
  - Opera **12+**
 
 ## Prefixes:

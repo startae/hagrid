@@ -13,12 +13,6 @@
         flex: initial;
         list-style: none;
         padding: 0;
-
-        @if $hagrid-fallback and $hagrid-fallback-fontfix {
-            font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
-            letter-spacing: -0.31em;
-            text-rendering: optimizespeed;
-        }
     }
 }
 
@@ -26,17 +20,6 @@
     @include mixin-dryer("item") {
         box-sizing: border-box;
         flex-shrink: 0; // * 1
-
-        @if $hagrid-fallback {
-            display: inline-block;
-            zoom: 1;
-
-            @if $hagrid-fallback-fontfix {
-                font-family: $hagrid-fallback-font;
-                letter-spacing: normal;
-                text-rendering: auto;
-            }
-        }
     }
 }
 
@@ -85,10 +68,6 @@
 
     #{$hagrid-item-selector} {
         flex: 1 1 100%;
-    }
-
-    @if $hagrid-fallback and $hagrid-fallback-warnings {
-        @warn "Stretch won't work on fallback-grid!";
     }
 }
 

@@ -55,11 +55,11 @@
 ///////////////////////////////
 
 @mixin stretch {
-    align-self: stretch;
     display: flex;
+    align-self: stretch;
     flex-flow: row wrap;
 
-    #{$hagrid-item-selector} {
+    > * {
         flex: 1 1 100%;
     }
 }

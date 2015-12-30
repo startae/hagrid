@@ -223,7 +223,7 @@ Starting in v3.0.0, you can let flexbox work out the grid for you - on any break
  - IE **10+**
  - Opera **12+**
 
-Older browsers can be supplied with a flexbox polyfill to make this grid work. See [110up/flexibility](https://github.com/10up/flexibility)
+Older IE can be supplied with a flexbox polyfill to make this grid work. See [10up/flexibility](https://github.com/10up/flexibility)
 
 ## Prefixes:
 

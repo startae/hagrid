@@ -1,66 +1,56 @@
 
-//////////////////////////////
-// CORE
-//////////////////////////////
+////
+/// Core
+/// MIT-License © 2016
+/// @author Felix Spöttel
+/// @access public
+/// @group API
+////
 
-// Static Content
-// 1. https://github.com/philipwalton/flexbugs#1-minimum-content-sizing-of-flex-items-not-honored
-///////////////////////////////
-
-@mixin grid-static {
-    display: flex;
-    flex: initial;
-    list-style: none;
-}
-
-@mixin item-static {
-    box-sizing: border-box;
-    flex-shrink: 0; // * 1
-}
-
-@mixin push-pull-static {
-    position: relative;
-}
-
-@mixin flexibility {
-    /* autoprefixer: off */
-    -js-display: flex;
-}
-
-// Grid Wrapper
-///////////////////////////////
+/// Print grid-styles and properties of applied modifiers
+/// @param {List} $modifiers - List of modifiers to apply to grid
+/// @output Outputs grid core styles and properties of the applied modifiers
 
 @mixin grid($modifiers...) {
     @if $hagrid-flexibility {
         @include flexibility;
     }
-    @include grid-static;
+    display: flex;
+    flex: initial;
+    list-style: none;
     @include grid-modifiers($modifiers...);
 }
 
-// Grid Item
-///////////////////////////////
+/// Print item core-styles and widths for each breakpoint specified
+/// @param {List} $widths - List of breakpoint / width-pairs
+/// @output Outputs item core-styles and widths for each breakpoint specified
 
 @mixin item($widths...) {
-    @include item-static;
+    box-sizing: border-box;
+    flex-shrink: 0;
     @include grid-calc(flex-basis, $widths...);
 }
 
-// Push / Pull
-///////////////////////////////
-
-@mixin pull($widths...) {
-    @include push-pull-static;
-    @include grid-calc(right, $widths...);
-}
+/// Push a grid-item to the left
+/// @param {List} $widths - List of breakpoint / width-pairs
+/// @output Outputs widths specified in the push directive
 
 @mixin push($widths...) {
-    @include push-pull-static;
+    position: relative;
     @include grid-calc(left, $widths...);
 }
 
-// Stretch
-///////////////////////////////
+/// Pull a grid-item to the right
+/// @param {List} $widths - List of breakpoint / width-pairs
+/// @output Outputs widths specified in the pull directive
+
+@mixin pull($widths...) {
+    position: relative;
+    @include grid-calc(right, $widths...);
+}
+
+/// Make a grid-items' children fill the avaiable height
+/// @output Outputs stretch-properties for the container and its children
 
 @mixin stretch {
     @if $hagrid-flexibility {
@@ -75,8 +65,10 @@
     }
 }
 
-// Breakpoints
-///////////////////////////////
+/// Assign properties to a breakpoint or a list of breakpoints
+/// @content Styles applied to the media-query
+/// @param {List} $breakpoints
+/// @output Outputs mediaqueries and @content belonging to them
 
 @mixin bp($breakpoints...) {
 
@@ -92,4 +84,32 @@
             @warn "You are trying to call @bp with an unknown, unquoted breakpoint: #{$breakpoint}";
         }
     }
+}
+
+/// Print flexibility helper
+/// @access private
+/// @group Internal
+/// @output Outputs a helper-property for the flexibility-polyfill
+
+@mixin flexibility {
+    /* autoprefixer: off */
+    -js-display: flex;
+}
+
+/// Shorthand for grid-mixin
+/// @alias grid
+/// @param {List} $modifiers
+/// @output grid- and modifier-styles
+
+@mixin g($modifiers...) {
+    @include grid($modifiers...);
+}
+
+/// Shorthand for item-mixin
+/// @alias item
+/// @param {List} $widths
+/// @output calculated item-widths
+
+@mixin i($widths...) {
+    @include item($widths...);
 }

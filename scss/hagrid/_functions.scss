@@ -1,10 +1,16 @@
 
-///////////////////////////////
-// FUNCTIONS
-///////////////////////////////
+////
+/// Functions
+/// MIT-License © 2016
+/// @author Felix Spöttel
+/// @access private
+/// @group Internal
+////
 
-// Main Parser
-//////////////////////////////
+/// Calculate all widths for a call from i, push or pull
+/// @param {String} $prop - Can be *flex-basis*, *left* or *right*
+/// @param {List} $widths - List of breakpoint / width-pairs
+/// @output Widths and breakpoints for a mixin-call
 
 @mixin grid-calc($prop, $widths...) {
     $arg-length: length($widths);
@@ -67,7 +73,7 @@
                     }
                 }
                 @else {
-                    @warn "You are trying to assign a width to an unknown, unquoted breakpoint: #{$key}";
+                    @warn "You are trying to assign a width to an unknown or invalid breakpoint: #{$key}";
                 }
             }
         }
@@ -79,8 +85,9 @@
     }
 }
 
-// Calculate Width (Fraction => Percentage)
-//////////////////////////////
+/// Calculate a percentage value from a fraction
+/// @param {Number} $value
+/// @return {Value}
 
 @function calculate-width($value) {
     @if unit($value) != "" {
@@ -91,20 +98,26 @@
     }
 }
 
-// Gutter Modifier Functions
-//////////////////////////////
+/// Check if a reference exists in $hagrid-gutters
+/// @param {String} $id
+/// @return {Boolean}
 
 @function hagrid-gutter-exists($id) {
     @return map-has-key($hagrid-gutters, $id);
 }
 
+/// Get a referenced item from $hagrid-gutters
+/// @param {String} $id
+/// @return {String}
+
 @function hagrid-gutter-get($id) {
     @return map-get($hagrid-gutters, $id);
 }
 
-// Breakpoint Validity Checker
-// Validated a breakpoint and returns itself, its key or false
-//////////////////////////////
+/// Validate a breakpoint-key and return itself, its value or false
+/// @param {String} $key
+/// @param {Boolean} $get-map
+/// @return {String | Boolean}
 
 @function parse-breakpoint($key, $get-map: true) {
     @if map-has-key($hagrid-breakpoints, $key) {
@@ -123,8 +136,9 @@
     }
 }
 
-// Check if a string is a media query
-//////////////////////////////
+/// Check if a string is a mediaquery
+/// @param {String} $string
+/// @return {Boolean}
 
 @function is-mq($string) {
     @if str-starts-with($string, unquote("(")) and str-end-with($string, unquote(")")) {
@@ -135,8 +149,10 @@
     }
 }
 
-// Check if a string starts with a substring
-//////////////////////////////
+/// Check if a string starts with a substring
+/// @param {String} $string
+/// @param {String} $needle
+/// @return {Boolean}
 
 @function str-starts-with($string, $needle) {
   @if type-of($string) != "string" {
@@ -152,8 +168,10 @@
   @return str-slice($string, 1, str-length($needle)) == $needle;
 }
 
-// Check if a string ends with a substring
-//////////////////////////////
+/// Check if a string ends with a substring
+/// @param {String} $string
+/// @param {String} $needle
+/// @return {Boolean}
 
 @function str-ends-with($string, $needle) {
   @if type-of($string) != "string" {
@@ -167,15 +185,4 @@
   }
 
   @return str-slice($string, -1 * str-length($needle)) == $needle;
-}
-
-// Shorthands
-//////////////////////////////
-
-@mixin g($modifiers...) {
-    @include grid($modifiers...);
-}
-
-@mixin i($widths...) {
-    @include item($widths...);
 }

@@ -4,6 +4,8 @@ node_modules/*
 
 .sass-cache/*
 
+sassdoc/*
+
 __test__/css
 __test__/index.html
 

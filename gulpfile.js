@@ -4,20 +4,16 @@
 // * This file contains the gulp build-process.
 // * ---------------------
 
-// *   Core
-// * ---------------------
-
 'use strict';
-
-// * Require gulp modules
 
 const gulp   = require('gulp');
 const jade   = require('gulp-jade');
 const prefix = require('gulp-autoprefixer');
 const rename = require('gulp-rename');
 const sass   = require('gulp-sass');
+const sassdoc = require('sassdoc');
 
-gulp.task('sass', function() {
+gulp.task('sass', () => {
   return gulp.src('./__test__/src/scss/test.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(prefix({
@@ -27,13 +23,22 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./__test__/css'));
 });
 
-gulp.task('jade', function() {
+gulp.task('jade', () => {
   return gulp.src('./__test__/src/jade/*.jade')
     .pipe(jade({
       pretty: true,
     }))
     .pipe(gulp.dest('./__test__/'));
 });
+
+gulp.task('sassdoc', () => {
+  return gulp.src('./scss/**/*.scss')
+    .pipe(sassdoc({
+      display: {
+        alias: true
+      }
+    }));
+})
 
 // * Tasks
 // * ---------------------
@@ -42,7 +47,7 @@ gulp.task('jade', function() {
 
 gulp.task('default', ['watch']);
 
-gulp.task('watch', ['sass', 'jade'], function() {
+gulp.task('watch', ['sass', 'jade'], () => {
 
   gulp.watch([
     './src/*.scss', './src/**/*.scss',

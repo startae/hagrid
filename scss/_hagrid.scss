@@ -1,17 +1,14 @@
 
-//////////////////////////////
-// HAGRID
-// MIT LICENSE © 2015 Felix Spöttel
-//////////////////////////////
+////
+/// HAGRID
+/// MIT-License © 2016
+/// @author Felix Spöttel
+/// @group Config
+////
 
-
-// Configuration
-//////////////////////////////
-
-// * Gutters
-// * Set gutters used in your project.
-// * do not delete default!
-//////////////////////////////
+/// Gutters
+/// Set gutters usable as modifiers
+/// @property {Number}
 
 $hagrid-gutters: (
     default: 1.5rem,
@@ -20,10 +17,10 @@ $hagrid-gutters: (
     wide: 3rem
 );
 
-// * Breakpoints
-// * Can be used for the grid e.g. (@include i(breakpoint 2/3))
-// * Can be used for MQs (@include bp(breakpoint){@content})
-//////////////////////////////
+/// Breakpoints
+/// Can be used for the grid e.g. @include i(breakpoint 2/3)
+/// Can be used for mediaqueries @include bp(breakpoint){@content}
+/// @property {String}
 
 $hagrid-breakpoints: (
     sm: "(min-width: 35.5em)",
@@ -32,21 +29,18 @@ $hagrid-breakpoints: (
     xl: "(min-width: 80em)"
 );
 
-// * Gutter & Modifier Selector
-// * Gutters and modifiers are applied to all items of each grid-container
-// * By default, the selector `> *` is used. If you use a consistent selector for grid-items, you can set hagrid to use it here
-//////////////////////////////
+/// Gutter & Modifier Selector
+/// Gutters and modifiers are applied to all children of each grid-container
+/// By default, the selector `> *` is used. If you use a consistent selector for grid-items, you can set it here
+/// @property {String}
 
 $hagrid-item-selector: "> *";
 
-// * Flexibility Support
-// * Add support for flexibility polyfill
-//////////////////////////////
+/// Flexibility Support
+///  Add support for flexibility polyfill
+/// @property {Boolean}
 
 $hagrid-flexibility: false;
-
-// Imports
-//////////////////////////////
 
 @import "hagrid/core";
 @import "hagrid/functions";

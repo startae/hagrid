@@ -1,7 +1,25 @@
 
-//////////////////////////////
-// MODIFIERS
-///////////////////////////////
+////
+/// Modifiers
+/// MIT-License © 2016
+/// @author Felix Spöttel
+/// @group Modifiers
+////
+
+/// Parses list of mixins and applies modifier-styles
+/// List of avaiable modifiers
+///  - right
+///  - center
+///  - bottom
+///  - middle
+///  - space-around
+///  - space-between
+///  - rev
+///  - flip
+///  - gutters specified in $hagrid-gutters
+/// @access private
+/// @param {List} $modifiers - See README
+/// @output Modifier-styles for a given call
 
 @mixin grid-modifiers($modifiers...) {
     $gutter: hagrid-gutter-get(default);
@@ -23,7 +41,7 @@
 
         @include grid-modifier($modifier);
     }
-
+    // * Apply styles that differ from defaults
     @if $is-y == false {
         align-items: flex-start;
     }
@@ -48,9 +66,7 @@
 }
 
 @mixin grid-modifier($modifier) {
-
-    // x-Axis Alignment
-    //////////////////////////////
+    // * x-Axis Alignment
 
     @if $modifier == right {
         justify-content: flex-end;
@@ -61,7 +77,6 @@
     }
 
     // * y-Axis Alignment
-    //////////////////////////////
 
     @elseif $modifier == bottom {
         align-items: flex-end;
@@ -71,8 +86,7 @@
         align-items: center;
     }
 
-    // Flex Alignment
-    ///////////////////////////////
+    // * Flex Alignment
 
     @elseif $modifier == space-around {
         justify-content: space-around;
@@ -82,8 +96,7 @@
         justify-content: space-between;
     }
 
-    // Direction
-    ///////////////////////////////
+    // * Direction
 
     @elseif $modifier == rev {
         flex-direction: row-reverse;
@@ -98,9 +111,7 @@
     }
 
     @else {
-
-        // Gutter Modifiers
-        ///////////////////////////////
+        // * Gutter Modifiers
 
         @if hagrid-gutter-exists($modifier) {
             $gutter: hagrid-gutter-get($modifier);

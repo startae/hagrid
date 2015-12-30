@@ -3,57 +3,6 @@
 // FUNCTIONS
 ///////////////////////////////
 
-
-// DRY Mixins @ atimport/toolkit
-//////////////////////////////
-
-$hagrid-placeholders: ();
-
-// Placeholder Get/Set
-//////////////////////////////
-
-@function hagrid-placeholder-get($id) {
-    @return map-get($hagrid-placeholders, $id);
-}
-
-@function hagrid-placeholder-set($id) {
-    $unique-id: unique-id();
-    $hagrid-placeholders: map-merge($hagrid-placeholders, ($id: $unique-id)) !global;
-
-    @return $unique-id;
-}
-
-// Generate Placeholder Class and Extend
-//////////////////////////////
-
-@mixin dynamic-extend($id) {
-    $placeholder-id: hagrid-placeholder-get($id);
-
-    @if $placeholder-id == null {
-        $placeholder-id: hagrid-placeholder-set($id);
-
-        @at-root %#{$placeholder-id} {
-            @content;
-        }
-    }
-
-    @extend %#{$placeholder-id};
-}
-
-// Static Mixin Helper
-//////////////////////////////
-
-@mixin mixin-dryer($id, $extend: $hagrid-dry-mixins) {
-    @if $extend == true {
-        @include dynamic-extend($id) {
-            @content;
-        }
-    }
-    @else {
-        @content;
-    }
-}
-
 // Main Parser
 //////////////////////////////
 
@@ -62,7 +11,7 @@ $hagrid-placeholders: ();
 
     @if $arg-length == 0 {
         // * If no params are passed, default to mobile-first
-        @if $prop == width {
+        @if $prop == flex-basis {
             #{$prop}: 100%;
         }
         @else {
@@ -72,13 +21,15 @@ $hagrid-placeholders: ();
     @else {
         $width-detected: false;
 
-
         @for $i from 1 through length($widths) {
-
             $width: nth($widths,$i);
 
             // * If a general width is passed in, use it
             @if type-of($width) == number or $width == auto {
+                @if $width == auto {
+                    flex-grow: 1;
+                    flex-shrink: 1;
+                }
                 #{$prop}: calculate-width($width);
                 $width-detected: true;
             }
@@ -86,6 +37,7 @@ $hagrid-placeholders: ();
             @elseif $width == false {
                 $width-detected: true;
             }
+
             // * Handle responsive args
             @else {
                 // * "md 2/3"-synthax
@@ -103,7 +55,16 @@ $hagrid-placeholders: ();
 
                 @if $bp != false {
                     @include bp(#{$key}) {
-                        #{$prop}: calculate-width($value);
+                        @if type-of($value) == number or $value == auto {
+                            @if $value == auto {
+                                flex-grow: 1;
+                                flex-shrink: 1;
+                            }
+                            #{$prop}: calculate-width($value);
+                        }
+                        @else if $value == false {
+                            @error "You cannot pass false to breakpoint #{$key}."
+                        }
                     }
                 }
                 @else {
@@ -113,7 +74,7 @@ $hagrid-placeholders: ();
         }
 
         // * If only responsive params are passed, default to mobile-first
-        @if $width-detected == false and $prop == width {
+        @if $width-detected == false and $prop == flex-basis {
             #{$prop}: 100%;
         }
     }
@@ -143,7 +104,7 @@ $hagrid-placeholders: ();
 }
 
 // Breakpoint Validity Checker
-// Validated a breakpoint and returns itstype "ref" or "quoted" or false
+// Validated a breakpoint and returns itself, its key or false
 //////////////////////////////
 
 @function parse-breakpoint($key, $get-map: true) {
@@ -163,6 +124,9 @@ $hagrid-placeholders: ();
     }
 }
 
+// Check if a string is a media query
+//////////////////////////////
+
 @function is-mq($string) {
     @if str-starts-with($string, unquote("(")) and str-end-with($string, unquote(")")) {
         @return true;
@@ -171,6 +135,9 @@ $hagrid-placeholders: ();
         @return false;
     }
 }
+
+// Check if a string starts with a substring
+//////////////////////////////
 
 @function str-starts-with($string, $needle) {
   @if type-of($string) != "string" {
@@ -185,6 +152,9 @@ $hagrid-placeholders: ();
 
   @return str-slice($string, 1, str-length($needle)) == $needle;
 }
+
+// Check if a string ends with a substring
+//////////////////////////////
 
 @function str-ends-with($string, $needle) {
   @if type-of($string) != "string" {

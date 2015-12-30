@@ -8,48 +8,32 @@
 ///////////////////////////////
 
 @mixin grid-static {
-    @include mixin-dryer("grid") {
-        display: flex;
-        flex: initial;
-        list-style: none;
-        padding: 0;
-
-        @if $hagrid-fallback and $hagrid-fallback-fontfix {
-            font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
-            letter-spacing: -0.31em;
-            text-rendering: optimizespeed;
-        }
-    }
+    display: flex;
+    flex: initial;
+    list-style: none;
 }
 
 @mixin item-static {
-    @include mixin-dryer("item") {
-        box-sizing: border-box;
-        flex-shrink: 0; // * 1
-
-        @if $hagrid-fallback {
-            display: inline-block;
-            zoom: 1;
-
-            @if $hagrid-fallback-fontfix {
-                font-family: $hagrid-fallback-font;
-                letter-spacing: normal;
-                text-rendering: auto;
-            }
-        }
-    }
+    box-sizing: border-box;
+    flex-shrink: 0; // * 1
 }
 
 @mixin push-pull-static {
-    @include mixin-dryer("push-pull") {
-        position: relative;
-    }
+    position: relative;
+}
+
+@mixin flexibility {
+    /* autoprefixer: off */
+    -js-display: flex;
 }
 
 // Grid Wrapper
 ///////////////////////////////
 
 @mixin grid($modifiers...) {
+    @if $hagrid-flexibility {
+        @include flexibility;
+    }
     @include grid-static;
     @include grid-modifiers($modifiers...);
 }
@@ -59,7 +43,7 @@
 
 @mixin item($widths...) {
     @include item-static;
-    @include grid-calc(width, $widths...);
+    @include grid-calc(flex-basis, $widths...);
 }
 
 // Push / Pull
@@ -79,16 +63,15 @@
 ///////////////////////////////
 
 @mixin stretch {
-    align-self: stretch;
+    @if $hagrid-flexibility {
+        @include flexibility;
+    }
     display: flex;
+    align-self: stretch;
     flex-flow: row wrap;
 
-    #{$hagrid-item-selector} {
+    > * {
         flex: 1 1 100%;
-    }
-
-    @if $hagrid-fallback and $hagrid-fallback-warnings {
-        @warn "Stretch won't work on fallback-grid!";
     }
 }
 

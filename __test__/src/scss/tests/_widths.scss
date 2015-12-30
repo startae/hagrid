@@ -4,10 +4,6 @@
         margin-bottom: 1.5rem;
     }
 
-    &-item {
-        @include i;
-    }
-
     &-column {
         @include i(100%, md 1/2);
 
@@ -92,4 +88,12 @@
 
 .nine-ten {
     @include i(4/5, lg 9/10)
+}
+
+.none {
+    @include i(auto);
+}
+
+.none--responsive {
+    @include i(1/2, md auto);
 }

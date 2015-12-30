@@ -21,7 +21,7 @@ gulp.task('sass', function() {
   return gulp.src('./__test__/src/scss/test.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(prefix({
-      browsers: ['last 2 versions', 'Explorer >= 10', 'Android >= 4.4'],
+      browsers: ['last 2 versions'],
     }))
     .pipe(rename('styles.css'))
     .pipe(gulp.dest('./__test__/css'));

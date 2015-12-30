@@ -25,7 +25,11 @@
             $width: nth($widths,$i);
 
             // * If a general width is passed in, use it
-            @if type-of($width) == number {
+            @if type-of($width) == number or $width == auto {
+                @if $width == auto {
+                    flex-grow: 1;
+                    flex-shrink: 1;
+                }
                 #{$prop}: calculate-width($width);
                 $width-detected: true;
             }
@@ -51,7 +55,16 @@
 
                 @if $bp != false {
                     @include bp(#{$key}) {
-                        #{$prop}: calculate-width($value);
+                        @if type-of($value) == number or $value == auto {
+                            @if $value == auto {
+                                flex-grow: 1;
+                                flex-shrink: 1;
+                            }
+                            #{$prop}: calculate-width($value);
+                        }
+                        @else if $value == false {
+                            @error "You cannot pass false to breakpoint #{$key}."
+                        }
                     }
                 }
                 @else {

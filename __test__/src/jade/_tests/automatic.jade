@@ -1,0 +1,47 @@
+header(role="banner")
+  h1 Test: Automatic widths
+
+section.widths-container
+  article.widths-item.none
+    div.block
+      p Auto
+  article.widths-item.none
+    div.block
+      p Auto
+
+section.widths-container
+  article.widths-item.one-three
+    div.block
+      p 1/3
+  article.widths-item.none
+    div.block
+      p Auto
+section.widths-container
+  article.widths-item.none
+    div.block Auto
+    section.widths-container
+      article.widths-item.none
+        div.block Auto
+      article.widths-item.none
+        div.block Auto
+  article.widths-item.none
+    div.block Auto
+    section.widths-container
+      article.widths-item.one-three
+        div.block 1/3
+      article.widths-item.none
+        div.block Auto
+
+section.widths-container
+  article.widths-item.none--responsive
+    div.block
+      p 1/2, md auto
+  article.widths-item.none--responsive
+    div.block
+      p 1/2, md auto
+  article.widths-item.none--responsive
+    div.block
+      p 1/2, md auto
+  article.widths-item.none--responsive
+    div.block
+      p 1/2, md auto

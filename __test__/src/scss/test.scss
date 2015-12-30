@@ -4,7 +4,7 @@ $color-shade: #6A0D18;
 $color-border: #3D051A;
 
 @import "normalize";
-@import "../../../src/hagrid";
+@import "../../../scss/hagrid";
 @import "tests/widths";
 @import "tests/pushpull";
 @import "tests/modifiers";

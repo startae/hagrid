@@ -1,7 +1,25 @@
 
-//////////////////////////////
-// MODIFIERS
-///////////////////////////////
+////
+/// Modifiers
+/// MIT-License © 2016
+/// @author Felix Spöttel
+/// @group Modifiers
+////
+
+/// Parses list of mixins and applies modifier-styles
+/// List of avaiable modifiers
+///  - right
+///  - center
+///  - bottom
+///  - middle
+///  - space-around
+///  - space-between
+///  - rev
+///  - flip
+///  - gutters specified in $hagrid-gutters
+/// @access private
+/// @param {List} $modifiers - See README
+/// @output Modifier-styles for a given call
 
 @mixin grid-modifiers($modifiers...) {
     $gutter: hagrid-gutter-get(default);
@@ -23,7 +41,7 @@
 
         @include grid-modifier($modifier);
     }
-
+    // * Apply styles that differ from defaults
     @if $is-y == false {
         align-items: flex-start;
     }
@@ -44,101 +62,44 @@
                 left: $gutter;
             };
         }
-
-        @if $is-y == false and $hagrid-fallback {
-            vertical-align: top;
-        }
     }
 }
 
 @mixin grid-modifier($modifier) {
-
-    // x-Axis Alignment
-    //////////////////////////////
+    // * x-Axis Alignment
 
     @if $modifier == right {
         justify-content: flex-end;
-
-        @if $hagrid-fallback {
-            text-align: right;
-
-            #{$hagrid-item-selector} {
-                text-align: left;
-            }
-        }
     }
 
     @elseif $modifier == center {
         justify-content: center;
-
-        @if $hagrid-fallback {
-            text-align: center;
-
-            #{$hagrid-item-selector} {
-                text-align: left;
-            }
-        }
     }
 
     // * y-Axis Alignment
-    //////////////////////////////
 
     @elseif $modifier == bottom {
         align-items: flex-end;
-
-        @if $hagrid-fallback {
-
-            #{$hagrid-item-selector} {
-                vertical-align: bottom;
-            }
-        }
     }
 
     @elseif $modifier == middle {
         align-items: center;
-
-        @if $hagrid-fallback {
-
-            #{$hagrid-item-selector} {
-                vertical-align: middle;
-            }
-        }
     }
 
-    // Flex Alignment
-    ///////////////////////////////
+    // * Flex Alignment
 
     @elseif $modifier == space-around {
         justify-content: space-around;
-
-        @if $hagrid-fallback and $hagrid-fallback-warnings {
-            @warn "Modifier #{$modifier} won't work on fallback-grid!";
-        }
     }
 
     @elseif $modifier == space-between {
         justify-content: space-between;
-
-        @if $hagrid-fallback and $hagrid-fallback-warnings {
-            @warn "Modifier #{$modifier} won't work on fallback-grid!";
-        }
     }
 
-    // Direction
-    ///////////////////////////////
+    // * Direction
 
     @elseif $modifier == rev {
-        @if $hagrid-fallback {
-            direction: rtl;
-
-            #{$hagrid-item-selector} {
-                direction: ltr;
-                text-align: left;
-            }
-        }
-        @else {
-            flex-direction: row-reverse;
-        }
+        flex-direction: row-reverse;
     }
 
     @elseif $modifier == flip {
@@ -147,15 +108,10 @@
         @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
             align-items: flex-end;
         }
-
-        @if $hagrid-fallback and $hagrid-fallback-warnings {
-            @warn "Modifier #{$modifier} won't work on fallback-grid!";
-        }
     }
 
     @else {
-        // Gutter Modifiers
-        ///////////////////////////////
+        // * Gutter Modifiers
 
         @if hagrid-gutter-exists($modifier) {
             $gutter: hagrid-gutter-get($modifier);
@@ -170,7 +126,7 @@
             }
         }
         @else {
-            @error "Modifier #{ $modifier } does not exist.";
+            @error "Modifier #{$modifier} does not exist.";
         }
     }
 }

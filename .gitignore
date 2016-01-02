@@ -2,6 +2,8 @@ bower_components/*
 
 node_modules/*
 
+sassdoc/*
+
 .sass-cache/*
 
 __test__/css

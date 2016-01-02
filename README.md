@@ -1,18 +1,20 @@
 <h1 align="center">
 	<img width="237" src="http://felics.me/\_assets/ext/hagrid/logo.png" alt="logo">
-	<br>
 </h1>
 
 
 ## Contents:
 
- 1. [Installing](https://github.com/felics/hagrid#install)
- 2. [Usage](https://github.com/felics/hagrid#use)
- 3. [Configuration](https://github.com/felics/hagrid#options)
+ 1. [Install](https://github.com/felics/hagrid#install)
+ 2. [Use](https://github.com/felics/hagrid#use)
+ 3. [Options](https://github.com/felics/hagrid#options)
  4. [Modifiers](https://github.com/felics/hagrid#modifiers)
- 5. [Browser Support](https://github.com/felics/hagrid#browser-support)
- 6. [Prefixing](https://github.com/felics/hagrid#prefixes)
- 7. [Credit & License](https://github.com/felics/hagrid#credit)
+ 5. [Mixins](https://github.com/felics/hagrid#mixins)
+ 6. [Auto Grids](https://github.com/felics/hagrid#auto-grids)
+ 7. [Browser Support](https://github.com/felics/hagrid#browser-support)
+ 8. [Prefixes](https://github.com/felics/hagrid#prefixes)
+ 9. [Developing](https://github.com/felics/hagrid#developing)
+ 10. [Credit & License](https://github.com/felics/hagrid#credit)
 
 ## Install:
 
@@ -135,12 +137,12 @@ $hagrid-flexibility: false;
  - **rev:**  Reverted grid on x-axis.
  - **flip:** Reverted grid on y-axis.
 
-### Mixins:
+## Mixins:
 
  - **bp:** Use breakpoints directly in a class.
  - **stretch:** Assign stretch-mixin to a group of grid-items in a grid to stretch-align their contents.
 
-#### Example (bp):
+### Example (bp):
 
 ```scss
 
@@ -160,8 +162,7 @@ $hagrid-flexibility: false;
  }
 ```
 
-
-#### Example (stretch):
+### Example (stretch):
 
 ```scss
 
@@ -174,7 +175,7 @@ $hagrid-flexibility: false;
 }
 ```
 
-## Automatic Grid Layouts:
+## Auto Grids:
 
 Starting in v3.0.0, you can let flexbox work out the grid for you - on any breakpoint - by passing `auto` to the `i`-mixin.
 
@@ -232,9 +233,9 @@ Older IE can be supplied with a flexbox polyfill to make this grid work. See [10
 
 Hagrid does not generate prefixes (`-webkit-`,`-ms-`) as it is designed to be integrated with common SASS workflows in mind (Gulp / Grunt with [Autoprefixer](https://github.com/postcss/autoprefixer)). A sample configuration for Autoprefixer is available in the [test build-file](https://github.com/felics/hagrid/blob/master/gulpfile.js#L24). Be careful not to set browsers in a way that generates legacy flexbox syntax!
 
-## Developing & Sassdoc:
+## Developing:
 
-You can build the project with the default gulp-task. If you want to use sassdoc, you can build it by running 'gulp sassdoc'.
+You can build the project with the default gulp-task. If you want to use sassdoc, you can build it by running `gulp sassdoc`.
 
 ## Credit:
 

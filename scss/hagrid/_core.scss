@@ -50,9 +50,10 @@
 }
 
 /// Make a grid-items' children fill the avaiable height
+/// @param {String} $el
 /// @output Outputs stretch-properties for the container and its children
 
-@mixin stretch {
+@mixin stretch($el: "> *") {
     @if $hagrid-flexibility {
         @include flexibility;
     }
@@ -60,7 +61,7 @@
     align-self: stretch;
     flex-flow: row wrap;
 
-    > * {
+    #{$el} {
         flex: 1 1 100%;
     }
 }

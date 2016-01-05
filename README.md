@@ -173,6 +173,17 @@ $hagrid-flexibility: false;
 		@include stretch;
 	}
 }
+
+// Stretch accepts a selector as parameter, it defaults to "> *"
+
+.stretch {
+	@include g;
+	> .item {
+		@include i;
+		@include stretch(".stretched-items");
+	}
+}
+
 ```
 
 ## Auto Grids:

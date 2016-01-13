@@ -28,7 +28,7 @@
 @mixin item($widths...) {
     box-sizing: border-box;
     flex-shrink: 0;
-    @include grid-calc(flex-basis, $widths...);
+    @include grid-calc(width, $widths...);
 }
 
 /// Push a grid-item to the left

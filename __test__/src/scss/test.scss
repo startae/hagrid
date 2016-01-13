@@ -1,7 +1,7 @@
-$color-primary: #C31C13;
-$color-secondary: #971416;
-$color-shade: #6A0D18;
-$color-border: #3D051A;
+$color-primary: #FF9800;
+$color-secondary: #EF6C00;
+$color-shade: #D84315;
+$color-border: #E65100;
 
 @import "normalize";
 @import "../../../scss/hagrid";
@@ -12,6 +12,7 @@ $color-border: #3D051A;
 
 body {
     background: $color-primary;
+    padding: 1em;
 }
 
 .block {
@@ -23,6 +24,7 @@ body {
     min-height: 2em;
     border-radius: .25em;
     margin-bottom: .5rem;
+    text-align: center;
 
     &.large {
         height: 6em;
@@ -35,7 +37,7 @@ header {
     h1,
     h2 {
         display: inline-block;
-        color: $color-border;
+        color: #222;
         border-radius: .25rem;
         padding-bottom: .125rem;
         border-bottom: .25rem solid $color-border;

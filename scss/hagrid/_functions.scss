@@ -8,7 +8,7 @@
 ////
 
 /// Calculate all widths for a call from i, push or pull
-/// @param {String} $prop - Can be *flex-basis*, *left* or *right*
+/// @param {String} $prop - Can be *width*, *left* or *right*
 /// @param {List} $widths - List of breakpoint / width-pairs
 /// @output Widths and breakpoints for a mixin-call
 
@@ -17,7 +17,7 @@
 
     @if $arg-length == 0 {
         // * If no params are passed, default to mobile-first
-        @if $prop == flex-basis {
+        @if $prop == width {
             #{$prop}: 100%;
         }
         @else {
@@ -66,6 +66,7 @@
                         }
                         @else if $value == auto {
                             flex: 1 1 auto;
+                            width: auto;
                         }
                         @else if $value == false {
                             @error "You cannot pass false to breakpoint #{$key}."
@@ -79,7 +80,7 @@
         }
 
         // * If only responsive params are passed, default to mobile-first
-        @if $width-detected == false and $prop == flex-basis {
+        @if $width-detected == false and $prop == width {
             #{$prop}: 100%;
         }
     }

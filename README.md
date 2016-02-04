@@ -102,9 +102,6 @@ $hagrid-breakpoints: (
 // * Gutters and modifiers are applied to all items of each grid-container
 // * By default, the selector `> *` is used. If you use a consistent selector for grid-items, you can set it here
 $hagrid-item-selector: "> *";
-
-// * Add support for flexibility-polyfill
-$hagrid-flexibility: false;
 ```
 
 ## Modifiers:
@@ -238,7 +235,12 @@ Starting in v3.0.0, you can let flexbox work out the grid for you - on any break
  - IE **10+**
  - Opera **12+**
 
-Older IE can be supplied with a flexbox polyfill to make this grid work. See [10up/flexibility](https://github.com/10up/flexibility) and set `$hagrid-flexibility` to true.
+If you need support for older browsers, you can use the `2.x` version range of hagrid. You can install it by running:
+
+```
+npm install hagrid@2.0.2
+bower install hagrid@2.0.2
+```
 
 ## Prefixes:
 

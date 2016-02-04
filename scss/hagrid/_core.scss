@@ -12,9 +12,6 @@
 /// @output Outputs grid core styles and properties of the applied modifiers
 
 @mixin grid($modifiers...) {
-  @if $hagrid-flexibility {
-    @include flexibility;
-  }
   display: flex;
   flex: initial;
   list-style: none;
@@ -58,9 +55,6 @@
 /// @output Outputs stretch-properties for the container and its children
 
 @mixin stretch($el: "> *") {
-  @if $hagrid-flexibility {
-    @include flexibility;
-  }
   display: flex;
   align-self: stretch;
   flex-flow: row wrap;
@@ -89,16 +83,6 @@
       @warn "You are trying to call @bp with an unknown, unquoted breakpoint: #{$breakpoint}";
     }
   }
-}
-
-/// Print flexibility helper
-/// @access private
-/// @group Internal
-/// @output Outputs a helper-property for the flexibility-polyfill
-
-@mixin flexibility {
-  /* autoprefixer: off */
-  -js-display: flex;
 }
 
 /// Shorthand for grid-mixin

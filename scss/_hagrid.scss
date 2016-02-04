@@ -38,12 +38,6 @@ $hagrid-breakpoints:
 
 $hagrid-item-selector: "> *";
 
-/// Flexibility Support
-///  Add support for flexibility polyfill
-/// @property {Boolean}
-
-$hagrid-flexibility: false;
-
 @import "hagrid/core";
 @import "hagrid/functions";
 @import "hagrid/modifiers";

@@ -4,30 +4,26 @@
 // * This file contains the gulp build-process.
 // * ---------------------
 
-// *   Core
-// * ---------------------
-
 'use strict';
 
-// * Require gulp modules
-
-const gulp   = require('gulp');
-const jade   = require('gulp-jade');
+const gulp = require('gulp');
+const jade = require('gulp-jade');
 const prefix = require('gulp-autoprefixer');
 const rename = require('gulp-rename');
-const sass   = require('gulp-sass');
+const sass = require('gulp-sass');
+const sassdoc = require('sassdoc');
 
-gulp.task('sass', function() {
+gulp.task('sass', () => {
   return gulp.src('./__test__/src/scss/test.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(prefix({
-      browsers: ['last 2 versions', 'Explorer >= 10', 'Android >= 4.4'],
+      browsers: ['last 2 versions'],
     }))
     .pipe(rename('styles.css'))
     .pipe(gulp.dest('./__test__/css'));
 });
 
-gulp.task('jade', function() {
+gulp.task('jade', () => {
   return gulp.src('./__test__/src/jade/*.jade')
     .pipe(jade({
       pretty: true,
@@ -35,17 +31,20 @@ gulp.task('jade', function() {
     .pipe(gulp.dest('./__test__/'));
 });
 
-// * Tasks
-// * ---------------------
-
-// * Default task
+gulp.task('sassdoc', () => {
+  return gulp.src('./scss/**/*.scss')
+    .pipe(sassdoc({
+      display: {
+        alias: true
+      }
+    }));
+});
 
 gulp.task('default', ['watch']);
 
-gulp.task('watch', ['sass', 'jade'], function() {
-
+gulp.task('watch', ['sass', 'jade'], () => {
   gulp.watch([
-    './src/*.scss', './src/**/*.scss',
+    './scss/*.scss', './scss/**/*.scss',
     './__test__/src/scss/test.scss',
     './__test__/src/scss/**/*.scss',
   ], ['sass']);
@@ -54,5 +53,4 @@ gulp.task('watch', ['sass', 'jade'], function() {
     './__test__/src/jade/*.jade',
     './__test__/src/jade/*/**.jade',
   ], ['jade']);
-
 });

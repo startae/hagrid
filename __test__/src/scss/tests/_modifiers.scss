@@ -1,75 +1,75 @@
 .modifier {
-    &-grid {
-        @include g;
+  &-grid {
+    @include g;
+  }
+
+  &-item {
+    @include i(1/3);
+
+    &:last-child {
+      .block {
+        background: $color-primary;
+      }
     }
+  }
 
-    &-item {
-        @include i(1/3);
+  &-header {
+    @include i;
+  }
 
-        &:last-child {
-            .block {
-                background: $color-primary;
-            }
-        }
+  &-right {
+    @include g(right);
+  }
+
+  &-center {
+    @include g(center);
+  }
+
+  &-space-around {
+    @include g(space-around);
+  }
+
+  &-space-between {
+    @include g(space-between);
+  }
+
+  &-middle {
+    @include g(middle);
+  }
+
+  &-bottom {
+    @include g(bottom);
+  }
+
+  &-stretch {
+    @include g;
+
+    > .modifier-item {
+      @include stretch;
     }
+  }
 
-    &-header {
-        @include i;
-    }
+  &-narrow {
+    @include g(narrow);
+  }
 
-    &-right {
-        @include g(right);
-    }
+  &-full {
+    @include g(full);
+  }
 
-    &-center {
-        @include g(center);
-    }
+  &-wide {
+    @include g(wide);
+  }
 
-    &-space-around {
-        @include g(space-around);
-    }
+  &-xrev {
+    @include g(rev);
+  }
 
-    &-space-between {
-        @include g(space-between);
-    }
+  &-yrev {
+    @include g(flip);
+  }
 
-    &-middle {
-        @include g(middle);
-    }
-
-    &-bottom {
-        @include g(bottom);
-    }
-
-    &-stretch {
-        @include g;
-
-        > .modifier-item {
-            @include stretch;
-        }
-    }
-
-    &-narrow {
-        @include g(narrow);
-    }
-
-    &-full {
-        @include g(full);
-    }
-
-    &-wide {
-        @include g(wide);
-    }
-
-    &-xrev {
-        @include g(rev);
-    }
-
-    &-yrev {
-        @include g(flip);
-    }
-
-    &-rev {
-        @include g(rev, flip);
-    }
+  &-rev {
+    @include g(rev, flip);
+  }
 }

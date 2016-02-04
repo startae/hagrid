@@ -1,18 +1,20 @@
 <h1 align="center">
 	<img width="237" src="http://felics.me/\_assets/ext/hagrid/logo.png" alt="logo">
-	<br>
 </h1>
 
 
 ## Contents:
 
- 1. [Installing](https://github.com/felics/hagrid#install)
- 2. [Usage](https://github.com/felics/hagrid#use)
- 3. [Configuration](https://github.com/felics/hagrid#options)
+ 1. [Install](https://github.com/felics/hagrid#install)
+ 2. [Use](https://github.com/felics/hagrid#use)
+ 3. [Options](https://github.com/felics/hagrid#options)
  4. [Modifiers](https://github.com/felics/hagrid#modifiers)
- 5. [Browser Support](https://github.com/felics/hagrid#browser-support)
- 6. [Prefixing](https://github.com/felics/hagrid#prefixes)
- 7. [Credit & License](https://github.com/felics/hagrid#credit)
+ 5. [Mixins](https://github.com/felics/hagrid#mixins)
+ 6. [Auto Grids](https://github.com/felics/hagrid#auto-grids)
+ 7. [Browser Support](https://github.com/felics/hagrid#browser-support)
+ 8. [Prefixes](https://github.com/felics/hagrid#prefixes)
+ 9. [Developing](https://github.com/felics/hagrid#developing)
+ 10. [Credit & License](https://github.com/felics/hagrid#credit)
 
 ## Install:
 
@@ -76,8 +78,6 @@ npm install hagrid
 }
 ```
 
-*Note:* `display: flex` is set on each grid-parent, so you have to re-set it on grid-items if you use the fallback-grid and want to use flexbox-properties in grid-items.
-
 ## Options:
 
 ```scss
@@ -102,24 +102,6 @@ $hagrid-breakpoints: (
 // * Gutters and modifiers are applied to all items of each grid-container
 // * By default, the selector `> *` is used. If you use a consistent selector for grid-items, you can set it here
 $hagrid-item-selector: "> *";
-
-
-// * If you want to add an `inline-block`-grid for older browsers, set this to true
-$hagrid-fallback: false;
-
-// * By default, the whitespace issue is fixed the pure-way via letter-spacing / font-family
-// * If you want to fix the issue via 0-whitespace HTML, set `$hagrid-fallback-fontfix` to false
-$hagrid-fallback-fontfix: true;
-
-// * If you are using the fontfix (recommended), reset your typeface here
-$hagrid-fallback-font: sans-serif;
-
-// * Displays warnings about modifiers / mixins that won't work on the fallback
-$hagrid-fallback-warnings: false;
-
-// * When set to true, hagrid will extend shared properties among grids and grid-items
-// * When set to false (default), the output will be better traceable but slightly larger (gzip will eat this up)
-$hagrid-dry-mixins: false;
 ```
 
 ## Modifiers:
@@ -152,12 +134,12 @@ $hagrid-dry-mixins: false;
  - **rev:**  Reverted grid on x-axis.
  - **flip:** Reverted grid on y-axis.
 
-### Mixins:
+## Mixins:
 
  - **bp:** Use breakpoints directly in a class.
  - **stretch:** Assign stretch-mixin to a group of grid-items in a grid to stretch-align their contents.
 
-#### Example (bp):
+### Example (bp):
 
 ```scss
 
@@ -177,8 +159,7 @@ $hagrid-dry-mixins: false;
  }
 ```
 
-
-#### Example (stretch):
+### Example (stretch):
 
 ```scss
 
@@ -189,26 +170,59 @@ $hagrid-dry-mixins: false;
 		@include stretch;
 	}
 }
+
+// Stretch accepts a selector as parameter, it defaults to "> *"
+
+.stretch {
+	@include g;
+	> .item {
+		@include i;
+		@include stretch(".stretched-items");
+	}
+}
+
 ```
 
-## Automatic Grid Layouts:
+## Auto Grids:
 
-An automatic grid modifier was included until v1.1.0 but then removed because of its inconsistency with the fallback-grid. It will be re-added when the fallback can be safely dropped. Example of automatic grids with pure flexbox:
+Starting in v3.0.0, you can let flexbox work out the grid for you - on any breakpoint - by passing `auto` to the `i`-mixin.
+
+### Example (Auto Grids):
 
 ```scss
 
-.grid {
-    display: flex;
-    flex: 1 1 auto;
+// Basic automatic grid
+
+.auto {
+	@include g;
 }
 
-.grid-item {
-     flex: 1 1 0%;
+.auto-item {
+	@include i(auto);
 }
 
-.grid-item.example {
-    flex: 0 0 auto;
-    width: 50%;
+// Pinned elements will keep their width - while their surrounding elements change.
+
+.auto-pinned {
+	@include g;
+}
+
+.auto-item--pinned {
+	@include i(1/3);
+}
+
+.auto-item {
+	@include i(auto);
+}
+
+// You can use automatic grids on any breakpoint you like
+
+.auto--responsive {
+	@include g;
+}
+
+.auto-item--responsive {
+	@include i(1/2, md auto);
 }
 
 ```
@@ -216,14 +230,25 @@ An automatic grid modifier was included until v1.1.0 but then removed because of
 
  - Chrome
  - Firefox
- - Safari **7+** *(Fallback 6+)*
- - Android **4.4+** *(Fallback 2.3+)*
- - IE **10+** *(Fallback 9+ / 8+ with polyfill & -rem)*
+ - Safari **6.1+**
+ - Android **4.4+**
+ - IE **10+**
  - Opera **12+**
+
+If you need support for older browsers, you can use the `2.x` version range of hagrid. You can install it by running:
+
+```
+npm install hagrid@2.0.2
+bower install hagrid@2.0.2
+```
 
 ## Prefixes:
 
-Hagrid does not generate prefixes (`-webkit-`,`-ms-`) as it is designed to be integrated with common SASS workflows in mind (Gulp / Grunt with [Autoprefixer](https://github.com/postcss/autoprefixer)). A sample configuration for Autoprefixer is available in the [test build-file](https://github.com/felics/hagrid/blob/master/gulpfile.js#L22-L23). Be careful not to set browsers in a way that generates legacy flexbox syntax!
+Hagrid does not generate prefixes (`-webkit-`,`-ms-`) as it is designed to be integrated with common SASS workflows in mind (Gulp / Grunt with [Autoprefixer](https://github.com/postcss/autoprefixer)). A sample configuration for Autoprefixer is available in the [test build-file](https://github.com/felics/hagrid/blob/master/gulpfile.js#L24). Be careful not to set browsers in a way that generates legacy flexbox syntax!
+
+## Developing:
+
+You can build the project with the default gulp-task. If you want to use sassdoc, you can build it by running `gulp sassdoc`.
 
 ## Credit:
 
@@ -234,7 +259,7 @@ Hagrid does not generate prefixes (`-webkit-`,`-ms-`) as it is designed to be in
 
 The MIT License (MIT)
 
-Copyright © **2015 Felix Spöttel**
+Copyright © **2016 Felix Spöttel**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

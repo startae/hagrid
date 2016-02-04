@@ -28,6 +28,8 @@
     "gulp-jade": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.1.1",
-    "sassdoc": "^2.1.19"
+    "sassdoc": "^2.1.19",
+    "stylelint": "^4.2.0",
+    "stylelint-config-standard": "^3.0.0"
   }
 }

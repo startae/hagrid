@@ -1,99 +1,99 @@
 .widths {
-    &-container {
-        @include g;
-        margin-bottom: 1.5rem;
-    }
+  &-container {
+    @include g;
+    margin-bottom: 1.5rem;
+  }
 
-    &-column {
-        @include i(100%, md 1/2);
+  &-column {
+    @include i(100%, md 1/2);
 
-        &:first-child {
-            @include i(100%, md 1/2)
-        }
+    &:first-child {
+      @include i(100%, md 1/2);
     }
+  }
 }
 
 .one {
-    @include i(1);
+  @include i(1);
 }
 
 .one-two {
-    @include i(1/2);
+  @include i(1/2);
 }
 
 .one-three {
-    @include i(1/3);
+  @include i(1/3);
 }
 
 .two-three {
-    @include i(2/3);
+  @include i(2/3);
 }
 
 .one-four {
-    @include i(1/4);
+  @include i(1/4);
 }
 
 .three-four {
-    @include i(3/4);
+  @include i(3/4);
 }
 
-
 .one-five {
-    @include i(1/5);
+  @include i(1/5);
 }
 
 .four-five {
-    @include i(4/5);
+  @include i(4/5);
 }
 
 .one-six {
-    @include i(1, lg 1/6);
+  @include i(1, lg 1/6);
 }
 
 .five-six {
-    display: none;
-    @include i(1, lg 5/6);
-    @include bp(lg) {
-        display: inline-block;
-    }
+  @include i(1, lg 5/6);
+  display: none;
+
+  @include bp(lg) {
+    display: inline-block;
+  }
 }
 
 .one-seven {
-    @include i(1/2, lg 1/7)
+  @include i(1/2, lg 1/7);
 }
 
 .six-seven {
-    @include i(1/2, lg 6/7)
+  @include i(1/2, lg 6/7);
 }
 
 .one-eight {
-    @include i(1/3, lg 1/8)
+  @include i(1/3, lg 1/8);
 }
 
 .seven-eight {
-    @include i(2/3, lg 7/8)
+  @include i(2/3, lg 7/8);
 }
 
 .one-nine {
-    @include i(1/4, lg 1/9)
+  @include i(1/4, lg 1/9);
 }
 
 .eight-nine {
-    @include i(3/4, lg 8/9)
+  @include i(3/4, lg 8/9);
 }
 
 .one-ten {
-    @include i(1/5, lg 1/10)
+  @include i(1/5, lg 1/10);
 }
 
 .nine-ten {
-    @include i(4/5, lg 9/10)
+  @include i(4/5, lg 9/10);
 }
 
 .none {
-    @include i(auto);
+  @include i(auto);
 }
 
 .none--responsive {
-    @include i(1/2, md auto);
+  @include i(1/2, md auto);
 }

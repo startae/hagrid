@@ -12,13 +12,14 @@
 /// @output Outputs grid core styles and properties of the applied modifiers
 
 @mixin grid($modifiers...) {
-    @if $hagrid-flexibility {
-        @include flexibility;
-    }
-    display: flex;
-    flex: initial;
-    list-style: none;
-    @include grid-modifiers($modifiers...);
+  @if $hagrid-flexibility {
+    @include flexibility;
+  }
+  display: flex;
+  flex: initial;
+  list-style: none;
+
+  @include grid-modifiers($modifiers...);
 }
 
 /// Print item core-styles and widths for each breakpoint specified
@@ -26,9 +27,10 @@
 /// @output Outputs item core-styles and widths for each breakpoint specified
 
 @mixin item($widths...) {
-    box-sizing: border-box;
-    flex-shrink: 0;
-    @include grid-calc(width, $widths...);
+  box-sizing: border-box;
+  flex-shrink: 0;
+
+  @include grid-calc(width, $widths...);
 }
 
 /// Push a grid-item to the left
@@ -36,8 +38,9 @@
 /// @output Outputs widths specified in the push directive
 
 @mixin push($widths...) {
-    position: relative;
-    @include grid-calc(left, $widths...);
+  position: relative;
+
+  @include grid-calc(left, $widths...);
 }
 
 /// Pull a grid-item to the right
@@ -45,8 +48,9 @@
 /// @output Outputs widths specified in the pull directive
 
 @mixin pull($widths...) {
-    position: relative;
-    @include grid-calc(right, $widths...);
+  position: relative;
+
+  @include grid-calc(right, $widths...);
 }
 
 /// Make a grid-items' children fill the avaiable height
@@ -54,16 +58,16 @@
 /// @output Outputs stretch-properties for the container and its children
 
 @mixin stretch($el: "> *") {
-    @if $hagrid-flexibility {
-        @include flexibility;
-    }
-    display: flex;
-    align-self: stretch;
-    flex-flow: row wrap;
+  @if $hagrid-flexibility {
+    @include flexibility;
+  }
+  display: flex;
+  align-self: stretch;
+  flex-flow: row wrap;
 
-    #{$el} {
-        flex: 1 1 100%;
-    }
+  #{$el} {
+    flex: 1 1 100%;
+  }
 }
 
 /// Assign properties to a breakpoint or a list of breakpoints
@@ -72,19 +76,19 @@
 /// @output Outputs mediaqueries and @content belonging to them
 
 @mixin bp($breakpoints...) {
+  @each $breakpoint in $breakpoints {
+    $bp: parse-breakpoint($breakpoint);
 
-    @each $breakpoint in $breakpoints {
-        $bp: parse-breakpoint($breakpoint);
-
-        @if $bp != false {
-            @media only screen and #{$bp} {
-                @content;
-            }
-        }
-        @else {
-            @warn "You are trying to call @bp with an unknown, unquoted breakpoint: #{$breakpoint}";
-        }
+    @if $bp != false {
+      @media only screen and #{$bp} {
+        @content;
+      }
     }
+
+    @else {
+      @warn "You are trying to call @bp with an unknown, unquoted breakpoint: #{$breakpoint}";
+    }
+  }
 }
 
 /// Print flexibility helper
@@ -93,8 +97,8 @@
 /// @output Outputs a helper-property for the flexibility-polyfill
 
 @mixin flexibility {
-    /* autoprefixer: off */
-    -js-display: flex;
+  /* autoprefixer: off */
+  -js-display: flex;
 }
 
 /// Shorthand for grid-mixin
@@ -103,7 +107,7 @@
 /// @output grid- and modifier-styles
 
 @mixin g($modifiers...) {
-    @include grid($modifiers...);
+  @include grid($modifiers...);
 }
 
 /// Shorthand for item-mixin
@@ -112,5 +116,5 @@
 /// @output calculated item-widths
 
 @mixin i($widths...) {
-    @include item($widths...);
+  @include item($widths...);
 }

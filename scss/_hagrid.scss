@@ -10,24 +10,26 @@
 /// Set gutters usable as modifiers
 /// @property {Number}
 
-$hagrid-gutters: (
+$hagrid-gutters:
+  (
     default: 1.5rem,
     full: 0,
     narrow: 0.5rem,
     wide: 3rem
-);
+  );
 
 /// Breakpoints
 /// Can be used for the grid e.g. @include i(breakpoint 2/3)
 /// Can be used for mediaqueries @include bp(breakpoint){@content}
 /// @property {String}
 
-$hagrid-breakpoints: (
+$hagrid-breakpoints:
+  (
     sm: "(min-width: 35.5em)",
     md: "(min-width: 48em)",
     lg: "(min-width: 64em)",
     xl: "(min-width: 80em)"
-);
+  );
 
 /// Gutter & Modifier Selector
 /// Gutters and modifiers are applied to all children of each grid-container

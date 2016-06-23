@@ -25,6 +25,7 @@
 
 @mixin item($widths...) {
   box-sizing: border-box;
+  flex-basis: auto;
   flex-shrink: 0;
 
   @include grid-calc(width, $widths...);

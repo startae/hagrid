@@ -1,7 +1,4 @@
-<h1 align="center">
-	<img width="237" src="http://felics.me/\_assets/ext/hagrid/logo.png" alt="logo">
-</h1>
-
+# Hagrid ![Logo](https://felics.me/_assets/ext/hagrid/logo.png)
 
 ## Contents:
 
@@ -84,25 +81,25 @@ npm install hagrid
 
 // *  Specify gutters between items. They are used like modifiers or applied to all grids
 // * If $layout-gutters exists it will be used instead (so you don't have to modify this file directly)
-$hagrid-gutters-default: (
+$hagrid-gutters: (
     default: 1.5rem,
     full: 0,
     narrow: 0.5rem,
     wide: 3rem
-);
+) !default;
 
 // * Set common breakpoints used in your project. Can be used in the @bp-mixin (see below)
 // * If $layout-breakpoints exists it will be used instead (so you don't have to modify this file directly)
-$hagrid-breakpoints-default: (
+$hagrid-breakpoints: (
     sm: "(min-width: 35.5em)",
     md: "(min-width: 48em)",
     lg: "(min-width: 64em)",
     xl: "(min-width: 80em)"
-);
+) !default;
 
 // * Gutters and modifiers are applied to all items of each grid-container
 // * By default, the selector `> *` is used. If you use a consistent selector for grid-items, you can set it here
-$hagrid-item-selector: "> *";
+$hagrid-item-selector: "> *" !default;
 ```
 
 ## Modifiers:

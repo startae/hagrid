@@ -23,16 +23,16 @@
     "exports": "eyeglass-exports.js"
   },
   "scripts": {
-    "test": "stylelint -s scss scss/**/*.scss"
+    "test": "stylelint scss/**/*.scss --syntax scss"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-jade": "^1.1.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.1",
+    "gulp-sass": "^2.3.2",
     "sassdoc": "^2.1.20",
-    "stylelint": "^6.5.1",
-    "stylelint-config-standard": "^9.0.0"
+    "stylelint": "^6.8.0",
+    "stylelint-config-standard": "^10.0.0"
   }
 }

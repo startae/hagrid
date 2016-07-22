@@ -3,20 +3,11 @@
 [![Travis](https://img.shields.io/travis/fspoettel/hagrid.svg?maxAge=2592000)]()
 [![npm](https://img.shields.io/npm/v/npm.svg?maxAge=2592000)]()
 
-## Contents:
+Hagrid is a mixin library for responsive websites.
 
- 1. [Install](https://github.com/felics/hagrid#install)
- 2. [Use](https://github.com/felics/hagrid#use)
- 3. [Options](https://github.com/felics/hagrid#options)
- 4. [Modifiers](https://github.com/felics/hagrid#modifiers)
- 5. [Mixins](https://github.com/felics/hagrid#mixins)
- 6. [Auto Grids](https://github.com/felics/hagrid#auto-grids)
- 7. [Browser Support](https://github.com/felics/hagrid#browser-support)
- 8. [Prefixes](https://github.com/felics/hagrid#prefixes)
- 9. [Developing](https://github.com/felics/hagrid#developing)
- 10. [Credit & License](https://github.com/felics/hagrid#credit)
+It helps you with authoring flexbox grid systems and local media queries by providing easy-to-use mixins. You do not have to edit your markup to make it work - the semantics are up to you.
 
-## Install:
+## Installation
 
 ```
 bower install hagrid
@@ -28,7 +19,7 @@ npm install hagrid
 @import "[path to hagrid]/hagrid";
 ```
 
-## Use:
+## Usage
 
 ```scss
 
@@ -78,7 +69,7 @@ npm install hagrid
 }
 ```
 
-## Options:
+## Options
 
 ```scss
 
@@ -105,7 +96,7 @@ $hagrid-breakpoints: (
 $hagrid-item-selector: "> *" !default;
 ```
 
-## Modifiers:
+## Modifiers
 
 ```scss
 
@@ -114,33 +105,33 @@ $hagrid-item-selector: "> *" !default;
 
 ```
 
-### x-axis Alignment:
+### x-axis Alignment
 
  - **right:** Align grid-items to the right in partially filled rows.
  - **center:** Center grid-items in partially filled rows.
  - **space-around:** Distribute items in partially filled rows by using variable space around them.
  - **space-between:** Distribute items in partially filled rows by using variable space between them.
 
-### y-axis Alignment:
+### y-axis Alignment
 
  - **bottom**: Align items to the bottom of the grid.
  - **middle**: Vertically center grid items.
 
-### Spacing:
+### Spacing
 
 > You can provide custom gutters to the grid via the config-variable `$hagrid-gutters`. Use them as you would use a normal modifier. (e.g. `@include g(wide)`)
 
-### Direction:
+### Direction
 
  - **rev:**  Reverted grid on x-axis.
  - **flip:** Reverted grid on y-axis.
 
-## Mixins:
+## Mixins
 
  - **bp:** Use breakpoints directly in a class.
  - **stretch:** Assign stretch-mixin to a group of grid-items in a grid to stretch-align their contents.
 
-### Example (bp):
+### Example (bp)
 
 ```scss
 
@@ -160,7 +151,7 @@ $hagrid-item-selector: "> *" !default;
  }
 ```
 
-### Example (stretch):
+### Example (stretch)
 
 ```scss
 
@@ -184,11 +175,11 @@ $hagrid-item-selector: "> *" !default;
 
 ```
 
-## Auto Grids:
+## Auto Grids
 
 Starting in v3.0.0, you can let flexbox work out the grid for you - on any breakpoint - by passing `auto` to the `i`-mixin.
 
-### Example (Auto Grids):
+### Example (Auto Grids)
 
 ```scss
 
@@ -227,7 +218,7 @@ Starting in v3.0.0, you can let flexbox work out the grid for you - on any break
 }
 
 ```
-## Browser Support:
+## Browser Support
 
  - Chrome
  - Firefox
@@ -243,20 +234,20 @@ npm install hagrid@2.0.2
 bower install hagrid@2.0.2
 ```
 
-## Prefixes:
+## Prefixes
 
 Hagrid does not generate prefixes (`-webkit-`,`-ms-`) as it is designed to be integrated with common SASS workflows in mind (Gulp / Grunt with [Autoprefixer](https://github.com/postcss/autoprefixer)). A sample configuration for Autoprefixer is available in the [test build-file](https://github.com/felics/hagrid/blob/master/gulpfile.js#L24). Be careful not to set browsers in a way that generates legacy flexbox syntax!
 
-## Developing:
+## Developing
 
 You can build the project with the default gulp-task. If you want to use sassdoc, you can build it by running `gulp sassdoc`.
 
-## Credit:
+## Credit
 
  - Started as a fork of [csswizardry-grids](http://github.com/csswizardry/csswizardry-grids)
  - Beard used in the logo by [ZQ](http://www.designbolts.com/2013/02/24/free-vector-hipster-stock-mustache-beard-rayban-glasses/).
 
-## License:
+## License
 
 The MIT License (MIT)
 

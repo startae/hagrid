@@ -1,4 +1,7 @@
-# Hagrid ![Logo](https://felics.me/_assets/ext/hagrid/logo.png)
+# ![Hagrid](https://felics.me/_assets/ext/hagrid/logo.png)
+
+[![Travis](https://img.shields.io/travis/fspoettel/hagrid.svg?maxAge=2592000)]()
+[![npm](https://img.shields.io/npm/v/npm.svg?maxAge=2592000)]()
 
 ## Contents:
 

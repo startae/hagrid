@@ -22,7 +22,7 @@
 /// @output Modifier-styles for a given call
 
 @mixin grid-modifiers($modifiers...) {
-  $gutter: hagrid-gutter-get(default);
+  $gutter: $hagrid-gutter;
   $is-y: false;
   $is-wrap: false;
   $is-not-spacing: true;
@@ -37,7 +37,7 @@
       $is-wrap: true;
     }
 
-    @elseif hagrid-gutter-exists($modifier) {
+    @elseif $modifier == full {
       $is-not-spacing: false;
     }
 
@@ -58,7 +58,7 @@
 
   #{$hagrid-item-selector} {
     @if $is-not-spacing == true {
-      padding-left: $gutter;
+      margin-left: $gutter;
     }
   }
 }
@@ -108,20 +108,7 @@
     }
   }
 
-  @else {
-    // * Gutter Modifiers
-
-    @if hagrid-gutter-exists($modifier) {
-      $gutter: hagrid-gutter-get($modifier);
-      margin-left: -$gutter;
-
-      #{$hagrid-item-selector} {
-        padding-left: $gutter;
-      }
-    }
-
-    @else {
-      @error "Modifier #{$modifier} does not exist.";
-    }
+  @elseif $modifier != full {
+    @error "Modifier #{$modifier} does not exist.";
   }
 }

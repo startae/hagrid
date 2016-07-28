@@ -18,7 +18,7 @@
   @if $arg-length == 0 {
     // * If no params are passed, default to mobile-first
     @if $prop == width {
-      #{$prop}: 100%;
+      #{$prop}: get-calc(100%);
     }
 
     @else {
@@ -34,7 +34,8 @@
 
       // * If a general width is passed in, use it
       @if type-of($width) == number {
-        #{$prop}: calculate-width($width);
+        @include get-prop($prop, $width);
+
         $width-detected: true;
       }
       // * If false is passed, assign no width
@@ -64,7 +65,7 @@
         @if $bp != false {
           @include bp(#{$key}) {
             @if type-of($value) == number {
-              #{$prop}: calculate-width($value);
+              @include get-prop($prop, $value);
             }
 
             @else if $value == auto {
@@ -86,7 +87,7 @@
 
     // * If only responsive params are passed, default to mobile-first
     @if $width-detected == false and $prop == width {
-      #{$prop}: 100%;
+      #{$prop}: get-calc(100%);
     }
   }
 }
@@ -105,20 +106,28 @@
   }
 }
 
-/// Check if a reference exists in $hagrid-gutters
-/// @param {String} $id
-/// @return {Boolean}
+/// Calculate a calc value based on a gutter
+/// @param {Number} $width
+/// @param {Number} $gutter
+/// @return {Value}
 
-@function hagrid-gutter-exists($id) {
-  @return map-has-key($hagrid-gutters, $id);
+@function get-calc($width, $gutter: $hagrid-gutter) {
+  @return unquote("calc(#{calculate-width($width)} - #{$hagrid-gutter})");
 }
 
-/// Get a referenced item from $hagrid-gutters
-/// @param {String} $id
-/// @return {String}
+/// Return calc() or width() based on prop
+/// @param {String} $prop
+/// @param {Number} $value
+/// @return {Value}
 
-@function hagrid-gutter-get($id) {
-  @return map-get($hagrid-gutters, $id);
+@mixin get-prop($prop, $value) {
+  @if $prop == width {
+    #{$prop}: get-calc($value);
+  }
+
+  @else {
+    #{$prop}: calculate-width($value);
+  }
 }
 
 /// Validate a breakpoint-key and return itself, its value or false
@@ -196,4 +205,13 @@
   }
 
   @return str-slice($string, -1 * str-length($needle)) == $needle;
+}
+
+@function halves($num) {
+  @if type-of($num) != "number" {
+    @warn "`halves` function expecting a number; #{type-of($num)} given.";
+    @return false;
+  }
+
+  @return ($num / 2);
 }

@@ -4,6 +4,7 @@
   }
 
   &-item {
+    $hagrid-gutter: 3rem;
     @include i(1/3);
 
     &:last-child {
@@ -19,6 +20,18 @@
 
   &-right {
     @include g(right);
+  }
+
+  &-full {
+    @include g(full);
+  }
+
+  &-wide {
+    @include g;
+  }
+
+  &-narrow {
+    @include g;
   }
 
   &-center {
@@ -47,18 +60,6 @@
     > .modifier-item {
       @include stretch;
     }
-  }
-
-  &-narrow {
-    @include g(narrow);
-  }
-
-  &-full {
-    @include g(full);
-  }
-
-  &-wide {
-    @include g(wide);
   }
 
   &-xrev {

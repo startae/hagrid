@@ -43,8 +43,14 @@
       }
       // * If auto is passed, assign no width
       @elseif $width == auto {
-        flex: 1 1 auto;
-        $width-detected: true;
+        @if ($prop == width) {
+          flex: 1 1 auto;
+          $width-detected: true;
+        }
+
+        @else {
+          @warn "You cannot pass auto to @push or @pull";
+        }
       }
       // * Handle responsive args
       @else {
@@ -68,8 +74,14 @@
             }
 
             @else if $value == auto {
-              flex: 1 1 auto;
-              width: auto;
+              @if ($prop == width) {
+                flex: 1 1 auto;
+                width: auto;
+              }
+
+              @else {
+                @warn "You cannot pass auto to @push or @pull";
+              }
             }
 
             @else if $value == false {

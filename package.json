@@ -33,6 +33,6 @@
     "gulp-sass": "^2.3.2",
     "sassdoc": "^2.1.20",
     "stylelint": "^7.0.3",
-    "stylelint-config-standard": "^11.0.0"
+    "stylelint-config-standard": "^14.0.0"
   }
 }

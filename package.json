@@ -30,7 +30,7 @@
     "gulp-autoprefixer": "^3.1.0",
     "gulp-jade": "^1.1.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
+    "gulp-sass": "^3.0.0",
     "sassdoc": "^2.1.20",
     "stylelint": "^7.0.3",
     "stylelint-config-standard": "^11.0.0"

@@ -1,5 +1,3 @@
-# ![Hagrid](https://felics.me/_assets/ext/hagrid/logo.png)
-
 [![Travis](https://img.shields.io/travis/fspoettel/hagrid.svg?maxAge=2592000)]()
 [![npm](https://img.shields.io/npm/v/npm.svg?maxAge=2592000)]()
 
@@ -251,7 +249,7 @@ You can build the project with the default gulp-task. If you want to use sassdoc
 
 The MIT License (MIT)
 
-Copyright © **2016 Felix Spöttel**
+Copyright © **2017 Felix Spöttel**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

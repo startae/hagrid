@@ -236,9 +236,24 @@ bower install hagrid@2.0.2
 
 Hagrid does not generate prefixes (`-webkit-`,`-ms-`) as it is designed to be integrated with common SASS workflows in mind (Gulp / Grunt with [Autoprefixer](https://github.com/postcss/autoprefixer)). A sample configuration for Autoprefixer is available in the [test build-file](https://github.com/felics/hagrid/blob/master/gulpfile.js#L24). Be careful not to set browsers in a way that generates legacy flexbox syntax!
 
-## Developing
+## Development
 
-You can build the project with the default gulp-task. If you want to use sassdoc, you can build it by running `gulp sassdoc`.
+### Requirements
+
+#### Gulp
+```
+npm install gulp-cli -g
+npm install gulp -D
+```
+
+### Running Locally
+```
+cd __test__/
+gulp
+open index.html
+```
+
+If you want to use sassdoc, you can build it by running `gulp sassdoc`.
 
 ## Credit
 

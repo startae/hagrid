@@ -7,7 +7,7 @@
 'use strict';
 
 const gulp = require('gulp');
-const jade = require('gulp-jade');
+const pug = require('gulp-pug');
 const prefix = require('gulp-autoprefixer');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
@@ -23,9 +23,9 @@ gulp.task('sass', () => {
     .pipe(gulp.dest('./__test__/css'));
 });
 
-gulp.task('jade', () => {
-  return gulp.src('./__test__/src/jade/*.jade')
-    .pipe(jade({
+gulp.task('pug', () => {
+  return gulp.src('./__test__/src/pug/*.pug')
+    .pipe(pug({
       pretty: true,
     }))
     .pipe(gulp.dest('./__test__/'));
@@ -42,7 +42,7 @@ gulp.task('sassdoc', () => {
 
 gulp.task('default', ['watch']);
 
-gulp.task('watch', ['sass', 'jade'], () => {
+gulp.task('watch', ['sass', 'pug'], () => {
   gulp.watch([
     './scss/*.scss', './scss/**/*.scss',
     './__test__/src/scss/test.scss',
@@ -50,7 +50,7 @@ gulp.task('watch', ['sass', 'jade'], () => {
   ], ['sass']);
 
   gulp.watch([
-    './__test__/src/jade/*.jade',
-    './__test__/src/jade/*/**.jade',
-  ], ['jade']);
+    './__test__/src/pug/*.pug',
+    './__test__/src/pug/*/**.pug',
+  ], ['pug']);
 });

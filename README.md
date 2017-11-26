@@ -74,19 +74,19 @@ npm install hagrid
 // *  Specify gutters between items. They are used like modifiers or applied to all grids
 // * If $layout-gutters exists it will be used instead (so you don't have to modify this file directly)
 $hagrid-gutters: (
-    default: 1.5rem,
-    full: 0,
-    narrow: 0.5rem,
-    wide: 3rem
+  default: 1.5rem,
+  full: 0,
+  narrow: 0.5rem,
+  wide: 3rem
 ) !default;
 
 // * Set common breakpoints used in your project. Can be used in the @bp-mixin (see below)
 // * If $layout-breakpoints exists it will be used instead (so you don't have to modify this file directly)
 $hagrid-breakpoints: (
-    sm: "(min-width: 35.5em)",
-    md: "(min-width: 48em)",
-    lg: "(min-width: 64em)",
-    xl: "(min-width: 80em)"
+  sm: "(min-width: 35.5em)",
+  md: "(min-width: 48em)",
+  lg: "(min-width: 64em)",
+  xl: "(min-width: 80em)"
 ) !default;
 
 // * Gutters and modifiers are applied to all items of each grid-container

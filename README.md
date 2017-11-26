@@ -252,8 +252,13 @@ cd __test__/
 gulp
 open index.html
 ```
-
 If you want to use sassdoc, you can build it by running `gulp sassdoc`.
+
+### Testing
+Hagrid uses sass-lint to keep everything neat.
+```
+npm test
+```
 
 ## Credit
 

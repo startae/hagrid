@@ -1,7 +1,7 @@
 
 ////
 /// Core
-/// MIT-License © 2016
+/// MIT-License © 2017
 /// @author Felix Spöttel
 /// @access public
 /// @group API
@@ -56,8 +56,8 @@
 /// @output Outputs stretch-properties for the container and its children
 
 @mixin stretch($el: "> *") {
-  display: flex;
   align-self: stretch;
+  display: flex;
   flex-flow: row wrap;
 
   #{$el} {

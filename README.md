@@ -74,19 +74,19 @@ npm install hagrid
 // *  Specify gutters between items. They are used like modifiers or applied to all grids
 // * If $layout-gutters exists it will be used instead (so you don't have to modify this file directly)
 $hagrid-gutters: (
-    default: 1.5rem,
-    full: 0,
-    narrow: 0.5rem,
-    wide: 3rem
+  default: 1.5rem,
+  full: 0,
+  narrow: 0.5rem,
+  wide: 3rem
 ) !default;
 
 // * Set common breakpoints used in your project. Can be used in the @bp-mixin (see below)
 // * If $layout-breakpoints exists it will be used instead (so you don't have to modify this file directly)
 $hagrid-breakpoints: (
-    sm: "(min-width: 35.5em)",
-    md: "(min-width: 48em)",
-    lg: "(min-width: 64em)",
-    xl: "(min-width: 80em)"
+  sm: "(min-width: 35.5em)",
+  md: "(min-width: 48em)",
+  lg: "(min-width: 64em)",
+  xl: "(min-width: 80em)"
 ) !default;
 
 // * Gutters and modifiers are applied to all items of each grid-container
@@ -236,9 +236,29 @@ bower install hagrid@2.0.2
 
 Hagrid does not generate prefixes (`-webkit-`,`-ms-`) as it is designed to be integrated with common SASS workflows in mind (Gulp / Grunt with [Autoprefixer](https://github.com/postcss/autoprefixer)). A sample configuration for Autoprefixer is available in the [test build-file](https://github.com/felics/hagrid/blob/master/gulpfile.js#L24). Be careful not to set browsers in a way that generates legacy flexbox syntax!
 
-## Developing
+## Development
 
-You can build the project with the default gulp-task. If you want to use sassdoc, you can build it by running `gulp sassdoc`.
+### Requirements
+
+#### Gulp
+```
+npm install gulp-cli -g
+npm install gulp -D
+```
+
+### Running Locally
+```
+cd __test__/
+gulp
+open index.html
+```
+If you want to use sassdoc, you can build it by running `gulp sassdoc`.
+
+### Testing
+Hagrid uses sass-lint to keep everything neat.
+```
+npm test
+```
 
 ## Credit
 

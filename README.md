@@ -1,7 +1,7 @@
 [![Travis](https://img.shields.io/travis/fspoettel/hagrid.svg?maxAge=2592000)]()
 [![npm](https://img.shields.io/npm/v/npm.svg?maxAge=2592000)]()
 
-Hagrid is a mixin library for responsive websites.
+**Hagrid is a mixin library for responsive websites and web applications.**
 
 It helps you with authoring flexbox grid systems and local media queries by providing easy-to-use mixins. You do not have to edit your markup to make it work - the semantics are up to you.
 

@@ -22,7 +22,6 @@ npm install hagrid
 ```scss
 
 // * Initialize a basic grid
-
 .parent {
 
   @include g;
@@ -37,7 +36,6 @@ npm install hagrid
 }
 
 // * Initialize a grid-item with a set of responsive widths
-
 .item {
 
   // * The general width is set without a breakpoint-keyword (e.g. md)
@@ -71,7 +69,7 @@ npm install hagrid
 
 ```scss
 
-// *  Specify gutters between items. They are used like modifiers or applied to all grids
+// * Specify gutters between items. They are used like modifiers or applied to all grids
 // * If $layout-gutters exists it will be used instead (so you don't have to modify this file directly)
 $hagrid-gutters: (
   default: 1.5rem,
@@ -100,20 +98,19 @@ $hagrid-item-selector: "> *" !default;
 
 // * Modifiers are set on grids
 @include g(center, middle, full);
-
 ```
 
 ### x-axis Alignment
 
- - **right:** Align grid-items to the right in partially filled rows.
- - **center:** Center grid-items in partially filled rows.
- - **space-around:** Distribute items in partially filled rows by using variable space around them.
- - **space-between:** Distribute items in partially filled rows by using variable space between them.
+- **right:** Align grid-items to the right in partially filled rows.
+- **center:** Center grid-items in partially filled rows.
+- **space-around:** Distribute items in partially filled rows by using variable space around them.
+- **space-between:** Distribute items in partially filled rows by using variable space between them.
 
 ### y-axis Alignment
 
- - **bottom**: Align items to the bottom of the grid.
- - **middle**: Vertically center grid items.
+- **bottom**: Align items to the bottom of the grid.
+- **middle**: Vertically center grid items.
 
 ### Spacing
 
@@ -121,13 +118,13 @@ $hagrid-item-selector: "> *" !default;
 
 ### Direction
 
- - **rev:**  Reverted grid on x-axis.
- - **flip:** Reverted grid on y-axis.
+- **rev:**  Reverted grid on x-axis.
+- **flip:** Reverted grid on y-axis.
 
 ## Mixins
 
- - **bp:** Use breakpoints directly in a class.
- - **stretch:** Assign stretch-mixin to a group of grid-items in a grid to stretch-align their contents.
+- **bp:** Use breakpoints directly in a class.
+- **stretch:** Assign stretch-mixin to a group of grid-items in a grid to stretch-align their contents.
 
 ### Example (bp)
 
@@ -164,7 +161,6 @@ $hagrid-item-selector: "> *" !default;
 }
 
 // Stretch accepts a selector as parameter, it defaults to "> *"
-
 .stretch {
   @include g;
   > .item {
@@ -184,7 +180,6 @@ Starting in v3.0.0, you can let flexbox work out the grid for you - on any break
 ```scss
 
 // Basic automatic grid
-
 .auto {
   @include g;
 }
@@ -194,7 +189,6 @@ Starting in v3.0.0, you can let flexbox work out the grid for you - on any break
 }
 
 // Pinned elements will keep their width - while their surrounding elements change.
-
 .auto-pinned {
   @include g;
 }
@@ -208,7 +202,6 @@ Starting in v3.0.0, you can let flexbox work out the grid for you - on any break
 }
 
 // You can use automatic grids on any breakpoint you like
-
 .auto--responsive {
   @include g;
 }
@@ -220,12 +213,12 @@ Starting in v3.0.0, you can let flexbox work out the grid for you - on any break
 ```
 ## Browser Support
 
- - Chrome
- - Firefox
- - Safari **6.1+**
- - Android **4.4+**
- - IE **10+**
- - Opera **12+**
+- Chrome
+- Firefox
+- Safari **6.1+**
+- Android **4.4+**
+- IE **10+**
+- Opera **12+**
 
 If you need support for older browsers, you can use the `2.x` version range of hagrid. You can install it by running:
 
@@ -262,10 +255,9 @@ Hagrid uses sass-lint to keep everything neat.
 npm test
 ```
 
-## Credit
+## Credits
 
- - Started as a fork of [csswizardry-grids](http://github.com/csswizardry/csswizardry-grids)
- - Beard used in the logo by [ZQ](http://www.designbolts.com/2013/02/24/free-vector-hipster-stock-mustache-beard-rayban-glasses/).
+- Started as a fork of [csswizardry-grids](http://github.com/csswizardry/csswizardry-grids)
 
 ## License
 

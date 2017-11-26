@@ -11,6 +11,7 @@ const pug = require('gulp-pug');
 const prefix = require('gulp-autoprefixer');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
+const sasslint = require('gulp-sass-lint')
 const sassdoc = require('sassdoc');
 
 gulp.task('sass', () => {
@@ -21,6 +22,13 @@ gulp.task('sass', () => {
     }))
     .pipe(rename('styles.css'))
     .pipe(gulp.dest('./__test__/css'));
+});
+
+gulp.task('default', function () {
+  return gulp.src('./__test__/src/**/*.s+(a|c)ss')
+    .pipe(sassLint())
+    .pipe(sassLint.format())
+    .pipe(sassLint.failOnError())
 });
 
 gulp.task('pug', () => {

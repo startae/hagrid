@@ -25,14 +25,14 @@ npm install hagrid
 
 .parent {
 
-	@include g;
+  @include g;
 
-	// * Initialize a grid with a set of modifiers
-	// * Modifiers are applied to all items of one grid
-	@include g(full, rev);
+  // * Initialize a grid with a set of modifiers
+  // * Modifiers are applied to all items of one grid
+  @include g(full, rev);
 
-	// * Alt. Syntax
-	@include grid(full, rev);
+  // * Alt. Syntax
+  @include grid(full, rev);
 
 }
 
@@ -40,30 +40,30 @@ npm install hagrid
 
 .item {
 
-	// * The general width is set without a breakpoint-keyword (e.g. md)
-	// * Responsive widths are set in the config-map $hagrid-breakpoints
-	@include i(1/2, 1/3 md, 1/4 lg);
+  // * The general width is set without a breakpoint-keyword (e.g. md)
+  // * Responsive widths are set in the config-map $hagrid-breakpoints
+  @include i(1/2, 1/3 md, 1/4 lg);
 
-	// * If you initialize an item without arguments or a general width, it defaults to 100% (mobile first)
-	@include i;
-	@include i(2/3 md, 3/4 lg);
+  // * If you initialize an item without arguments or a general width, it defaults to 100% (mobile first)
+  @include i;
+  @include i(2/3 md, 3/4 lg);
 
-	// * You can use whatever you want as values
-	// * Fractions work great for grids and allow for complex grids without doing math
-	// * Passing in false will prevent @i from setting any general width
+  // * You can use whatever you want as values
+  // * Fractions work great for grids and allow for complex grids without doing math
+  // * Passing in false will prevent @i from setting any general width
 
-	// * Recommended
-	@include i(1/2, 1/3 md, 1/4 lg);
+  // * Recommended
+  @include i(1/2, 1/3 md, 1/4 lg);
 
-	//* Possible
-	@include i(false, lg 50%);
+  //* Possible
+  @include i(false, lg 50%);
 
-	// * You can use custom breakpoints in Hagrid. Those should be quoted
-	// * Breakpoints pointing at $hagrid-breakpoints should not be quoted
-	@include i(2/3 "(min-width: 580px)", 1/3 lg);
+  // * You can use custom breakpoints in Hagrid. Those should be quoted
+  // * Breakpoints pointing at $hagrid-breakpoints should not be quoted
+  @include i(2/3 "(min-width: 580px)", 1/3 lg);
 
-	// * Alt. Syntax
-	@include item();
+  // * Alt. Syntax
+  @include item();
 }
 ```
 
@@ -133,20 +133,22 @@ $hagrid-item-selector: "> *" !default;
 
 ```scss
 
- .item {
- 		// * Single Breakpoint
- 		@include bp(md) {
- 			text-align: left;
- 		}
- 		// * Multiple Breakpoints
- 		@include bp(md, lg) {
- 			text-align: left;
- 		}
- 		// * Specific Breakpoints
- 		@include bp("(min-width: 568px and max-width: 640px)") {
- 			text-align: left;
- 		}
- }
+.item {
+  // * Single Breakpoint
+  @include bp(md) {
+    text-align: left;
+  }
+
+  // * Multiple Breakpoints
+  @include bp(md, lg) {
+    text-align: left;
+  }
+
+  // * Specific Breakpoints
+  @include bp("(min-width: 568px and max-width: 640px)") {
+    text-align: left;
+  }
+}
 ```
 
 ### Example (stretch)
@@ -154,21 +156,21 @@ $hagrid-item-selector: "> *" !default;
 ```scss
 
 .stretch {
-	@include g;
-	> .item {
-		@include i;
-		@include stretch;
-	}
+  @include g;
+  > .item {
+    @include i;
+    @include stretch;
+  }
 }
 
 // Stretch accepts a selector as parameter, it defaults to "> *"
 
 .stretch {
-	@include g;
-	> .item {
-		@include i;
-		@include stretch(".stretched-items");
-	}
+  @include g;
+  > .item {
+    @include i;
+    @include stretch(".stretched-items");
+  }
 }
 
 ```
@@ -184,35 +186,35 @@ Starting in v3.0.0, you can let flexbox work out the grid for you - on any break
 // Basic automatic grid
 
 .auto {
-	@include g;
+  @include g;
 }
 
 .auto-item {
-	@include i(auto);
+  @include i(auto);
 }
 
 // Pinned elements will keep their width - while their surrounding elements change.
 
 .auto-pinned {
-	@include g;
+  @include g;
 }
 
 .auto-item--pinned {
-	@include i(1/3);
+  @include i(1/3);
 }
 
 .auto-item {
-	@include i(auto);
+  @include i(auto);
 }
 
 // You can use automatic grids on any breakpoint you like
 
 .auto--responsive {
-	@include g;
+  @include g;
 }
 
 .auto-item--responsive {
-	@include i(1/2, md auto);
+  @include i(1/2, md auto);
 }
 
 ```

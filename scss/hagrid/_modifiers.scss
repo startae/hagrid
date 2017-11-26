@@ -103,6 +103,7 @@
   @elseif $modifier == flip {
     flex-wrap: wrap-reverse;
     // * Workaround for IE rendering diff, see: https://github.com/felics/hagrid/issues/13
+    // sass-lint:disable no-vendor-prefixes
     @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
       align-items: flex-end;
     }
